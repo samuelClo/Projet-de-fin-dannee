@@ -1,0 +1,86 @@
+.sliderImage{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.titlePictureCarr , .descriptionPictureCarr{
+  background: rgba(0, 0, 0, 0.45);
+  text-align: center;
+  display: block;
+  color: $main-color-white;
+  font-size: $font-size-small;
+  padding: .5rem 0;
+}
+#slider {
+  height: 35vw;
+  position: relative;
+  perspective: 100rem;
+  transform-style: preserve-3d;
+}
+
+#slider .sliderImage {
+  margin: auto;
+  width: 60%;
+  height: 100%;
+  border-radius: .4rem;
+  position: absolute;
+  left: 0;
+  right: 0;
+  cursor: pointer;
+  transition: transform 0.4s ease;
+}
+
+
+#slide1 {
+  background: url("https://picsum.photos/800") no-repeat;
+  background-size: cover;
+}
+
+#slide2 {
+  background: url("https://picsum.photos/812") no-repeat;
+  background-size: cover;
+}
+
+#slide3 {
+  background: url("https://picsum.photos/803") no-repeat;
+  background-size: cover;
+}
+
+#slide4 {
+  background: url("https://picsum.photos/804") no-repeat;
+  background-size: cover;
+}
+
+#slide5 {
+  background: url("https://picsum.photos/801") no-repeat;
+  background-size: cover;
+}
+
+
+.sliderCheckBox {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  margin-top: 5rem;
+}
+
+.checkBox {
+  background: url("../pictures/caroussel/check-box.svg");
+  height: 3rem;
+  width: 3rem;
+  margin: 0 1rem;
+  cursor: pointer;
+}
+
+.sliderImage[data-imagePosition="-2"], .sliderImage[data-imagePosition="2"] {
+  box-shadow: 0 .1rem .4rem 0 rgba(0, 0, 0, .37);
+}
+
+.sliderImage[data-imagePosition="0"] {
+  box-shadow: 0 1.3rem 2.5rem 0 rgba(0, 0, 0, .3), 0 1.1rem .7rem 0 rgba(0, 0, 0, .19);
+}
+
+.sliderImage[data-imagePosition="-1"], .sliderImage[data-imagePosition="1"] {
+  box-shadow: 0 .6rem 1rem 0 rgba(0, 0, 0, .3), 0 .2rem .2rem 0 rgba(0, 0, 0, .2);
+}

@@ -1,0 +1,146 @@
+@import "var.scss";
+@import "mixin.scss";
+
+*, *::before, *::after {
+  box-sizing: inherit; /* met un box sizing : inherit pour que tous les element de la page profite du box sizing du body*/
+}
+
+html {
+  font-size: 62.5%;    /* en pourcentage pour qu'on puisse zommer */
+}
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: #111111;
+  font-size: 2.8rem;
+  box-sizing: border-box;
+}
+
+h1 {
+  font-family: $font-title;
+  text-align: center;
+  font-size: 4rem;
+}
+h2 {
+  font-family: $font-title;
+  text-align: center;
+  font-size: 3.5rem;
+}
+
+p {
+  line-height: 4rem;
+  text-align: justify;
+  font-size: 2.2rem;
+}
+
+main {
+  padding: 3rem;
+  background: #EEEEEE;
+}
+
+a:link {
+  @include style-link-text(unset);
+}
+header {
+  position: relative;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  background: $main-color-gradient;
+  z-index: 2;
+
+  img {
+    width: 17rem;
+    position: absolute;
+    left: 2rem;
+    top: .5rem;
+    z-index: 2;
+    filter: drop-shadow(0 -5px 5px rgba(255, 255, 255, 0.2));
+    // border: white 1px solid;
+  }
+
+  nav {
+    width: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    font-size: 2.4rem;
+    padding: 2.5rem 0;
+    color: $main-color-white;
+  }
+
+}
+footer {
+  background: $color-grey;
+  display: flex!important;
+  .contentInfoFooter {
+    width: 50vw;
+    padding: 2vw 0 2vw 2vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.9rem;
+
+
+    .logoFooter {
+      margin: 0 2rem;
+      display: flex;
+      flex-direction: column;
+
+      & img {
+        height: 3vw;
+      }
+    }
+
+    & > img {
+      height: 10vw;
+    }
+  }
+
+  .mapContainer {
+    width: 50vw;
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+
+    .googleMap {
+      height: 100%;
+      width: 40vw;
+    }
+  }
+
+  #itineraire {
+    position: absolute;
+    left: 10vw;
+    z-index: 2;
+  }
+
+  .separatorFooter {
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    height: 100%;
+    width: 10vw;
+    background: $main-color;
+    // -webkit-clip-path: polygon(50% 0%, 100% 0%, 75% 100%, 0% 100%);
+    clip-path: polygon(44% 0%, 92% 0%, 44% 100%, 0% 100%)
+  }
+
+  #map {
+    left: 4.4vw;
+  }
+
+}
+
+@media all and (min-width: 1400px) {
+  html{
+    font-size: 9px;
+  }
+}
+
+
+
+
+
+
+

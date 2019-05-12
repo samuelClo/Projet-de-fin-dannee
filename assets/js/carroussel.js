@@ -5,8 +5,8 @@ allSliderImage = document.querySelectorAll(".sliderImage")
 let arrayAttribu = []
 const tableOrigin = []
 
-let pathToCheckBox = 'url("../assets/pictures/caroussel/check-box.svg")'
-let pathToCheckBoxCheck = 'url("../assets/pictures/caroussel/check-box-uncheck.svg")'
+let pathToCheckBox = 'url("./assets/pictures/caroussel/check-box.svg")'
+let pathToCheckBoxCheck = 'url("./assets/pictures/caroussel/check-box-uncheck.svg")'
 
 let moveTable = function (array, numberToMove) {
 

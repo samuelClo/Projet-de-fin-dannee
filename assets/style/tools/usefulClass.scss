@@ -1,0 +1,29 @@
+
+.btn {
+  display: inline-block;
+  padding: 2rem 4rem;
+  border-radius: 1.5rem;
+  border: unset;
+  cursor: pointer;
+  transition: all 200ms ease;
+  outline: unset;
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, .2);
+  }
+
+  &:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+  }
+}
+.bcgGreen {
+  background: $main-color-gradient;
+  color: $main-color-white;
+}
+.flexEnd {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}

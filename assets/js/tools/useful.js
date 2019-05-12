@@ -17,6 +17,7 @@ let ajaxRequest = function (pathToPhpTraitement, objectToSend) {
                 return res.json()
             })
             .then((data) => {
+                console.log(data)
                 resolve(data)
             })
             .catch((data) => {

@@ -1,5 +1,5 @@
 <?php
-require "./../partials/models/_toolConnection.php";
+require "./partials/models/_toolConnection.php";
 
 header("Access-Control-Allow-Origin: *");
 $data = file_get_contents('php://input');
@@ -23,8 +23,18 @@ if (!empty($data)) {
         $userConnected = $checkConnexion->fetch();
 
         if (!empty($userConnected)) {
-            $_SESSION['user'] = $userConnected['id'];
-            $_SESSION['user'] = $userConnected['email'];
+//          //  var_dump($_SESSION);
+//            if (isset($_SESSION) && $_SESSION['user']['id'] == $userConnected['id']){
+//                $res->userConnect = "already" ;
+//                $res->msg = "Vous etes deja connécté";
+//            }
+
+                $_SESSION['user']['id'] = $userConnected['id'];
+                $_SESSION['user']['email'] = $userConnected['email'];
+                $_SESSION['user']['is_admin'] = $userConnected['is_admin'];
+                $res->msg = "Vous etes connécté";
+                $res->is_admin =  $_SESSION['user']['is_admin'];
+
             $res->userConnect = "yes";
         } else {
             $res->msg = "Aucun compte n'est assigné a ces identifiants";
