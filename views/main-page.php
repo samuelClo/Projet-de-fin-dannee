@@ -1,5 +1,4 @@
-<link rel="stylesheet" type="text/css" href="./assets/style/main-page.css">
-<?php if(isset($_SESSION)){echo "rhrhrh";var_dump($_SESSION);}; ?>
+
 <div class="indexMainPicture"></div>
 <main>
     <div class="indexPresentationVE">
@@ -68,7 +67,6 @@
 </main>
 
 
-<script type="text/javascript" src="./assets/js/carroussel.js"></script>
 
 
 

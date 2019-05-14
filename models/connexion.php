@@ -23,11 +23,6 @@ if (!empty($data)) {
         $userConnected = $checkConnexion->fetch();
 
         if (!empty($userConnected)) {
-//          //  var_dump($_SESSION);
-//            if (isset($_SESSION) && $_SESSION['user']['id'] == $userConnected['id']){
-//                $res->userConnect = "already" ;
-//                $res->msg = "Vous etes deja connécté";
-//            }
 
                 $_SESSION['user']['id'] = $userConnected['id'];
                 $_SESSION['user']['email'] = $userConnected['email'];

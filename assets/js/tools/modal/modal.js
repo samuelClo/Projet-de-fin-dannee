@@ -48,6 +48,7 @@ let callModal = function (htmlModal, action) {
             document.querySelectorAll('.errorDisplay').forEach(function (item) {
                 item.innerText = ""
             })
+
             alert.innerText = ""
             regularInputCheck()
         })

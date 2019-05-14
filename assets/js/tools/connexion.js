@@ -41,6 +41,7 @@ let regularInputCheck = function () {
 
     if (emailRegister.value !== "" && validateTest(emailRegister.value) === 1 && passwordRegister.value !== "")
         Register(inpuUsers)
+
 }
 
 

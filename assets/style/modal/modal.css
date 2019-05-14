@@ -150,9 +150,72 @@ footer #map {
   left: 4.4vw;
 }
 
-@media all and (min-width: 1400px) {
+[data-size=smartphone] {
+  display: none;
+}
+
+@media all and (max-width: 1400px) {
   html {
-    font-size: 9px;
+    font-size: 8px;
+  }
+}
+@media all and (max-width: 1200px) {
+  html {
+    font-size: 7px;
+  }
+}
+@media all and (max-width: 1050px) {
+  main {
+    padding: 3%;
+  }
+
+  [data-size=desktop] {
+    display: none;
+  }
+
+  [data-size=smartphone] {
+    display: flex;
+  }
+  [data-size=smartphone] nav {
+    width: 100%;
+    padding: 2.5rem 2.5rem;
+    font-size: 3rem;
+    justify-content: space-between;
+  }
+}
+.navSmartphone {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #0b9444;
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  transform: translateX(-100vw);
+  z-index: 3;
+  transition: transform 5s;
+}
+.navSmartphone nav {
+  height: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.navSmartphone nav a {
+  text-align: center;
+}
+
+.navSmartphoneActive {
+  animation: slidein 0.4s forwards;
+}
+
+@keyframes slidein {
+  from {
+    transform: translateX(-100vw);
+  }
+  to {
+    transform: translateX(0vw);
   }
 }
 .modal {

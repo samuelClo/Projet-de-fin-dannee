@@ -17,6 +17,12 @@ if (isset($_POST['save'])) {
 
 } else if (isset($_GET["user_id"], $_GET["action"]) && $_GET["action"] == "edit") {
 
+    $personne1 = new stdClass();
+    $personne1->nom = 'Hamon';
+
+    var_dump($personne1);
+
+
     $queryUser = $db->prepare('SELECT * FROM user WHERE id = ?');
     $result = $queryUser->execute([$_GET["user_id"]]);
     $user = $queryUser->fetch();
@@ -77,7 +83,7 @@ if (isset($_POST['save'])) {
 
 
             <form action="<?php if (isset($_GET["user_id"], $_GET["action"]) && $_GET["action"] == "edit") : ?>
-                         <?php echo 'index.php?page=user-form.php&user_id=' . $_GET["user_id"] . '&action=edit'; ?>
+                         <?php echo 'index.php?page=user-form&user_id='.$_GET["user_id"].'&action=edit'; ?>
                             <?php else: ?>index.php?page=user-form<?php endif; ?>" method="post">
 
                 <div class="form-group">

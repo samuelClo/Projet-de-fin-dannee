@@ -46,9 +46,9 @@ $users = $query->fetchall();
                     <td><?= $user['email']; ?></td>
                     <td><?= $user['is_admin']; ?></td>
                     <td>
-                        <a href="user-form.php?user_id=<?php echo $user['id']; ?>&action=edit" class="btn btn-warning">Modifier</a>
+                        <a href="index.php?page=user-form&user_id=<?php echo $user['id']; ?>&action=edit" class="btn btn-warning">Modifier</a>
                         <a onclick="return confirm('Are you sure?')"
-                           href="user-list.php?user_id=<?php echo $user['id']; ?>&action=delete" class="btn btn-danger">Supprimer</a>
+                           href="index.php?page=user-list&user_id=<?php echo $user['id']; ?>&action=delete" class="btn btn-danger">Supprimer</a>
                     </td>
 
                 </tr>

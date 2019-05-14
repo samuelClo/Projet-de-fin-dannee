@@ -34,7 +34,6 @@
 
 html {
   font-size: 62.5%;
-  /* en pourcentage pour qu'on puisse zommer */
 }
 
 body {
@@ -150,9 +149,58 @@ footer #map {
   left: 4.4vw;
 }
 
-@media all and (min-width: 1400px) {
+[data-size=smartphone] {
+  display: none;
+}
+
+@media all and (max-width: 1400px) {
   html {
-    font-size: 9px;
+    font-size: 8px;
+  }
+}
+@media all and (max-width: 1200px) {
+  html {
+    font-size: 7px;
+  }
+}
+@media all and (max-width: 500px) {
+  main {
+    padding: 3%;
+  }
+}
+.navSmartphone {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #0b9444;
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  transform: translateX(-100vw);
+  z-index: 3;
+  transition: transform 5s;
+}
+.navSmartphone nav {
+  height: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.navSmartphone nav a {
+  text-align: center;
+}
+
+.navSmartphoneActive {
+  animation: slidein 0.4s forwards;
+}
+
+@keyframes slidein {
+  from {
+    transform: translateX(-100vw);
+  }
+  to {
+    transform: translateX(0vw);
   }
 }
 .sliderImage {
@@ -278,6 +326,12 @@ footer #map {
   font-family: "Raleway", Arial, sans-serif;
   font-size: 1.2em;
   margin-left: -1rem;
+}
+
+@media all and (max-width: 1050px) {
+  .indexPresentationVE {
+    width: 100%;
+  }
 }
 
 /*# sourceMappingURL=main-page.css.map */

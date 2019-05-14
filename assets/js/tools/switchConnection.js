@@ -9,7 +9,7 @@ let switchConnexion = function (type, is_admin) {
 
         if (is_admin === "1") {
             link.innerText = "Espace admin"
-            link.href = "index.php?page=admin"
+            link.href = "_index.scss.php?page=admin"
             navbar.appendChild(link)
             link = document.createElement("a")
         }

@@ -1,3 +1,4 @@
+<?php echo $action ?>
 <footer>
     <div class="contentInfoFooter">
         <img src="./assets/pictures/logo_ville.svg" alt="Logo de la ville">

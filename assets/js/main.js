@@ -1,7 +1,9 @@
 ////////////////registration
-function registrationClick(){
+function registrationClick() {
+
     if (document.querySelector(".connexion")) {
         document.querySelector(".connexion").addEventListener("click", function () {
+            console.log("ehheh")
             callModal(`
     <div class="modal-content">
         <div class="modal-header">
@@ -34,7 +36,44 @@ function registrationClick(){
 
     }
 }
+
 registrationClick()
+
+
+function burgerMenu() {
+    console.log(this)
+    navSmartphone = document.createElement("div")
+    navSmartphone.innerHTML = `
+
+        <nav>
+        <a href="#" id="bill">mes factures</a>
+    <a href="#" id="services">services</a>
+        <a href="#" id="information">informations</a>
+        <a href="index.php?page=events" id="events">événements</a>
+    <?php if (isset($_SESSION['user'])) : ?>
+<a href="#" class="disconnection switchConnexion">déconnexion</a>
+    <?php else : ?>
+<a href="#" class="connexion switchConnexion">connexion</a>
+    <?php endif; ?>
+<?php if (isset($_SESSION['user']['is_admin']) && $_SESSION['user']['is_admin'] == 1): ?>
+<a href="index.php?page=admin" >Espace admin</a>
+    <?php endif; ?>
+<a href="#" id="contact">contact</a>
+        </nav>`
+    navSmartphone.classList.add("navSmartphone");
+    document.querySelector("body").appendChild(navSmartphone)
+    navSmartphone.classList.add("navSmartphoneActive");
+
+
+
+
+}
+
+document.querySelector("#burger").addEventListener("click",burgerMenu)
+
+
+
+
 
 
 

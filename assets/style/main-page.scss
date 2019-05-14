@@ -14,7 +14,7 @@
   margin: -20rem auto $margin-btw-block auto;
   background: $main-color-white;
 
-  h1 {
+    h1 {
     @include disable-margin-property;
     margin-bottom: 4rem;
   }
@@ -32,4 +32,9 @@
     margin-left: -1rem;
   }
 
+}
+@media all and (max-width: 1050px) {
+  .indexPresentationVE {
+    width: 100%;
+  }
 }
