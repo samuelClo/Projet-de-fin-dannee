@@ -344,7 +344,7 @@ var NotyObject = {
     var self = this;
 
     // Modal Cleaning
-    if (self.options.modal) {
+    if (self.options._modal) {
       $.notyRenderer.setModalCount(-1);
       if ($.notyRenderer.getModalCount() == 0 && !$.noty.queue.length) $('.noty_modal').fadeOut(self.options.animation.fadeSpeed, function () {
         $(this).remove();
@@ -499,7 +499,7 @@ $.notyRenderer.render = function () {
 
 $.notyRenderer.show = function (notification) {
 
-  if (notification.options.modal) {
+  if (notification.options._modal) {
     $.notyRenderer.createModalFor(notification);
     $.notyRenderer.setModalCount(+1);
   }
@@ -531,8 +531,8 @@ $.notyRenderer.createModalFor = function (notification) {
   if ($('.noty_modal').length == 0) {
     var modal = $('<div/>').addClass('noty_modal').addClass(notification.options.theme).data('noty_modal_count', 0);
 
-    if (notification.options.theme.modal && notification.options.theme.modal.css)
-      modal.css(notification.options.theme.modal.css);
+    if (notification.options.theme._modal && notification.options.theme._modal.css)
+      modal.css(notification.options.theme._modal.css);
 
     modal.prependTo($('body')).fadeIn(notification.options.animation.fadeSpeed);
 

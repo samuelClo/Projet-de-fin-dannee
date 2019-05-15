@@ -247,7 +247,7 @@ function buildButtons (ref) {
  * @return {void}
  */
 export function handleModal (ref) {
-  if (ref.options.modal) {
+  if (ref.options._modal) {
     if (DocModalCount === 0) {
       createModal(ref)
     }
@@ -261,7 +261,7 @@ export function handleModal (ref) {
  * @return {void}
  */
 export function handleModalClose (ref) {
-  if (ref.options.modal && DocModalCount > 0) {
+  if (ref.options._modal && DocModalCount > 0) {
     DocModalCount--
 
     if (DocModalCount <= 0) {
