@@ -15,7 +15,7 @@ if(isset($_POST['save'])){
 	]);
 
     if($newCategory){
-        header('location:category-list.php');
+        header('location:events-list.php');
         exit;
     }
     else {

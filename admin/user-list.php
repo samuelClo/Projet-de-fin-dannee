@@ -48,11 +48,9 @@ $users = $query->fetchall();
                     <td>
                         <a href="index.php?page=user-form&user_id=<?php echo $user['id']; ?>&action=edit" class="btn btn-warning">Modifier</a>
                         <a onclick="return confirm('Are you sure?')"
-                           href="index.php?page=user-list&user_id=<?php echo $user['id']; ?>&action=delete" class="btn btn-danger">Supprimer</a>
+                           href="./index.php?page=users-list&user_id=<?php echo $user['id']; ?>&action=delete" class="btn btn-danger">Supprimer</a>
                     </td>
-
                 </tr>
-
             <?php endforeach; ?>
         <?php else: ?>
             Aucun utilisateur enregistré.

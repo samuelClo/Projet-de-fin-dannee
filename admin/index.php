@@ -31,6 +31,13 @@ require './../partials/models/_toolConnection.php';
                     case 'users-list':
                         require('./user-list.php');
                         break;
+                    case 'events-list':
+                        require ('./events-list.php');
+                        break;
+                    case 'event-form':
+                        require ('./event-form.php');
+                        break;
+
                 }
 
 

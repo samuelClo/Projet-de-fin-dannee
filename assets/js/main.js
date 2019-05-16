@@ -65,7 +65,6 @@ let navSmartphone = document.querySelector(".navSmartphone")
 
 function burgerMenuOpen() {
     navSmartphone.classList.remove("navSmartphoneClose")
-
     navSmartphone.classList.add("navSmartphoneActive");
 }
 
