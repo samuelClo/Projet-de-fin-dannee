@@ -23,8 +23,6 @@
 .indexLastArticles {
   margin: 0 auto $margin-btw-block auto;
   width: 74%; ///  a modifier
-
-
   h3 {
     @include style-link-text(unset);
     font-family: $font-title;

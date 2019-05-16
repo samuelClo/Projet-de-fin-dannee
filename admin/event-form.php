@@ -105,7 +105,7 @@ if (isset($_POST['save'])) {
         //si $newArticle alors l'enregistrement a fonctionné
         if ($newArticle) {
             //redirection après enregistrement
-            header('location:article-list.php');
+            header('location:events-list.php');
             exit;
         } else { //si pas $newArticle => enregistrement échoué => générer un message pour l'administrateur à afficher plus bas
             $message = "Impossible d'enregistrer le nouvel article...";

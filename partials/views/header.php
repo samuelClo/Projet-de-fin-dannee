@@ -1,3 +1,5 @@
+
+
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
@@ -16,7 +18,7 @@
     <link rel="stylesheet" type="text/css" href="./assets/style/normalize.css">
     <link rel="stylesheet" type="text/css" href="./assets/style/modal/modal.css">
     <link rel="stylesheet" href="./assets/polices/segoe-ui-4-cufonfonts-webfont/style.css">
-    <link rel="stylesheet" href="./assets/polices/Raleway/raleway.css">
+    <link rel="stylesheet" href="./assets/polices/Raleway/raleway.css">w
     <?php echo $style ?>
 
 </head>
@@ -52,3 +54,24 @@
         <i class="far fa-user"></i>
     </nav>
 </header>
+
+
+
+<div class="navSmartphone" data-size = "smartphone" >
+    <span style="width: 50px;color: white">X</span>
+    <nav>
+        <a href="#" id="bill">mes factures</a>
+        <a href="#" id="services">services</a>
+        <a href="#" id="information">informations</a>
+        <a href="index.php?page=events" id="events">événements</a>
+        <?php if (isset($_SESSION['user'])) : ?>
+            <a href="#" class="disconnection switchConnexion">déconnexion</a>
+        <?php else : ?>
+            <a href="#" class="connexion switchConnexion">connexion</a>
+        <?php endif; ?>
+        <?php if (isset($_SESSION['user']['is_admin']) && $_SESSION['user']['is_admin'] == 1): ?>
+            <a href="index.php?page=admin" >Espace admin</a>
+        <?php endif; ?>
+        <a href="#" id="contact">contact</a>
+    </nav>`
+</div>

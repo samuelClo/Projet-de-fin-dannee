@@ -1,8 +1,6 @@
 <?php
 require './partials/views/header.php';
 
-
-
 require $view;
 
 require './partials/views/footer.php';
