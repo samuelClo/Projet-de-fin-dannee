@@ -36,11 +36,6 @@ function registrationClick() {
 `, "connexion")
 
         })
-
-
-
-
-
     }
 
 ///////deconnexion

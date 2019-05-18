@@ -75,7 +75,7 @@ $events = $query->fetchall();
                                 <?php echo ($event['is_published'] == 1) ? 'Oui' : 'Non'; ?>
                             </td>
                             <td>
-                                <a href="./index.php?page=events-form&event_id=<?php echo $event['id']; ?>&action=edit"
+                                <a href="./index.php?page=event-form&event_id=<?php echo $event['id']; ?>&action=edit"
                                    class="btn btn-warning">Modifier</a>
                                 <a onclick="return confirm('Are you sure?')"
                                    href="./index.php?page=events-list&event_id=<?php echo $event['id']; ?>&action=delete"

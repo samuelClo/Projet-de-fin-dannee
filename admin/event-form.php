@@ -1,36 +1,40 @@
 <?php
 
+$destinationPicture = './../assets/pictures/events/';
 
-if (isset($_FILES['image'] ) && $_FILES['image']['error'] === 0) {
-
-        $allowed_extensions = array('jpg', 'jpeg', 'png', 'gif');
-
-        $my_file_extension = pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION);
+if (isset($_FILES['title_picture']) && $_FILES['title_picture']['error'] === 0) {
 
 
-        if (in_array($my_file_extension, $allowed_extensions)) {
 
-            do {
-                $new_file_name = time() . rand();
+    $allowed_extensions = array('jpg', 'jpeg', 'png', 'gif');
 
-                $nameImg = $new_file_name . '.' . $my_file_extension;
+    $my_file_extension = pathinfo($_FILES['title_picture']['name'], PATHINFO_EXTENSION);
 
-                $destination = './../assets/pictures/events/' . $nameImg;
 
-            } while (file_exists($destination));
+    if (in_array($my_file_extension, $allowed_extensions)) {
 
-        } else {
-            $messages['error'] = "Fichiers non autorisé";
-        }
+        do {
+            $new_file_name = time() . rand();
+
+            $titlePicture = $new_file_name . '.' . $my_file_extension;
+
+            $destination =  $destinationPicture . $titlePicture;
+
+        } while (file_exists($destination));
+
+    } else {
+        $messages['error'] = "Fichiers non autorisé";
+    }
 }
 
 if (isset($_POST['save'])) {
     var_dump($_POST);
+    echo $titlePicture;
 
     $title = $_POST['title'];
     $description = $_POST['description'];
     $content = $_POST['content'];
-    $posted_at = $_POST['posted_at'];
+    $postedAt = $_POST['posted_at'];
     $is_published = intval($_POST['is_published']);
 
 
@@ -43,8 +47,7 @@ if (isset($_POST['save'])) {
     if (empty($_POST['content'])) {
         $messages['content'] = 'le contenu de l\'événement est obligatoire';
     }
-
-    if (empty($nameImg)) {
+    if (empty($titlePicture )) {
         $messages['title_picture'] = 'L\'image principale est obligatoire';
     }
 
@@ -64,21 +67,21 @@ if (isset($_POST['save'])) {
                 htmlspecialchars($_POST['content']),
                 htmlspecialchars($_POST['posted_at']),
                 ctype_digit($_POST['is_published']),
-                $nameImg
+                $titlePicture
             ]
         );
 
-        move_uploaded_file($_FILES['image']['tmp_name'], $destination);
+        move_uploaded_file($_FILES['title_picture']['tmp_name'], $destination);
 
         //redirection après enregistrement
         //si $newevent alors l'enregistrement a fonctionné
 
-        echo $newEvent;
+
         if ($newEvent) {
             //redirection après enregistrement
             echo "retrdyfugkjhlm,";
             $_POST = null;
-           // header('./index.php?page=event-form');
+            // header('./index.php?page=event-form');
 
             exit;
         } else { //si pas $newevent => enregistrement échoué => générer un message pour l'administrateur à afficher plus bas
@@ -90,211 +93,179 @@ if (isset($_POST['save'])) {
 //    }
 
 
-
-
 } else if (isset($_GET["event_id"], $_GET["action"]) && $_GET["action"] == "edit") {
 
-    $query = $db->prepare('SELECT c.id
+    $queryEvent = $db->prepare('SELECT * FROM events WHERE id = ?');
+    $selectEvent = $queryEvent->execute([$_GET["event_id"]]);
+    $event = $queryEvent->fetch();
 
-                            FROM category c
-                            JOIN event_category ac
-                            ON ac.category_id = c.id
-                            JOIN event a
-                            ON a.id = ac.event_id
-                            WHERE a.id = ?
+    $title = $event['title'];
+    $description = $event['description'];
+    $content = $event['content'];
+    $postedAt = $event['posted_at'];
+    $isPublished = intval($event['is_published']);
 
-                            ');
-    $selectevent = $query->execute([$_GET["event_id"]]);
-    $categorySelected = $query->fetchAll();
+    $image = $event['title_picture'];
 
-
-    $queryevent = $db->prepare('SELECT * FROM event WHERE id = ?');
-    $selectevent = $queryevent->execute([$_GET["event_id"]]);
-    $events = $queryevent->fetch();
-
-
-
-
-    //var_dump($events);
-
-    $title = $events['title'];
-    $summary = $events['summary'];
-    $content = $events['content'];
-    $date = $events['created_at'];
-    $image = $events['image'];
-    $is_published = intval($events['is_published']);
-
+   // echo $image;
 
     if (isset($_POST['submit'])) {
 
         var_dump($_POST);
 
-
         $title = $_POST['title'];
-        $summary = trim($_POST['summary']);
+        $description = $_POST['description'];
         $content = $_POST['content'];
-        $date = $_POST['created_at'];
+        $postedAt = $_POST['posted_at'];
+        $is_published = intval($_POST['is_published']);
 
 
 
         if (empty($_POST['title'])) {
             $messages['title'] = 'le nom est obligatoire';
         }
-        if (empty($_POST['created_at'])) {
-            $messages['created_at'] = 'la date est obligatoire';
+        if (empty($_POST['posted_at'])) {
+            $messages['posted_at'] = 'la date de publication est obligatoire';
         }
-        if (empty($_POST['category_id'])) {
-            $messages['category_id'] = 'le choix de la categorie est obligatoire';
+        if (empty($_POST['content'])) {
+            $messages['content'] = 'le contenu de l\'événement est obligatoire';
         }
+//        if (empty($_FILES['title_picture']['name'])) {
+//            $messages['title_picture'] = 'L\'image principale est obligatoire';
+//        }
 
         if (empty($messages)) {
-            if (isset($_FILES['image'] ) && $_FILES['image']['error'] === 0) {
-                unlink('../img/event/' . $image);
-                $image = $nameImg;
+
+
+            if (isset($_FILES['title_picture']) && $_FILES['title_picture']['error'] === 0) {
+                echo $destinationPicture . $titlePicture;
+                unlink($destinationPicture . $image);
+                $image = $titlePicture;
             }
 
-            $query = $db->prepare('UPDATE event SET title = ?, created_at = ?,  summary = ?, is_published = ?, content = ?, image= ? WHERE id = ? ');
+
+
+            $query = $db->prepare('UPDATE events SET title = ?, description = ?,  content = ?, posted_at= ?, is_published= ?, title_picture= ? WHERE id = ? ');
             $result = $query->execute(
                 [
                     $_POST['title'],
-                    $_POST['created_at'],
-                    $_POST['summary'],
-                    $_POST['is_published'],
+                    $_POST['description'],
                     $_POST['content'],
+                    $_POST['posted_at'],
+                    intval($_POST['is_published']),
                     $image,
                     $_GET["event_id"]
                 ]
             );
-
-
-
-            foreach ($_POST["category_id"] as $key => $category) {
-
-                var_dump( $_POST["category_id"][$key]);
-                var_dump( $_GET["event_id"]);
-
-
-                $updateCategory = $db->prepare('UPDATE event_category
-                  SET category_id = ?,
-                  WHERE event_id = ?
-            ');
-
-                $categoryUpdated = $updateCategory->execute(
-                    [
-                        $_POST["category_id"][$key],
-                        $_GET["event_id"],
-                        $_GET["event_id"],
-                    ]
-                );
-
-            }
-
-
             $msg = '<div class="bg-success text-white p-2 mb-4">Modification effectuer.</div>';
 
         }
     }
 }
-if (isset($_FILES['image']) && $_FILES['image']['error'] === 0){
-    move_uploaded_file($_FILES['image']['tmp_name'], $destination);
+if (isset($_FILES['title_picture']) && $_FILES['title_picture']['error'] === 0) {
+    move_uploaded_file($_FILES['title_picture']['tmp_name'], $destination);
 }
 
 ?>
 
-            <header class="pb-3">
+<header class="pb-3">
 
-                <?php if (isset($msg)) : ?>
-                    <?= $msg ?>
-                <?php endif; ?>
+    <?php if (isset($msg)) : ?>
+        <?= $msg ?>
+    <?php endif; ?>
 
-                <h4>
+    <h4>
 
-                    <?php if (isset($_GET["event_id"], $_GET["action"]) && $_GET["action"] == "edit"): ?>
-                        <?php echo "Modifier un event"; ?>
-                    <? else: echo "Ajouter un event"; ?>
-                    <?php endif; ?>
+        <?php if (isset($_GET["event_id"], $_GET["action"]) && $_GET["action"] == "edit"): ?>
+            <?php echo "Modifier un event"; ?>
+        <? else: echo "Ajouter un event"; ?>
+        <?php endif; ?>
 
 
-                </h4>
-            </header>
+    </h4>
+</header>
 
-            <?php if (isset($message)): //si un message a été généré plus haut, l'afficher ?>
-                <div class="bg-danger text-white">
-                    <?= $message; ?>
-                </div>
-            <?php endif; ?>
+<?php if (isset($message)): //si un message a été généré plus haut, l'afficher ?>
+    <div class="bg-danger text-white">
+        <?= $message; ?>
+    </div>
+<?php endif; ?>
 
-            <form action="<?php if (isset($_GET["event_id"], $_GET["action"]) && $_GET["action"] == "edit") : ?>
+<form action="<?php if (isset($_GET["event_id"], $_GET["action"]) && $_GET["action"] == "edit") : ?>
                          <?php echo './index.php?page=event-form&event_id=' . $_GET["event_id"] . '&action=edit'; ?>
                           <?php else: ?>./index.php?page=event-form<?php endif; ?>"
-                  method="post" enctype="multipart/form-data">
+      method="post" enctype="multipart/form-data">
 
-            <div class="form-group">
-                <label for="title">Titre :</label>
-                <input class="form-control" type="text" placeholder="Titre" name="title" id="title"
-                       value="<?php if (isset($title)) : ?><?= $title; ?><?php endif; ?>"/>
-                <?php if (!empty($messages['title'])) : ?>
-                    <?= $messages['title'] ?>
-                <?php endif; ?>
-            </div>
-            <div class="form-group">
-                <label for="summary">Déscription :</label>
-                <input class="form-control" value="<?php if (isset($summary)) : ?> <?= $summary ?> <?php endif; ?>"
-                       type="text" placeholder="description" name="description" id="description"/>
-            </div>
-            <div class="form-group">
-                <label for="content">Contenu :</label>
-                <textarea class="form-control" name="content" id="content"
-                          placeholder="Contenu"><?php if (isset($content)) : ?><?= $content; ?><?php endif; ?></textarea>
-            </div>
+    <div class="form-group">
+        <label for="title">Titre :</label>
+        <input class="form-control" type="text" placeholder="Titre" name="title" id="title"
+               value="<?php if (isset($title)) : ?><?= $title; ?><?php endif; ?>"/>
+        <?php if (!empty($messages['title'])) : ?>
+            <?= $messages['title'] ?>
+        <?php endif; ?>
+    </div>
+    <div class="form-group">
+        <label for="summary">Déscription :</label>
+        <input class="form-control" value="<?php if (isset($description)) : ?> <?= $description ?> <?php endif; ?>"
+               type="text" placeholder="description" name="description" id="description"/>
+    </div>
+    <div class="form-group">
+        <label for="content">Contenu :</label>
+        <textarea class="form-control" name="content" id="content"
+                  placeholder="Contenu"><?php if (isset($content)) : ?><?= $content; ?><?php endif; ?></textarea>
+    </div>
 
-            <div class="form-group">
-                <label for="published_at">Date de publication :</label>
-                <input class="form-control" type="date" placeholder="" name="posted_at" id="posted_at"
-                       value="<?php if (isset($date)) : ?><?= $date; ?><?php endif; ?>"/>
-                <?php if (!empty($messages['posted_at'])) : ?>
-                    <?= $messages['posted_at']; ?>
-                <?php endif; ?>
-            </div>
+    <div class="form-group">
+        <label for="published_at">Date de publication :</label>
+        <input class="form-control" type="date" placeholder="" name="posted_at" id="posted_at"
+               value="<?php if (isset($postedAt)) : ?><?= $postedAt; ?><?php endif; ?>"/>
+        <?php if (!empty($messages['posted_at'])) : ?>
+            <?= $messages['posted_at']; ?>
+        <?php endif; ?>
+    </div>
 
-            <?php if (!empty($messages['category_id'])) : ?>
-                <?= $messages['category_id']; ?>
-            <?php endif; ?>
+    <?php if (!empty($messages['category_id'])) : ?>
+        <?= $messages['category_id']; ?>
+    <?php endif; ?>
 
-            <div class="form-group">
-                <label for="image">Image :</label>
-                <input class="form-control" type="file" name="image" id="image"/>
-                <?php  if (isset($image)) : ?>
-                <img class="img-fluid py-4" src='../img/event/<?= $image;  ?>' alt=" " />
-                <?php endif; ?>
-            </div>
+    <div class="form-group">
+        <label for="image">Image :</label>
+        <input class="form-control" type="file" name="title_picture" id="image"/>
+        <?php if (!empty($messages['title_picture'])) : ?>
+            <?= $messages['title_picture']; ?>
+        <?php endif; ?>
 
-
-            <div class="form-group">
-                <label for="is_published"> Publié ?</label>
-                <select class="form-control" name="is_published" id="is_published">
-
-                    <option value="0" <?php if (isset($is_published) && $is_published == 0): ?><?php echo 'selected' ?><?php endif ?> >
-                        Non
-                    </option>
-                    <option value="1" <?php if (isset($is_published) && $is_published == 1): ?><?php echo 'selected' ?><?php endif ?> >
-                        Oui
-                    </option>
+        <?php if (isset($destination)) : ?>
+            <img class="img-fluid py-4" src='<?=$destination; ?>' alt=" <?= $title; ?>"/>
+        <?php endif; ?>
+    </div>
 
 
-                </select>
-            </div>
+    <div class="form-group">
+        <label for="is_published"> Publié ?</label>
+        <select class="form-control" name="is_published" id="is_published">
+
+            <option value="0" <?php if (isset($is_published) && $is_published == 0): ?><?php echo 'selected' ?><?php endif ?> >
+                Non
+            </option>
+            <option value="1" <?php if (isset($is_published) && $is_published == 1): ?><?php echo 'selected' ?><?php endif ?> >
+                Oui
+            </option>
 
 
-            <div class="text-right">
-                <?php if (isset($_GET["event_id"], $_GET["action"]) && $_GET["action"] == "edit") : ?>
-                    <input class="btn btn-success" type="submit" name="submit" value="Changer l'événement"/>
-                <?php else: ?>
-                    <input class="btn btn-success" type="submit" name="save" value="Enregistrer"/>
-                <?php endif; ?>
+        </select>
+    </div>
 
 
-            </div>
-            </form>
+    <div class="text-right">
+        <?php if (isset($_GET["event_id"], $_GET["action"]) && $_GET["action"] == "edit") : ?>
+            <input class="btn btn-success" type="submit" name="submit" value="Changer l'événement"/>
+        <?php else: ?>
+            <input class="btn btn-success" type="submit" name="save" value="Enregistrer"/>
+        <?php endif; ?>
+
+
+    </div>
+</form>
 
 
