@@ -46,3 +46,4 @@ $res->arrayAllEvents = $array;
 
 echo json_encode($res);
 
+
