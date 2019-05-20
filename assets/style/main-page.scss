@@ -2,7 +2,7 @@
 @import "carroussel/carroussel.scss";
 
 .indexMainPicture {
-  @include disable-margin-property;
+  @include disable-margin-property(0,0);
   height: 80vh;
   display: block;
   background: url("../pictures/mairie_tree.jpg") 30%;
@@ -15,7 +15,7 @@
   background: $main-color-white;
 
     h1 {
-    @include disable-margin-property;
+    @include disable-margin-property(0,0);
     margin-bottom: 4rem;
   }
 }
@@ -29,8 +29,8 @@
     font-size: 1.2em;
     margin-left: -1rem;
   }
-
 }
+
 @media all and (max-width: 1050px) {
   .indexPresentationVE {
     width: 100%;

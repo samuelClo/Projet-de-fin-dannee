@@ -16,9 +16,9 @@
 
     <link href="./assets/style/noty/noty.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="./assets/style/normalize.css">
-    <link rel="stylesheet" type="text/css" href="./assets/style/modal/modal.css">
     <link rel="stylesheet" href="./assets/polices/segoe-ui-4-cufonfonts-webfont/style.css">
-    <link rel="stylesheet" href="./assets/polices/Raleway/raleway.css">w
+    <link rel="stylesheet" href="./assets/polices/Raleway/raleway.css">
+
     <?php echo $style ?>
 
 </head>

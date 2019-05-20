@@ -1,6 +1,5 @@
 <?php
 require "./partials/models/_toolConnection.php";
-
 header("Access-Control-Allow-Origin: *");
 $data = file_get_contents('php://input');
 $json = json_decode($data);

@@ -1,22 +1,41 @@
 <?php
-if (!isset($_SESSION))
-    session_start();
-if (isset($_GET['page']) && $_GET['page'] == 'admin') {
+
+require './partials/models/_toolConnection.php';
+
+if (isset($_GET['page']) &&  $_GET['page'] == 'admin' && $_SESSION['user']['is_admin'] == 1) {
     header('location:./admin/index.php');
     exit();
 }
+
+
+
+function dbConnect(){
+
+    try{
+        return $db = new PDO('mysql:host=localhost;dbname=end_project;charset=utf8mb4', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+    }
+    catch (Exception $exception)
+    {
+        die( 'Erreur : ' . $exception->getMessage() );
+    }
+
+}
+
+$db = dbConnect();
+
+
 if (isset($_GET['action'])) {
 
     switch ($_GET['action']) {
         case 'switchConnexion':
-            require('./controllers/switchConnexion.php');
+            require('./controllers/ajax/switchConnexion.php');
+            break;
+        case 'eventList':
+            require('./controllers/ajax/events.php');
             break;
     }
 
-} else {
-
-
-
+} else{
     if (isset($_GET['page'])) {
 
         switch ($_GET['page']) {

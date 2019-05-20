@@ -1,0 +1,41 @@
+@import "tools/index.scss";
+.eventBox{
+  display: flex;
+  border-radius: $border-radius;
+  background: $main-color-gradient;
+  .eventPicture, .eventContent{
+    width: 50%;
+  }
+  .eventPicture{
+    border-top-left-radius : $border-radius;
+    border-bottom-left-radius: $border-radius;
+
+    background-position: center ;
+    background-size: cover;
+  }
+  .eventContent{
+    padding: $padding-box;
+    display: flex;
+    flex-direction: column;
+    justify-content:center ;
+    h6{
+      text-align: center;
+      display: inline-block;
+      position: relative;
+      &::after, &::before{
+        content: " ";
+        background-color: #fff;
+        position: absolute;
+        top: 50%;
+        height: .5rem;
+        width:5%;
+      }
+      &::after{
+        left: 0;
+      }
+      &::before{
+        right: 0;
+      }
+    }
+  }
+}

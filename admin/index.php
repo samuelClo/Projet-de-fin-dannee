@@ -1,10 +1,27 @@
 <?php
-if (!isset($_SESSION)) session_start();
+
+require './../partials/models/_toolConnection.php';
+
+function dbConnect(){
+
+    try{
+        return $db = new PDO('mysql:host=localhost;dbname=end_project;charset=utf8mb4', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+    }
+    catch (Exception $exception)
+    {
+        die( 'Erreur : ' . $exception->getMessage() );
+    }
+
+}
+
+$db = dbConnect();
+
 if (!isset($_SESSION['user']) OR $_SESSION['user']['is_admin'] == 0) {
     header('location:./index.php');
     exit;
 }
-require './../partials/models/_toolConnection.php';
+
+
 ?>
 <!DOCTYPE html>
 <html>

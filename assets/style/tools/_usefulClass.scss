@@ -27,3 +27,6 @@
   justify-content: flex-end;
   width: 100%;
 }
+.titleMain{
+  @include disable-margin-property($margin-btw-h1-title,$margin-btw-h1-title);
+}

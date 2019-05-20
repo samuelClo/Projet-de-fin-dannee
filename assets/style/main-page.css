@@ -27,6 +27,14 @@
   width: 100%;
 }
 
+.titleMain {
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+  margin: 8rem 8rem;
+}
+
 *, *::before, *::after {
   box-sizing: inherit;
   /* met un box sizing : inherit pour que tous les element de la page profite du box sizing du body*/
@@ -445,6 +453,7 @@ header[data-size=smartphone] {
   margin-block-end: 0;
   margin-inline-start: 0;
   margin-inline-end: 0;
+  margin: 0 0;
   height: 80vh;
   display: block;
   background: url("../pictures/mairie_tree.jpg") 30%;
@@ -462,6 +471,7 @@ header[data-size=smartphone] {
   margin-block-end: 0;
   margin-inline-start: 0;
   margin-inline-end: 0;
+  margin: 0 0;
   margin-bottom: 4rem;
 }
 
