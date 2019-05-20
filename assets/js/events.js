@@ -1,9 +1,28 @@
+let cal = null;
+window.onload = function () {
+    cal2 = new WinkelCalendar({
+        container: 'cuppaDatePicker',
+        bigBanner: true,
+        defaultDate: Date(),
+        format: "DD-MM-YYYY",
+        onSelect: onDateChange
+    });
+}
+
+
+
+function onDateChange(date) {
+    document.getElementById('container2').innerHTML = date;
+}
+
+
+
 let sendDate = function (date, type) {
     let object = {
         date: date,
         type: type,
     }
-    console.log(object.date , object.type)
+    console.log(object.date)
     ajaxRequest('index.php?action=eventList', object)
         .then((data) => {
             createEvent(data.arrayAllEvents)
