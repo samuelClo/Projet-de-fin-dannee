@@ -12,7 +12,7 @@ window.onload = function () {
 
 
 function onDateChange(date) {
-    document.getElementById('container2').innerHTML = date;
+   // document.getElementById('container2').innerHTML = date;
 }
 
 
@@ -23,9 +23,10 @@ let sendDate = function (date, type) {
         type: type,
     }
     console.log(object.date)
+
     ajaxRequest('index.php?action=eventList', object)
         .then((data) => {
-            createEvent(data.arrayAllEvents)
+            createEvent(data)
         })
 
 }
@@ -33,6 +34,9 @@ let sendDate = function (date, type) {
 
 
 let createEvent = function (array) {
+
+    console.log(array)
+
     array.forEach(function (element) {
 
         let eventBox = document.createElement("div")

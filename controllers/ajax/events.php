@@ -8,8 +8,7 @@ $json = json_decode($data);
 
 
 if ($json->type == 'eventDate') {
-    $dataTime = substr($json->date, 0, -14);
-    $res = getEventlist($dataTime);
+    $res = getEventlist($json->date);
 } elseif ($json->type == 'allEvents') {
     $res = getEventlist();
 }
