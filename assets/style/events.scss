@@ -3,6 +3,16 @@
   display: flex;
   border-radius: $border-radius;
   background: $main-color-gradient;
+
+  &:after{
+    height: 2px;
+    width: 80%;
+    background-color: #fff;
+    margin: 1rem 0;
+    position: absolute;
+    bottom: 0;
+  }
+
   .eventPicture, .eventContent{
     width: 50%;
   }

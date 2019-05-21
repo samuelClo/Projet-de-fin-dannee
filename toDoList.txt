@@ -1,0 +1,9 @@
+-date picker a changer
+-caroussel a modifier
+-bo a cleaner, message avertissement ect
+-bo en objet
+-page événement a finir avec after entre les éléments
+-responsiv a cleaner
+-fontawsome en local
+
+-bouton itinéraire a changer

@@ -40,6 +40,11 @@ a:link {
   @include style-link-text(unset);
 }
 header {
+  &[data-size=smartphone]{
+    display: none;
+
+
+  }
   position: relative;
   display: flex;
   width: 100%;
@@ -72,8 +77,6 @@ header {
 footer {
   background: $color-grey;
   display: flex;
-  position: absolute;
-  bottom: 0;
 
   .contentInfoFooter {
     width: 50vw;
@@ -82,13 +85,10 @@ footer {
     justify-content: space-between;
     align-items: center;
     font-size: 1.9rem;
-
-
     .logoFooter {
       margin: 0 2rem;
       display: flex;
       flex-direction: column;
-
       & img {
         height: 3vw;
       }
@@ -134,9 +134,7 @@ footer {
 
 }
 
-header[data-size=smartphone]{
-  display: none;
-}
+
 
 @media all and (max-width: 1400px) {
   html{
@@ -166,6 +164,13 @@ header[data-size=smartphone]{
 
 }
 @media all and (max-width: 750px) {
+  #cross .fa-times{
+    font-size: 4rem;
+    color: white;
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+  }
   main{
     padding: 3%;
   }

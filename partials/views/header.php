@@ -58,7 +58,7 @@
 
 
 <div class="navSmartphone" data-size = "smartphone" >
-    <span style="width: 50px;color: white">X</span>
+    <span id="cross"><i class="fas fa-times"></i></span>
     <nav>
         <a href="#" id="bill">mes factures</a>
         <a href="#" id="services">services</a>

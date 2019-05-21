@@ -21,6 +21,8 @@ function registrationClick() {
     }
     if (document.querySelector("[data-size=smartphone] .connexion")) {
         document.querySelector("[data-size=smartphone] .connexion").addEventListener("click", function () {
+
+            burgerMenuClose()
             callModal(`
     <div class="modal-content">
         <div class="modal-header">
@@ -65,9 +67,7 @@ function burgerMenuOpen() {
 
 function burgerMenuClose(){
     navSmartphone.classList.add("navSmartphoneClose");
-    navSmartphone.addEventListener("animationend",function () {
-        navSmartphone.classList.remove("navSmartphoneActive")
-    })
+
 }
 
 document.querySelector("#burger").addEventListener("click", burgerMenuOpen)

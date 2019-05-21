@@ -89,6 +89,9 @@ header {
   background: linear-gradient(to top, #086e33 0%, #0b9444 70%);
   z-index: 2;
 }
+header[data-size=smartphone] {
+  display: none;
+}
 header img {
   width: 17rem;
   position: absolute;
@@ -110,8 +113,6 @@ header nav {
 footer {
   background: #DAD6D6;
   display: flex;
-  position: absolute;
-  bottom: 0;
 }
 footer .contentInfoFooter {
   width: 50vw;
@@ -160,10 +161,6 @@ footer #map {
   left: 4.4vw;
 }
 
-header[data-size=smartphone] {
-  display: none;
-}
-
 @media all and (max-width: 1400px) {
   html {
     font-size: 8px;
@@ -191,6 +188,14 @@ header[data-size=smartphone] {
   }
 }
 @media all and (max-width: 750px) {
+  #cross .fa-times {
+    font-size: 4rem;
+    color: white;
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+  }
+
   main {
     padding: 3%;
   }
@@ -368,6 +373,14 @@ header[data-size=smartphone] {
   display: flex;
   border-radius: 0.8rem;
   background: linear-gradient(to top, #086e33 0%, #0b9444 70%);
+}
+.eventBox:after {
+  height: 2px;
+  width: 80%;
+  background-color: #fff;
+  margin: 1rem 0;
+  position: absolute;
+  bottom: 0;
 }
 .eventBox .eventPicture, .eventBox .eventContent {
   width: 50%;
