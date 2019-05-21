@@ -49,6 +49,7 @@ body {
   color: #111111;
   font-size: 2.8rem;
   box-sizing: border-box;
+  position: relative;
 }
 
 h1 {
@@ -108,7 +109,9 @@ header nav {
 
 footer {
   background: #DAD6D6;
-  display: flex !important;
+  display: flex;
+  position: absolute;
+  bottom: 0;
 }
 footer .contentInfoFooter {
   width: 50vw;

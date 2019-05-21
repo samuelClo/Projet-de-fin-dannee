@@ -48,8 +48,6 @@
         options.format = "YYYY-MM-DD"
 
 
-
-
         this.defaults = {
             defaultDate: new Date(),
             bigBanner: true,
@@ -60,7 +58,6 @@
 
             this.options = extend({}, this.defaults, true);
         }
-
 
 
         this.options = extend(this.options, options, true);
@@ -131,9 +128,10 @@
         this.el.dateContainer.textContainer.textContent = moment(this.selectedDate).format(this.options.format);
 
         this.el.inputContainer.value = moment(this.selectedDate).format(this.options.format);
-        console.log(this.el.inputContainer.value )
 
-        sendDate(this.el.inputContainer.value, 'eventDate')
+
+
+       // sendDate(this.el.inputContainer.value, 'eventDate')
 
 
     }
@@ -489,6 +487,9 @@
     }
 
     WinkelCalendar.prototype.onCalendarClick = function (event) {
+
+
+
         event.stopPropagation();
         let self = this;
         let elem = self.el;
@@ -507,9 +508,9 @@
             this.hide();
         }
 
-        let date = this.date
+        sendDate(this.el.inputContainer.value, 'eventDate')
 
-console.log(date)
+
 
 
     }
@@ -541,7 +542,7 @@ console.log(date)
             self.date.setMonth(self.date.getMonth() - 1);
         }
 
-        console.log(this.date);
+
         self.updateHeader();
         self.destroyDaysTable();
         self.createDaysView();
@@ -595,3 +596,23 @@ console.log(date)
     }
     window.WinkelCalendar = WinkelCalendar || {};
 })(window);
+
+
+let cal = null;
+window.onload = function () {
+    cal2 = new WinkelCalendar({
+        container: 'cuppaDatePicker',
+        bigBanner: true,
+        defaultDate: Date(),
+        format: "DD-MM-YYYY",
+        onSelect: onDateChange
+    });
+}
+
+
+function onDateChange(date) {
+    // document.getElementById('container2').innerHTML = date;
+}
+
+
+

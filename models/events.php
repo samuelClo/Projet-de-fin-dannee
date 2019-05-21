@@ -2,7 +2,6 @@
 
 function getEventlist($time = NULL, $selectAll = NULL)
 {
-
     $db = dbConnect();
     $res = new stdClass();
     $array = [];
@@ -20,14 +19,10 @@ function getEventlist($time = NULL, $selectAll = NULL)
         $queryParameters[] = $time;
     }
 
-
     $selectedEventslist = $db->prepare($queryString);
     $selectedEventslist->execute($queryParameters);
 
     $eventList = $selectedEventslist->fetchAll();
-
-
-
 
     for ($i = 0; $i < sizeof($eventList); $i++) {
 

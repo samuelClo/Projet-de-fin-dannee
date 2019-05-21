@@ -1,41 +1,27 @@
-let cal = null;
-window.onload = function () {
-    cal2 = new WinkelCalendar({
-        container: 'cuppaDatePicker',
-        bigBanner: true,
-        defaultDate: Date(),
-        format: "DD-MM-YYYY",
-        onSelect: onDateChange
-    });
-}
-
-
-
-function onDateChange(date) {
-   // document.getElementById('container2').innerHTML = date;
-}
-
-
+// appel de sendDate dans cuppa-calendar.js
 
 let sendDate = function (date, type) {
+
     let object = {
         date: date,
         type: type,
     }
-    console.log(object.date)
 
     ajaxRequest('index.php?action=eventList', object)
         .then((data) => {
             createEvent(data)
         })
-
 }
-
-
 
 let createEvent = function (array) {
 
-    console.log(array)
+    let allEventBox = document.querySelector("#allEventBox")
+    while (allEventBox.firstChild) {
+        allEventBox.removeChild(allEventBox.firstChild);
+    }
+    if (array.length === 0 ){
+        allEventBox.innerText = "Pas d'événement a cette date là"
+    }
 
     array.forEach(function (element) {
 
@@ -49,9 +35,12 @@ let createEvent = function (array) {
                 <p> ${element.description} </p>
             </div>`
 
-        document.querySelector("#allEventBox").appendChild(eventBox)
+        allEventBox.appendChild(eventBox)
 
 
     })
 }
+
+
+sendDate(null, 'allEvents')
 
