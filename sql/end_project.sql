@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  jeu. 16 mai 2019 à 11:13
+-- Généré le :  ven. 24 mai 2019 à 23:08
 -- Version du serveur :  5.7.24
 -- Version de PHP :  7.2.14
 
@@ -39,14 +39,74 @@ CREATE TABLE IF NOT EXISTS `events` (
   `posted_at` date DEFAULT NULL,
   `is_published` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=29 DEFAULT CHARSET=utf8mb4;
+) ENGINE=MyISAM AUTO_INCREMENT=39 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `events`
 --
 
 INSERT INTO `events` (`id`, `title`, `description`, `content`, `title_picture`, `secondary_picture`, `posted_at`, `is_published`) VALUES
-(28, 'hjb', 'klhljh', 'lkjlkjl', '1558004631542315073.jpg', NULL, '2019-05-11', 1);
+(37, 'sdfsfdf', 'sdfdsfsd', 'sdfsdfsdf', '15583498251311307060.jpg', NULL, '2019-05-19', 1),
+(36, 'dsfvdfv', '       fdvvdfv       ', 'vdfvdfv', '15580469981533302465.jpg', NULL, '2019-05-19', 1),
+(38, 'dsfds', 'sdfsdf', 'sfdfsdf', '1558363509878232424.jpg', NULL, '2019-05-11', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `sectors`
+--
+
+DROP TABLE IF EXISTS `sectors`;
+CREATE TABLE IF NOT EXISTS `sectors` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `sectors`
+--
+
+INSERT INTO `sectors` (`id`, `name`) VALUES
+(1, 'Voirie'),
+(2, 'Signalisation'),
+(3, 'Espace vert'),
+(4, 'Propreté'),
+(5, 'Autre');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `test`
+--
+
+DROP TABLE IF EXISTS `test`;
+CREATE TABLE IF NOT EXISTS `test` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `sector_id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `test`
+--
+
+INSERT INTO `test` (`id`, `sector_id`, `name`) VALUES
+(1, 1, 'mobiliers'),
+(2, 1, 'revetement'),
+(3, 1, 'signalisation au sol'),
+(4, 2, 'feux tricolores'),
+(5, 2, 'panneaux directionnels'),
+(6, 2, 'pannneaux sectorisations'),
+(7, 3, 'parcs'),
+(8, 3, 'espace ornementaux'),
+(9, 3, 'squares'),
+(10, 3, 'aires de jeu'),
+(11, 4, 'poubelles'),
+(12, 4, 'ramassages'),
+(13, 4, 'dégradations'),
+(14, 4, 'propreté de la voirie');
 
 -- --------------------------------------------------------
 
