@@ -2,8 +2,9 @@
 -caroussel a modifier
 -bo a cleaner, message avertissement ect
 -bo en objet
--page événement a finir avec after entre les éléments
+-page ï¿½vï¿½nement a finir avec after entre les ï¿½lï¿½ments
 -responsiv a cleaner
 -fontawsome en local
 
--bouton itinéraire a changer
+-bouton itinï¿½raire a changer
+-trouver solution pour rÃ©pÃ©tition du code du header nav

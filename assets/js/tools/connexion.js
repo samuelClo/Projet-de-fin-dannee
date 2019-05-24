@@ -54,10 +54,10 @@ let Register = function (user) {
 
     ajaxRequest("./index.php/?action=switchConnexion&connect", person)
         .then(function (value) {
-            console.log(value)
             if (value.msg)
                 document.querySelector("#validate").after(DisplayErrorStyle(value.msg))
             if (value.userConnect === "yes") {
+
                 switchConnexion("connect",value.is_admin)
                 closeModal().then(() => {
                     notyNotif(value.msg)

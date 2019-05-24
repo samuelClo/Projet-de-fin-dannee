@@ -1,5 +1,3 @@
-
-
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
@@ -24,6 +22,8 @@
 </head>
 <body id="body">
 
+
+
 <header data-size = "desktop">
     <a href="index.php"><img src="./assets/pictures/logo_ville.svg" alt="Logo de la ville"></a>
     <nav>
@@ -41,24 +41,19 @@
         <?php endif; ?>
 
 
-        <a href="#" id="contact">contact</a>
+        <a href="index.php?page=contact" id="contact">contact</a>
     </nav>
 </header>
 
 <header data-size = "smartphone">
     <nav>
         <i id="burger" class="fas fa-bars"></i>
-
-
-
         <i class="far fa-user"></i>
     </nav>
 </header>
 
-
-
 <div class="navSmartphone" data-size = "smartphone" >
-    <span id="cross"><i class="fas fa-times"></i></span>
+    <span><i class="fas fa-times"></i></span>
     <nav>
         <a href="#" id="bill">mes factures</a>
         <a href="#" id="services">services</a>

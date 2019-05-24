@@ -16,6 +16,7 @@ let closeModal = function () {
 }
 
 let callModal = function (htmlModal, action) {
+
     modal = document.createElement("div")
 
     modal.id = "myModal"
@@ -30,10 +31,15 @@ let callModal = function (htmlModal, action) {
         })
 
     if (document.getElementById("connexion"))
-        document.getElementById("connexion").addEventListener("click", function () {
-            modal.style.display = "block";
-            document.body.style.overflow = "hidden"
-        })
+        document.body.style.overflow = "hidden"
+
+document.querySelectorAll(".connexion").forEach(function (connexion) {
+   connexion.addEventListener("click", function () {
+        modal.style.display = "block";
+        document.body.style.overflow = "hidden"
+    })
+})
+
 
     window.onclick = function(event) {
         if (event.target == modal) {

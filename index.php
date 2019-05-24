@@ -6,9 +6,6 @@ if (isset($_GET['page']) &&  $_GET['page'] == 'admin' && $_SESSION['user']['is_a
     header('location:./admin/index.php');
     exit();
 }
-
-
-
 function dbConnect(){
 
     try{
@@ -20,7 +17,6 @@ function dbConnect(){
     }
 
 }
-
 $db = dbConnect();
 
 
@@ -33,6 +29,8 @@ if (isset($_GET['action'])) {
         case 'eventList':
             require('./controllers/ajax/events.php');
             break;
+        case 'contact':
+            require ('./controllers/ajax/contact.php');
     }
 
 } else{
@@ -42,7 +40,11 @@ if (isset($_GET['action'])) {
             case 'events':
                 require('./controllers/events.php');
                 break;
+            case 'contact':
+                require('./controllers/contact.php');
+                break;
         }
+
     } else {
         require('./controllers/main-page.php');
     }

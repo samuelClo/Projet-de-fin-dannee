@@ -42,10 +42,8 @@ a:link {
 header {
   &[data-size=smartphone]{
     display: none;
-
-
   }
-  position: relative;
+  position: fixed;
   display: flex;
   width: 100%;
   justify-content: center;
@@ -164,7 +162,7 @@ footer {
 
 }
 @media all and (max-width: 750px) {
-  #cross .fa-times{
+  .navsmartphone[data-size=smartphone]  span{
     font-size: 4rem;
     color: white;
     position: absolute;
