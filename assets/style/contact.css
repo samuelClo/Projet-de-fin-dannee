@@ -49,19 +49,38 @@ body {
   color: #111111;
   font-size: 2.8rem;
   box-sizing: border-box;
-  position: relative;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Raleway", Arial, sans-serif;
+}
+
+h1, h2, h3 {
+  text-align: center;
 }
 
 h1 {
-  font-family: "Raleway", Arial, sans-serif;
-  text-align: center;
-  font-size: 4rem;
+  font-size: 5.5rem;
 }
 
 h2 {
-  font-family: "Raleway", Arial, sans-serif;
-  text-align: center;
+  font-size: 4.5rem;
+}
+
+h3 {
   font-size: 3.5rem;
+}
+
+h4 {
+  font-size: 2.5rem;
+}
+
+h5 {
+  font-size: 1.5rem;
+}
+
+h6 {
+  font-size: 0.5rem;
 }
 
 p {
@@ -82,7 +101,8 @@ a:link {
 }
 
 header {
-  position: fixed;
+  position: sticky;
+  top: 0;
   display: flex;
   width: 100%;
   justify-content: center;
@@ -368,6 +388,42 @@ footer #map {
   to {
     background: rgba(0, 0, 0, 0);
   }
+}
+main {
+  width: 100%;
+  background: rgba(0, 0, 0, 0.23) url("../pictures/vieille-eglise-mairie.jpg");
+}
+main #containAll {
+  width: 100%;
+  display: flex;
+}
+main #containAll #containSelect {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+main #containAll #containSelect h4 {
+  color: white;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+  margin: 20rem 0;
+}
+main #containAll #containSelect select {
+  width: 100%;
+  background-color: #0b9444;
+  border: unset;
+  color: white;
+  display: flex;
+  justify-content: center;
+  outline: unset;
+  padding: 0.2rem 1.6rem;
+  margin-bottom: 5rem;
+}
+main #containAll #containMessage {
+  width: 60%;
 }
 
 /*# sourceMappingURL=contact.css.map */

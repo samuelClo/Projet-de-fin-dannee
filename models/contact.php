@@ -9,7 +9,7 @@ function getContactInfo ($queryAllSectors = null , $idSectors = null ){
     $array = [];
 
     if ($queryAllSectors){
-        $prepareString = "SELECT name ,id FROM sectors";
+        $prepareString = "SELECT name ,id FROM sectors ORDER BY id";
     }else {
         $prepareString = "
         SELECT t.name, t.id FROM test t 
