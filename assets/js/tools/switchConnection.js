@@ -1,4 +1,4 @@
-let switchConnexion = function (type, is_admin) {
+let switchConnexion = function (type, is_admin, email) {
 
     let link = document.createElement("a")
 
@@ -27,6 +27,9 @@ let switchConnexion = function (type, is_admin) {
 
             link = document.createElement("a")
         }
+        if (document.querySelector("#mailContact"))
+            console.log(email)
+            document.querySelector("#mailContact").value = email
         link.classList.add("disconnection")
         link.innerText = "déconnexion"
     } else if (type === "disconnect") {

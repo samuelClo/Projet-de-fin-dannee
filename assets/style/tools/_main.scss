@@ -37,6 +37,10 @@ main {
   background: #EEEEEE;
 }
 
+input,textarea{
+  outline: unset;
+}
+
 a:link {
   @include style-link-text(unset);
 }

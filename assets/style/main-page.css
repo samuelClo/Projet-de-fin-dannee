@@ -94,6 +94,10 @@ main {
   background: #EEEEEE;
 }
 
+input, textarea {
+  outline: unset;
+}
+
 a:link {
   text-decoration: unset;
   color: unset;

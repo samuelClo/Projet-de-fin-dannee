@@ -58,7 +58,7 @@ let Register = function (user) {
                 document.querySelector("#validate").after(DisplayErrorStyle(value.msg))
             if (value.userConnect === "yes") {
 
-                switchConnexion("connect",value.is_admin)
+                switchConnexion("connect",value.is_admin,value.email)
                 closeModal().then(() => {
                     notyNotif(value.msg)
                 })

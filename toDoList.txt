@@ -8,3 +8,6 @@
 
 -bouton itin�raire a changer
 -trouver solution pour répétition du code du header nav
+-faire monter le scroll sur le page de contact
+-mettre le cursor au debut du text-aera si celui-ci est vide
+

@@ -28,6 +28,7 @@ if (!empty($data)) {
                 $_SESSION['user']['is_admin'] = $userConnected['is_admin'];
                 $res->msg = "Vous etes connécté";
                 $res->is_admin =  $_SESSION['user']['is_admin'];
+                $res->email = $_SESSION['user']['email'];
 
             $res->userConnect = "yes";
         } else {
