@@ -1,14 +1,14 @@
 <?php
 
-$destinationPicture = './../assets/pictures/events/';
+$destinationPicture = './../assets/files/bills';
 
-if (isset($_FILES['title_picture']) && $_FILES['title_picture']['error'] === 0) {
+if (isset($_FILES['bill']) && $_FILES['bill']['error'] === 0) {
 
 
 
-    $allowed_extensions = array('jpg', 'jpeg', 'png', 'gif');
+    $allowed_extensions = array('pdf');
 
-    $my_file_extension = pathinfo($_FILES['title_picture']['name'], PATHINFO_EXTENSION);
+    $my_file_extension = pathinfo($_FILES['bill']['name'], PATHINFO_EXTENSION);
 
 
     if (in_array($my_file_extension, $allowed_extensions)) {
@@ -16,9 +16,9 @@ if (isset($_FILES['title_picture']) && $_FILES['title_picture']['error'] === 0) 
         do {
             $new_file_name = time() . rand();
 
-            $titlePicture = $new_file_name . '.' . $my_file_extension;
+            $bill = $new_file_name . '.' . $my_file_extension;
 
-            $destination =  $destinationPicture . $titlePicture;
+            $destination =  $destinationPicture . $bill;
 
         } while (file_exists($destination));
 
@@ -29,7 +29,7 @@ if (isset($_FILES['title_picture']) && $_FILES['title_picture']['error'] === 0) 
 
 if (isset($_POST['save'])) {
     var_dump($_POST);
-    echo $titlePicture;
+    echo $bill;
 
     $title = $_POST['title'];
     $description = $_POST['description'];
@@ -176,9 +176,9 @@ if (isset($_FILES['title_picture']) && $_FILES['title_picture']['error'] === 0) 
 
     <h4>
 
-        <?php if (isset($_GET["event_id"], $_GET["action"]) && $_GET["action"] == "edit"): ?>
-            <?php echo "Modifier un event"; ?>
-        <? else: echo "Ajouter un event"; ?>
+        <?php if (isset($_GET["bill_id"], $_GET["action"]) && $_GET["action"] == "edit"): ?>
+            <?php echo "Modifier une facture"; ?>
+        <? else: echo "Ajouter une facture"; ?>
         <?php endif; ?>
 
 

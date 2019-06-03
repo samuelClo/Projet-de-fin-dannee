@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  lun. 03 juin 2019 à 20:38
+-- Généré le :  lun. 03 juin 2019 à 23:06
 -- Version du serveur :  5.7.24
 -- Version de PHP :  7.2.14
 
@@ -35,6 +35,8 @@ CREATE TABLE IF NOT EXISTS `bills` (
   `date` date NOT NULL,
   `services` varchar(255) NOT NULL,
   `name` int(255) NOT NULL,
+  `file` text NOT NULL,
+  `user_id` int(255) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
 
@@ -79,7 +81,7 @@ CREATE TABLE IF NOT EXISTS `message` (
   `content` longtext NOT NULL,
   `test_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=93 DEFAULT CHARSET=utf8mb4;
+) ENGINE=MyISAM AUTO_INCREMENT=94 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `message`
@@ -100,7 +102,8 @@ INSERT INTO `message` (`id`, `email`, `content`, `test_id`) VALUES
 (80, 'sam@sam.fr', 'fsdfsdfsdfsdfsddf', 13),
 (79, 'sam@sam.fr', 'fsdfsdfsdfsdfsddf', 13),
 (78, 'sam@sam.fr', 'fsdfsdfsdfsdfsddf', 13),
-(77, 'sam@sam.fr', 'fsdfsdfsdfsdfsddf', 13);
+(77, 'sam@sam.fr', 'fsdfsdfsdfsdfsddf', 13),
+(93, 'dfgdfgdf@gdfgdfg.fr', 'dfgdfgdfg', 1);
 
 -- --------------------------------------------------------
 

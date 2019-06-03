@@ -57,6 +57,12 @@ if (!isset($_SESSION['user']) OR $_SESSION['user']['is_admin'] == 0) {
                     case 'message-list':
                         require ('./messages-list.php');
                         break;
+                    case 'bill-list':
+                        require ('./bill-list.php');
+                        break;
+                    case 'bill-form':
+                        require ('./bill-form.php');
+                        break;
 
                 }
 
