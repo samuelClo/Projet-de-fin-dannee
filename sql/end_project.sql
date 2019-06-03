@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  ven. 24 mai 2019 à 23:08
+-- Généré le :  lun. 03 juin 2019 à 20:38
 -- Version du serveur :  5.7.24
 -- Version de PHP :  7.2.14
 
@@ -21,6 +21,22 @@ SET time_zone = "+00:00";
 --
 -- Base de données :  `end_project`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `bills`
+--
+
+DROP TABLE IF EXISTS `bills`;
+CREATE TABLE IF NOT EXISTS `bills` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `price` varchar(255) NOT NULL,
+  `date` date NOT NULL,
+  `services` varchar(255) NOT NULL,
+  `name` int(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -49,6 +65,42 @@ INSERT INTO `events` (`id`, `title`, `description`, `content`, `title_picture`, 
 (37, 'sdfsfdf', 'sdfdsfsd', 'sdfsdfsdf', '15583498251311307060.jpg', NULL, '2019-05-19', 1),
 (36, 'dsfvdfv', '       fdvvdfv       ', 'vdfvdfv', '15580469981533302465.jpg', NULL, '2019-05-19', 1),
 (38, 'dsfds', 'sdfsdf', 'sfdfsdf', '1558363509878232424.jpg', NULL, '2019-05-11', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `message`
+--
+
+DROP TABLE IF EXISTS `message`;
+CREATE TABLE IF NOT EXISTS `message` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `email` text NOT NULL,
+  `content` longtext NOT NULL,
+  `test_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=93 DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `message`
+--
+
+INSERT INTO `message` (`id`, `email`, `content`, `test_id`) VALUES
+(91, 'sam@sam.fr', 'fsdfsdfsdfsdfsddf', 13),
+(90, 'sam@sam.fr', 'fsdfsdfsdfsdfsddf', 13),
+(89, 'sam@sam.fr', 'fsdfsdfsdfsdfsddf', 13),
+(88, 'sam@sam.fr', 'fsdfsdfsdfsdfsddf', 13),
+(87, 'sam@sam.fr', 'fsdfsdfsdfsdfsddf', 13),
+(86, 'sam@sam.fr', 'fsdfsdfsdfsdfsddf', 13),
+(85, 'sam@sam.fr', 'fsdfsdfsdfsdfsddf', 13),
+(84, 'sam@sam.fr', 'fsdfsdfsdfsdfsddf', 13),
+(83, 'sam@sam.fr', 'fsdfsdfsdfsdfsddf', 13),
+(82, 'sam@sam.fr', 'fsdfsdfsdfsdfsddf', 13),
+(81, 'sam@sam.fr', 'fsdfsdfsdfsdfsddf', 13),
+(80, 'sam@sam.fr', 'fsdfsdfsdfsdfsddf', 13),
+(79, 'sam@sam.fr', 'fsdfsdfsdfsdfsddf', 13),
+(78, 'sam@sam.fr', 'fsdfsdfsdfsdfsddf', 13),
+(77, 'sam@sam.fr', 'fsdfsdfsdfsdfsddf', 13);
 
 -- --------------------------------------------------------
 
