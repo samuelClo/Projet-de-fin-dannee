@@ -27,7 +27,7 @@
 <header data-size = "desktop">
     <a href="index.php"><img src="./assets/pictures/logo_ville.svg" alt="Logo de la ville"></a>
     <nav>
-        <a href="#" id="bill">mes factures</a>
+        <a href="index.php?page=bills" id="bill">mes factures</a>
         <a href="#" id="services">services</a>
         <a href="#" id="information">informations</a>
         <a href="index.php?page=events" id="events">événements</a>

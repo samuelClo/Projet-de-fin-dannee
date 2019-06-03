@@ -54,6 +54,9 @@ if (!isset($_SESSION['user']) OR $_SESSION['user']['is_admin'] == 0) {
                     case 'event-form':
                         require ('./event-form.php');
                         break;
+                    case 'message-list':
+                        require ('./messages-list.php');
+                        break;
 
                 }
 

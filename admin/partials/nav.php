@@ -2,6 +2,7 @@
 	//nombre d'enregistrements de la table user
 $nbEvents = $db->query("SELECT COUNT(*) FROM events ")->fetchColumn();
 $nbUsers = $db->query("SELECT COUNT(*) FROM user ")->fetchColumn();
+$nbMessages = $db->query("SELECT COUNT(*) FROM message")->fetchColumn();
 
 ?>
 <nav class="col-3 py-2 categories-nav">
@@ -9,5 +10,6 @@ $nbUsers = $db->query("SELECT COUNT(*) FROM user ")->fetchColumn();
 	<ul>
 		<li><a href="./index.php?page=events-list">Gestion des Events (<?= $nbEvents; ?>)</a></li>
         <li><a href="./index.php?page=users-list">Gestion des Users (<?= $nbUsers; ?>)</a></li>
+        <li><a href="./index.php?page=message-list">Gestion des Messages (<?= $nbMessages; ?>)</a></li>
 	</ul>
 </nav>

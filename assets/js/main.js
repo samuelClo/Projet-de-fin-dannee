@@ -3,7 +3,7 @@ let navSmartphone = document.querySelector(".navSmartphone")
 ////////////////registration
 function registrationClick() {
 
-    if (document.querySelector(".connexion")){
+    if (document.querySelector(".connexion")) {
         document.querySelectorAll(".connexion").forEach(function (connexion) {
 
             connexion.addEventListener("click", function () {
@@ -42,13 +42,10 @@ function registrationClick() {
                     })
             })
         })
-
-
     }
 }
 
 registrationClick()
-
 
 
 function burgerMenuOpen() {
@@ -56,7 +53,7 @@ function burgerMenuOpen() {
     navSmartphone.classList.add("navSmartphoneActive");
 }
 
-function burgerMenuClose(){
+function burgerMenuClose() {
     navSmartphone.classList.add("navSmartphoneClose");
 }
 

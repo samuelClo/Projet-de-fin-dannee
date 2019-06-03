@@ -21,6 +21,7 @@ let state3 = function () {
 contactSector.addEventListener("change", function (e) {
     if (stateValue === 2)
         state3()
+
     ajaxRequest(`index.php?action=contact&sector_id=${contactSector.value}`, contactSector.value)
         .then((data) => {
             let contactTest = document.querySelector("#contactTest")
@@ -59,12 +60,8 @@ contactSector.addEventListener("change", function (e) {
                     })
                 }
                 testSelect.addEventListener("change", function () {
-
-                    let titleMessage =  document.querySelector("#titleMessage")
-                    titleMessage.setAttribute("data-testId",testSelect.value)
-
-
-
+                    let titleMessage = document.querySelector("#titleMessage")
+                    titleMessage.setAttribute("data-testId", testSelect.value)
                     let textOption = document.querySelector(`#contactTest option[value="${testSelect.value}"]`).innerText
                     titleMessage.innerText = textOption
                     state2()
@@ -74,15 +71,42 @@ contactSector.addEventListener("change", function (e) {
         })
 })
 
-if (document.querySelector("#containMessage button")){
-    document.querySelector("#containMessage button").addEventListener("click",function () {
-        let messageContent = {
-            testId : document.querySelector("#titleMessage").getAttribute("data-testId"),
-            email : document.querySelector("#mailContact").value,
-            content : document.querySelector("#content").value
+if (document.querySelector("#containMessage button")) {
+    document.querySelector("#containMessage button").addEventListener("click", function () {
+
+        let email = document.querySelector("#mailContact")
+        let content = document.querySelector("#content")
+
+        document.querySelectorAll('.errorDisplay').forEach(function (item) {
+            item.innerText = ""
+        })
+
+        if (email.value === "")
+            email.after(DisplayErrorStyle('Veuilliez rentrer un email'))
+        else if (validateTest(email.value) !== 1) {
+            email.after(DisplayErrorStyle(" Veuillez rentrer une adresse mail valide "))
         }
-        ajaxRequest("index.php?action=send-message",messageContent)
-        console.log(messageContent)
+
+        if (content.value.trim() === "")
+            content.after(DisplayErrorStyle('Veuilliez rentrer un message'))
+        if (email.value !== "" && validateTest(email.value) === 1 && content.value.trim() !== "") {
+            let messageContent = {
+                testId: document.querySelector("#titleMessage").getAttribute("data-testId"),
+                email: document.querySelector("#mailContact").value,
+                content: document.querySelector("#content").value
+            }
+            ajaxRequest("index.php?action=send-message", messageContent)
+                .then((data) => {
+                    if (data.sendMessage === 1) {
+                        notyNotif("Message envoyer")
+                    } else {
+                        notyNotif("Echec de l'envoi du message")
+                    }
+                })
+                .catch((data) => {
+                    notyNotif("Echec de l'envoi du message")
+                })
+        }
     })
 }
 

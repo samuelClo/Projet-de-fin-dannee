@@ -47,6 +47,9 @@ if (isset($_GET['action'])) {
             case 'contact':
                 require('./controllers/contact.php');
                 break;
+            case 'bills':
+                require ('./controllers/bills.php');
+                break;
         }
 
     } else {
