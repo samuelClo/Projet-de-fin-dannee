@@ -23,8 +23,6 @@ SELECT b.*,u.email as email
 
 $bills = $selectBill->fetchall();
 
-var_dump($bills);
-
 
 
 ?>
@@ -60,9 +58,9 @@ var_dump($bills);
                 <th><?= $bill['id']; ?></th>
                 <th><?= $bill['price']; ?>€</th>
                 <th><?= $bill['date']; ?></th>
-                <th><?= $bill['service']; ?></th>
-                <th><?= $bill['nom']; ?></th>
-                <td><?= $bill['file']; ?></td>
+                <th><?= $bill['services']; ?></th>
+                <th><?= $bill['name']; ?></th>
+                <td><a href="../assets/file/bills/<?= $bill['file']; ?>">Lien vers la facture -></a></td>
                 <th><?= $bill['email']; ?></th>
 
                 <td>

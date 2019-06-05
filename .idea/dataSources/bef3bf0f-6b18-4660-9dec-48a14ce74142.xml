@@ -8,7 +8,7 @@
       <DefaultCasing>lower/lower</DefaultCasing>
     </root>
     <schema id="2" parent="1" name="blog">
-      <Collation>utf8mb4_general_ci</Collation>
+      <Collation>utf8_general_ci</Collation>
     </schema>
     <schema id="3" parent="1" name="end_project">
       <Current>1</Current>

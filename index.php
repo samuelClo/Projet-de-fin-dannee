@@ -35,6 +35,9 @@ if (isset($_GET['action'])) {
         case 'send-message':
             require ('./controllers/ajax/send-message.php');
             break;
+        case 'bill':
+            require ('./controllers/ajax/bills.php');
+            break;
     }
 
 } else{

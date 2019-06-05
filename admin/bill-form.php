@@ -1,10 +1,10 @@
 <?php
 
-if (isset($_FILES['image']) && $_FILES['image']['error'] === 0) {
+if (isset($_FILES['bill']) && $_FILES['bill']['error'] === 0) {
 
-    $allowed_extensions = array('jpg', 'jpeg', 'png', 'gif');
+    $allowed_extensions = array('pdf');
 
-    $my_file_extension = pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION);
+    $my_file_extension = pathinfo($_FILES['bill']['name'], PATHINFO_EXTENSION);
 
 
     if (in_array($my_file_extension, $allowed_extensions)) {
@@ -12,9 +12,9 @@ if (isset($_FILES['image']) && $_FILES['image']['error'] === 0) {
         do {
             $new_file_name = time() . rand();
 
-            $nameImg = $new_file_name . '.' . $my_file_extension;
+            $nameBill = $new_file_name . '.' . $my_file_extension;
 
-            $destination = '../img/article/' . $new_file_name . '.' . $my_file_extension;
+            $destination = '../assets/file/bills/' . $new_file_name . '.' . $my_file_extension;
 
         } while (file_exists($destination));
 
@@ -25,84 +25,97 @@ if (isset($_FILES['image']) && $_FILES['image']['error'] === 0) {
 
 }
 
+if (isset($_FILES['bill']) && $_FILES['bill']['error'] !== 0)
+    $messages['bill'] = 'la facture est obligatoire';
 
-if (isset($_POST['save'])) {
+    if (isset($_POST['save'])) {
 
-
-    $title = $_POST['title'];
-    $summary = $_POST['summary'];
-    $content = $_POST['content'];
-    $date = $_POST['created_at'];
-    $is_published = intval($_POST['is_published']);
+        var_dump($_POST);
 
 
-    if (empty($_POST['title'])) {
-        $messages['title'] = 'le nom est obligatoire';
-    }
-    if (empty($_POST['created_at'])) {
-        $messages['created_at'] = 'la date est obligatoire';
-    }
-    if (empty($_POST['category_id'])) {
-        $messages['category_id'] = 'le choix de la categorie est obligatoire';
-    }
-
-    if (empty($messages)) {
+        $price = $_POST['price'];
+        $date = $_POST['date'];
+        $service = $_POST['service'];
+        $name = $_POST['name'];
+        $user = ($_POST['user']);
 
 
-        $query = $db->prepare('
-        INSERT INTO article
-        (title, content, summary, created_at, is_published, image)
-        VALUES (?, ?, ?, ?, ?, ?)');
+        if (empty($_POST['price']))
+            $messages['price'] = 'le prix est obligatoire';
 
-        $newArticle = $query->execute(
-            [
-                htmlspecialchars($_POST['title']),
-                htmlspecialchars($_POST['content']),
-                htmlspecialchars($_POST['summary']),
-                htmlspecialchars($_POST['created_at']),
-                ctype_digit($_POST['is_published']),
-                $nameImg
-            ]
-        );
+        if (empty($_POST['date']))
+            $messages['date'] = 'la date est obligatoire';
 
-        move_uploaded_file($_FILES['image']['tmp_name'], $destination);
-        $lastArticleIdInsert = $db->lastInsertId();
+        if (empty($_POST['service']))
+            $messages['service'] = 'le choix du service associé est obligatoire';
 
+        if (empty($_POST['name']))
+            $messages['name'] = 'le nom est obligatoire';
 
-        foreach ($_POST['category_id'] as $key => $categoryName) {
+        if (empty($_POST['user']) || $_POST['user'] === "0")
+            $messages['user'] = 'le destinataire de la facture doit etre précisé';
+
+        if (empty($messages)) {
 
 
             $query = $db->prepare('
-        INSERT INTO article_category
-        (article_id, category_id)
-        VALUES (?, ?)');
+        INSERT INTO bills
+        (price, date, services, name, user_id, file)
+        VALUES (?, ?, ?, ?, ?, ?)');
 
-            $newArticle = $query->execute(
-
+            $newBill = $query->execute(
                 [
-                    $lastArticleIdInsert,
-                    $categoryName
+                    htmlspecialchars($_POST['price']),
+                    htmlspecialchars($_POST['date']),
+                    htmlspecialchars($_POST['service']),
+                    htmlspecialchars($_POST['name']),
+                    htmlspecialchars($_POST['user']),
+                    $nameBill
                 ]
             );
 
+            move_uploaded_file($_FILES['bill']['tmp_name'], $destination);
+            $lastBillIdInsert = $db->lastInsertId();
 
-        }
+
+ //           foreach ($_POST['bill_id'] as $key => $categoryName) {
 
 
-        //redirection après enregistrement
-        //si $newArticle alors l'enregistrement a fonctionné
-        if ($newArticle) {
+//            $query = $db->prepare('
+//        INSERT INTO article_category
+//        (article_id, category_id)
+//        VALUES (?, ?)');
+//
+//            $newArticle = $query->execute(
+//
+//                [
+//                    $lastArticleIdInsert,
+//                    $categoryName
+//                ]
+//            );
+//
+//}
+
+
+
             //redirection après enregistrement
-            header('location:article-list.php');
-            exit;
-        } else { //si pas $newArticle => enregistrement échoué => générer un message pour l'administrateur à afficher plus bas
-            $message = "Impossible d'enregistrer le nouvel article...";
+            //si $newArticle alors l'enregistrement a fonctionné
+            if ($newBill) {
+                //redirection après enregistrement
+
+
+                header('location:index.php?page=bill-list');
+
+
+                exit;
+            } else { //si pas $newArticle => enregistrement échoué => générer un message pour l'administrateur à afficher plus bas
+                $message = "Impossible d'enregistrer la nouvelle facture...";
+            }
         }
-    }
 
-} else if (isset($_GET["article_id"], $_GET["action"]) && $_GET["action"] == "edit") {
+    } else if (isset($_GET["article_id"], $_GET["action"]) && $_GET["action"] == "edit") {
 
-    $query = $db->prepare('SELECT c.id
+        $query = $db->prepare('SELECT c.id
 
                             FROM category c
                             JOIN article_category ac
@@ -112,101 +125,102 @@ if (isset($_POST['save'])) {
                             WHERE a.id = ?
 
                             ');
-    $selectArticle = $query->execute([$_GET["article_id"]]);
-    $categorySelected = $query->fetchAll();
+        $selectArticle = $query->execute([$_GET["article_id"]]);
+     //   $categorySelected = $query->fetchAll();
 
 
-    $queryArticle = $db->prepare('SELECT * FROM article WHERE id = ?');
-    $selectArticle = $queryArticle->execute([$_GET["article_id"]]);
-    $articles = $queryArticle->fetch();
+        $queryArticle = $db->prepare('SELECT * FROM article WHERE id = ?');
+        $selectArticle = $queryArticle->execute([$_GET["article_id"]]);
+        $articles = $queryArticle->fetch();
 
 
-    //var_dump($articles);
+        //var_dump($articles);
 
-    $title = $articles['title'];
-    $summary = $articles['summary'];
-    $content = $articles['content'];
-    $date = $articles['created_at'];
-    $image = $articles['image'];
-    $is_published = intval($articles['is_published']);
-
-
-    if (isset($_POST['submit'])) {
-
-        var_dump($_POST);
+        $title = $articles['title'];
+        $summary = $articles['summary'];
+        $content = $articles['content'];
+        $date = $articles['created_at'];
+        $image = $articles['image'];
+        $is_published = intval($articles['is_published']);
 
 
-        $title = $_POST['title'];
-        $summary = trim($_POST['summary']);
-        $content = $_POST['content'];
-        $date = $_POST['created_at'];
+        if (isset($_POST['submit'])) {
+
+            var_dump($_POST);
 
 
-        if (empty($_POST['title'])) {
-            $messages['title'] = 'le nom est obligatoire';
-        }
-        if (empty($_POST['created_at'])) {
-            $messages['created_at'] = 'la date est obligatoire';
-        }
-        if (empty($_POST['category_id'])) {
-            $messages['category_id'] = 'le choix de la categorie est obligatoire';
-        }
+            $title = $_POST['title'];
+            $summary = trim($_POST['summary']);
+            $content = $_POST['content'];
+            $date = $_POST['created_at'];
 
-        if (empty($messages)) {
-            if (isset($_FILES['image']) && $_FILES['image']['error'] === 0) {
-                unlink('../img/article/' . $image);
-                $image = $nameImg;
+
+            if (empty($_POST['title'])) {
+                $messages['title'] = 'le nom est obligatoire';
+            }
+            if (empty($_POST['created_at'])) {
+                $messages['created_at'] = 'la date est obligatoire';
+            }
+            if (empty($_POST['category_id'])) {
+                $messages['category_id'] = 'le choix de la categorie est obligatoire';
             }
 
-            $query = $db->prepare('UPDATE article SET title = ?, created_at = ?,  summary = ?, is_published = ?, content = ?, image= ? WHERE id = ? ');
-            $result = $query->execute(
-                [
-                    $_POST['title'],
-                    $_POST['created_at'],
-                    $_POST['summary'],
-                    $_POST['is_published'],
-                    $_POST['content'],
-                    $image,
-                    $_GET["article_id"]
-                ]
-            );
+            if (empty($messages)) {
+                if (isset($_FILES['image']) && $_FILES['image']['error'] === 0) {
+                    unlink('../img/article/' . $image);
+                    $image = $nameImg;
+                }
+
+                $query = $db->prepare('UPDATE article SET title = ?, created_at = ?,  summary = ?, is_published = ?, content = ?, image= ? WHERE id = ? ');
+                $result = $query->execute(
+                    [
+                        $_POST['title'],
+                        $_POST['created_at'],
+                        $_POST['summary'],
+                        $_POST['is_published'],
+                        $_POST['content'],
+                        $image,
+                        $_GET["article_id"]
+                    ]
+                );
 
 
-            foreach ($_POST["category_id"] as $key => $category) {
+                foreach ($_POST["category_id"] as $key => $category) {
 
-                var_dump($_POST["category_id"][$key]);
-                var_dump($_GET["article_id"]);
+                    var_dump($_POST["category_id"][$key]);
+                    var_dump($_GET["article_id"]);
 
 
-                $updateCategory = $db->prepare('UPDATE article_category
+                    $updateCategory = $db->prepare('UPDATE article_category
                   SET category_id = ?,
                   WHERE article_id = ?
             ');
 
-                $categoryUpdated = $updateCategory->execute(
-                    [
-                        $_POST["category_id"][$key],
-                        $_GET["article_id"],
-                        $_GET["article_id"],
-                    ]
-                );
+                    $categoryUpdated = $updateCategory->execute(
+                        [
+                            $_POST["category_id"][$key],
+                            $_GET["article_id"],
+                            $_GET["article_id"],
+                        ]
+                    );
+
+                }
+
+
+                $msg = '<div class="bg-success text-white p-2 mb-4">Modification effectuer.</div>';
 
             }
-
-
-            $msg = '<div class="bg-success text-white p-2 mb-4">Modification effectuer.</div>';
-
         }
     }
-}
+
+
 if (isset($_FILES['image']) && $_FILES['image']['error'] === 0) {
     move_uploaded_file($_FILES['image']['tmp_name'], $destination);
 }
 
-$userList = $db -> query('SELECT email,id FROM user') -> fetchAll();
+$userList = $db->query('SELECT email,id FROM user')->fetchAll();
 
 var_dump($userList);
-
 
 
 ?>
@@ -220,7 +234,7 @@ var_dump($userList);
     <h4>
         <?php if (isset($_GET["article_id"], $_GET["action"]) && $_GET["action"] == "edit"): ?>
             <?php echo "Modifier une facture"; ?>
-        <? else: echo "Ajouter une facture"; ?>
+        <?php else: echo "Ajouter une facture"; ?>
         <?php endif; ?>
     </h4>
 </header>
@@ -232,47 +246,47 @@ var_dump($userList);
 <?php endif; ?>
 
 <form action="<?php if (isset($_GET["bill_id"], $_GET["action"]) && $_GET["action"] == "edit") : ?>
-                         <?php echo 'bill-form.php?bill_id=' . $_GET["bill_id"] . '&action=edit'; ?>
-                          <?php else: ?>
-                            bill-form.php
-                           <?php endif; ?>" method="post" enctype="multipart/form-data">
+                         <?php echo 'index.php?page=bill-form&bill_id=' . $_GET["bill_id"] . '&action=edit'; ?>
+                          <?php else: ?>index.php?page=bill-form<?php endif; ?>" method="post" enctype="multipart/form-data">
     <div class="form-group">
         <label for="price">Prix :</label>
         <input class="form-control" type="text" placeholder="prix" name="price" id="title"
                value="<?php if (isset($price)) : ?><?= $price; ?><?php endif; ?>"/>
-        <?php if (!empty($messages['price'])) : ?>
-            <?= $messages['price'] ?>
-        <?php endif; ?>
+        <?php if (!empty($messages['price'])) echo $messages['price'] ?>
     </div>
 
     <div class="form-group">
         <label for="published_at">Date :</label>
         <input class="form-control" type="date" placeholder="" name="date" id="date"
                value="<?php if (isset($date)) : ?><?= $date; ?><?php endif; ?>"/>
-        <?php if (!empty($messages['date'])) : ?>
-            <?= $messages['date']; ?>
-        <?php endif; ?>
+        <?php if (!empty($messages['date'])) echo  $messages['date'] ?>
     </div>
 
 
     <div class="form-group">
         <label for="service">Service :</label>
         <input class="form-control" type="text" name="service" id="service"
-                  placeholder="Service"><?php if (isset($service)) : ?><?= $service; ?><?php endif; ?>
+               placeholder="Service"><?php if (isset($service)) : ?><?= $service; ?><?php endif; ?>
+        <?php if (!empty($messages['service'])) echo $messages['service'] ?>
     </div>
     <div class="form-group">
         <label for="name">Nom de la facture :</label>
         <input class="form-control" type="text" name="name" id="name"
                placeholder="Nom de la facture"><?php if (isset($name)) : ?><?= $name; ?><?php endif; ?>
+        <?php if (!empty($messages['name'])) echo $messages['name'] ?>
     </div>
 
     <div class="form-group">
         <label for="category_id"> User :</label>
         <select class="form-control" name="user" id="user">
-                <?php foreach ($userList as $user) : ?>
-                    <option value="<?= $user['id']; ?>"><?= $user['email'] ?></option>
-                <?php endforeach; ?>
+
+            <option value="0">Veuilliez choisir un destinataire :</option>
+
+            <?php foreach ($userList as $user) : ?>
+                <option value="<?= $user['id']; ?>"><?= $user['email'] ?></option>
+            <?php endforeach; ?>
         </select>
+        <?php if (!empty($messages['user'])) echo $messages['user'] ?>
     </div>
 
 
@@ -282,8 +296,9 @@ var_dump($userList);
         <?php if (isset($bill)) : ?>
             <img class="img-fluid py-4" src='../img/article/<?= $image; ?>' alt=" "/>
         <?php endif; ?>
-    </div>
 
+        <?php if (!empty($messages['bill'])) echo $messages['bill'] ?>
+    </div>
 
 
     <div class="text-right">

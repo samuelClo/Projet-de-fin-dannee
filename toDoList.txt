@@ -16,3 +16,5 @@
 -responsiv js pour page contact
 -admin des secteur d'image
 
+-clean le systeme de fermeture des bills
+

@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .btn {
   display: inline-block;
   padding: 2rem 4rem;
@@ -287,6 +288,16 @@ footer #map {
     display: none;
   }
 }
+.pdfobject-container {
+  position: absolute;
+  /* postulat de départ */
+  left: 50%;
+  /* à 50%/50% du parent référent */
+  transform: translate(-50%, 0);
+  /* décalage de 50% de sa propre taille */
+  width: 1000px;
+}
+
 .modal {
   position: fixed;
   z-index: 3;
@@ -392,6 +403,59 @@ footer #map {
   to {
     background: rgba(0, 0, 0, 0);
   }
+}
+.modal {
+  padding: unset;
+}
+
+.modal-content span {
+  color: white;
+  font-size: 7rem;
+  z-index: 1;
+  position: absolute;
+  right: -40rem;
+  top: 1rem;
+}
+
+#billAll {
+  margin: 20rem 0;
+}
+#billAll #billContent {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  padding: 5rem;
+  background-color: #fff;
+}
+#billAll #billContent .rowBill {
+  display: flex;
+  margin-bottom: 4.3rem;
+}
+#billAll #billContent .rowBill:first-child {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: unset;
+}
+#billAll #billContent .rowBill:first-child::after {
+  content: " ";
+  height: 2px;
+  width: 80%;
+  background-color: #0b9444;
+  margin: 4.9rem 0;
+}
+#billAll #billContent .rowBill:nth-child(0n+2) {
+  margin-top: unset;
+}
+#billAll #billContent .rowBill .infoBill {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 16.6666666667%;
+}
+#billAll #billContent .rowBill .infoBill img {
+  height: 4rem;
 }
 
 /*# sourceMappingURL=bills.css.map */
