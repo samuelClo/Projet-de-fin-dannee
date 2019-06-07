@@ -298,6 +298,11 @@ footer #map {
   width: 1000px;
 }
 
+@media all and (max-width: 870px) {
+  .pdfobject-container {
+    width: 95vw;
+  }
+}
 .modal {
   position: fixed;
   z-index: 3;

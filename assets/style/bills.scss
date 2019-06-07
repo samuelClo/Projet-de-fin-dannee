@@ -2,8 +2,7 @@
 .modal{
   padding: unset;
 }
-.modal-content{
-  span{
+.modalSpanBill{
     color: white;
     font-size: 7rem;
     z-index: 1;
@@ -11,7 +10,7 @@
     right:-40rem;
     top: 1rem;
   }
-}
+
 #billAll {
   margin: $margin-btw-block 0;
 
@@ -58,5 +57,47 @@
       }
 
     }
+    .rowBillSmartphone{
+      display: flex;
+      flex-direction: column;
+      .infoBill {
+        display: flex;
+        padding: 2rem;
+        border-bottom: .04rem #DAD8D8 solid;
+        background-color: #F8F2F2;
+        &:first-child {
+          text-align: center;
+          border-bottom: .4rem #B7B6B6 solid;
+          background-color: #fff;
+        }
+        .infoBillSmartphone{
+          text-align: center;
+          &:nth-child(0n+1){
+            width: 30%;
+          }
+          &:nth-child(0n+2){
+            width: 70%;
+          }
+          img {
+            height: 4rem;
+          }
+        }
+
+      }
+
+
+    }
   }
+}
+
+@media all and (max-width: 870px){
+  #billAll{
+    margin: unset;
+    padding: 2rem;
+    #billContent {
+      width: 100%;
+      padding: unset;
+    }
+  }
+
 }

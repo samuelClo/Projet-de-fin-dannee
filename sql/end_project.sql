@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  lun. 03 juin 2019 à 23:06
+-- Généré le :  ven. 07 juin 2019 à 23:16
 -- Version du serveur :  5.7.24
 -- Version de PHP :  7.2.14
 
@@ -34,11 +34,26 @@ CREATE TABLE IF NOT EXISTS `bills` (
   `price` varchar(255) NOT NULL,
   `date` date NOT NULL,
   `services` varchar(255) NOT NULL,
-  `name` int(255) NOT NULL,
+  `name` varchar(255) NOT NULL,
   `file` text NOT NULL,
   `user_id` int(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `bills`
+--
+
+INSERT INTO `bills` (`id`, `price`, `date`, `services`, `name`, `file`, `user_id`) VALUES
+(1, '44555445', '2019-06-15', 'qsdqsdqs', 'qsdqsdqsdq', '15597308711268915719.pdf', 2),
+(2, '44555445', '2019-06-15', 'qsdqsdqs', 'qsdqsdqsdq', '1559730984353850037.pdf', 2),
+(3, '544545', '2019-06-20', 'trdyguih', 'fhgvjbk', '15597310122043181877.pdf', 1),
+(4, '544545', '2019-06-20', 'trdyguih', 'fhgvjbk', '1559731038959639999.pdf', 1),
+(5, '544545', '2019-06-20', 'trdyguih', 'fhgvjbk', '1559731073694301765.pdf', 1),
+(6, '544545', '2019-06-20', 'trdyguih', 'fhgvjbk', '1559731112212838962.pdf', 1),
+(7, '5656', '2019-06-07', 'sfsfsdf', 'sdfsdf', '1559736454598429120.pdf', 1),
+(8, '+5656', '2019-06-20', 'rdgd', 'dfgdfg', '1559736510130175417.pdf', 2),
+(9, '55', '2019-06-07', 'ERIF', 'ma premiere facture', '1559775417684748850.pdf', 1);
 
 -- --------------------------------------------------------
 
@@ -88,7 +103,6 @@ CREATE TABLE IF NOT EXISTS `message` (
 --
 
 INSERT INTO `message` (`id`, `email`, `content`, `test_id`) VALUES
-(91, 'sam@sam.fr', 'fsdfsdfsdfsdfsddf', 13),
 (90, 'sam@sam.fr', 'fsdfsdfsdfsdfsddf', 13),
 (89, 'sam@sam.fr', 'fsdfsdfsdfsdfsddf', 13),
 (88, 'sam@sam.fr', 'fsdfsdfsdfsdfsddf', 13),

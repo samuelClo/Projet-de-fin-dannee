@@ -298,6 +298,11 @@ footer #map {
   width: 1000px;
 }
 
+@media all and (max-width: 870px) {
+  .pdfobject-container {
+    width: 95vw;
+  }
+}
 .modal {
   position: fixed;
   z-index: 3;
@@ -408,7 +413,7 @@ footer #map {
   padding: unset;
 }
 
-.modal-content span {
+.modalSpanBill {
   color: white;
   font-size: 7rem;
   z-index: 1;
@@ -456,6 +461,44 @@ footer #map {
 }
 #billAll #billContent .rowBill .infoBill img {
   height: 4rem;
+}
+#billAll #billContent .rowBillSmartphone {
+  display: flex;
+  flex-direction: column;
+}
+#billAll #billContent .rowBillSmartphone .infoBill {
+  display: flex;
+  padding: 2rem;
+  border-bottom: 0.04rem #DAD8D8 solid;
+  background-color: #F8F2F2;
+}
+#billAll #billContent .rowBillSmartphone .infoBill:first-child {
+  text-align: center;
+  border-bottom: 0.4rem #B7B6B6 solid;
+  background-color: #fff;
+}
+#billAll #billContent .rowBillSmartphone .infoBill .infoBillSmartphone {
+  text-align: center;
+}
+#billAll #billContent .rowBillSmartphone .infoBill .infoBillSmartphone:nth-child(0n+1) {
+  width: 30%;
+}
+#billAll #billContent .rowBillSmartphone .infoBill .infoBillSmartphone:nth-child(0n+2) {
+  width: 70%;
+}
+#billAll #billContent .rowBillSmartphone .infoBill .infoBillSmartphone img {
+  height: 4rem;
+}
+
+@media all and (max-width: 870px) {
+  #billAll {
+    margin: unset;
+    padding: 2rem;
+  }
+  #billAll #billContent {
+    width: 100%;
+    padding: unset;
+  }
 }
 
 /*# sourceMappingURL=bills.css.map */

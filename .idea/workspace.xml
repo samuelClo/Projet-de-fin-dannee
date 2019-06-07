@@ -2,27 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="abec32b4-fdd7-49a8-9d20-94c584dc4e51" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/controllers/ajax/bills.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/bef3bf0f-6b18-4660-9dec-48a14ce74142.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/bef3bf0f-6b18-4660-9dec-48a14ce74142.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/bill-form.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/bill-form.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/bill-list.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/bill-list.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/js/bills.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/bills.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/tools/useful.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/tools/useful.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/style/bills.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/style/bills.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/style/bills.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/assets/style/bills.css.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/style/bills.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/style/bills.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/style/contact.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/style/contact.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/style/contact.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/assets/style/contact.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/style/contact.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/style/contact.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/style/events.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/style/events.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/style/events.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/assets/style/events.css.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/style/main-page.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/style/main-page.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/style/main-page.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/assets/style/main-page.css.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/style/tools/_main.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/style/tools/_main.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/bills.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/bills.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/toDoList.txt" beforeDir="false" afterPath="$PROJECT_DIR$/toDoList.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/bills.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/bills.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/contact.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/contact.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -68,23 +62,32 @@
     <select />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.10110585">
+    <splitter split-orientation="horizontal" split-proportion="0.3228188">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/controllers/ajax/bills.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state>
+                <state relative-caret-position="48">
                   <caret line="2" selection-start-line="2" selection-end-line="2" />
                 </state>
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/views/bills.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="432">
-                  <caret line="18" selection-start-line="18" selection-end-line="18" />
+                <state relative-caret-position="120">
+                  <caret line="5" column="47" selection-start-line="5" selection-start-column="47" selection-end-line="5" selection-end-column="47" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/assets/style/contact.scss">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="1776">
+                  <caret line="74" column="28" selection-start-line="74" selection-start-column="4" selection-end-line="74" selection-end-column="28" />
                 </state>
               </provider>
             </entry>
@@ -141,17 +144,17 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/assets/style/bills.scss">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="96">
-                  <caret line="4" selection-start-line="4" selection-end-line="4" selection-end-column="14" />
+                <state relative-caret-position="363">
+                  <caret line="92" selection-start-line="92" selection-end-line="92" selection-end-column="34" />
                 </state>
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/assets/style/tools/_main.scss">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="359">
-                  <caret line="247" column="2" selection-start-line="247" selection-start-column="2" selection-end-line="247" selection-end-column="2" />
+                <state relative-caret-position="443">
+                  <caret line="253" column="13" selection-start-line="253" selection-start-column="13" selection-end-line="253" selection-end-column="13" />
                 </state>
               </provider>
             </entry>
@@ -168,17 +171,26 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/assets/js/bills.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="433">
-                  <caret line="43" column="40" selection-start-line="43" selection-start-column="40" selection-end-line="43" selection-end-column="40" />
+                <state relative-caret-position="136">
+                  <caret line="84" column="52" selection-end-line="152" />
+                  <folding>
+                    <element signature="e#48#852#0" />
+                  </folding>
                 </state>
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/toDoList.txt">
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/assets/js/tools/useful.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="432">
-                  <caret line="18" column="40" selection-start-line="18" selection-start-column="40" selection-end-line="18" selection-end-column="40" />
+                <state relative-caret-position="408">
+                  <caret line="60" selection-start-line="60" selection-end-line="63" selection-end-column="1" />
+                  <folding>
+                    <element signature="e#63#682#0" />
+                    <element signature="n#!!block;n#validateEmail#0" />
+                    <element signature="n#!!block;n#validateTest#0" />
+                    <element signature="n#!!block;n#DisplayErrorStyle#0" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -186,7 +198,7 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/assets/js/tools/connexion.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="48">
+                <state relative-caret-position="72">
                   <caret line="3" column="29" selection-start-line="3" selection-start-column="29" selection-end-line="3" selection-end-column="29" />
                 </state>
               </provider>
@@ -195,8 +207,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/assets/js/tools/modal/modal.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="357">
-                  <caret line="17" column="8" lean-forward="true" selection-start-line="17" selection-start-column="8" selection-end-line="17" selection-end-column="8" />
+                <state relative-caret-position="408">
+                  <caret line="17" column="8" selection-start-line="17" selection-start-column="8" selection-end-line="17" selection-end-column="8" />
                 </state>
               </provider>
             </entry>
@@ -204,8 +216,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/assets/js/main.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="454">
-                  <caret line="21" column="10" lean-forward="true" selection-start-line="11" selection-start-column="28" selection-end-line="21" selection-end-column="10" />
+                <state relative-caret-position="504">
+                  <caret line="21" column="10" selection-start-line="11" selection-start-column="28" selection-end-line="21" selection-end-column="10" />
                 </state>
               </provider>
             </entry>
@@ -227,6 +239,7 @@
       <find>message</find>
       <find>$db</find>
       <find>header</find>
+      <find>click</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -256,14 +269,11 @@
         <option value="$PROJECT_DIR$/assets/style/tools/_var.scss" />
         <option value="$PROJECT_DIR$/controllers/contact.php" />
         <option value="$PROJECT_DIR$/assets/js/tools/switchConnection.js" />
-        <option value="$PROJECT_DIR$/assets/style/contact.scss" />
         <option value="$PROJECT_DIR$/controllers/ajax/contact.php" />
-        <option value="$PROJECT_DIR$/views/contact.php" />
         <option value="$PROJECT_DIR$/controllers/ajax/send-message.php" />
         <option value="$PROJECT_DIR$/assets/js/main.js" />
         <option value="$PROJECT_DIR$/controllers/ajax/events.php" />
         <option value="$PROJECT_DIR$/assets/js/tools/connexion.js" />
-        <option value="$PROJECT_DIR$/assets/js/tools/useful.js" />
         <option value="$PROJECT_DIR$/assets/js/contact.js" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/bef3bf0f-6b18-4660-9dec-48a14ce74142/console.sql" />
         <option value="$PROJECT_DIR$/admin/messages-list.php" />
@@ -282,18 +292,20 @@
         <option value="$PROJECT_DIR$/controllers/ajax/bills.php" />
         <option value="$PROJECT_DIR$/views/bills.php" />
         <option value="$PROJECT_DIR$/assets/js/tools/modal/modal.js" />
-        <option value="$PROJECT_DIR$/assets/style/tools/_main.scss" />
-        <option value="$PROJECT_DIR$/assets/style/bills.scss" />
-        <option value="$PROJECT_DIR$/assets/js/bills.js" />
         <option value="$PROJECT_DIR$/toDoList.txt" />
+        <option value="$PROJECT_DIR$/assets/js/tools/useful.js" />
+        <option value="$PROJECT_DIR$/assets/style/bills.scss" />
+        <option value="$PROJECT_DIR$/views/contact.php" />
+        <option value="$PROJECT_DIR$/assets/style/contact.scss" />
+        <option value="$PROJECT_DIR$/assets/js/bills.js" />
+        <option value="$PROJECT_DIR$/assets/style/tools/_main.scss" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-10" />
-    <option name="y" value="-10" />
-    <option name="width" value="1940" />
-    <option name="height" value="1060" />
+    <option name="width" value="980" />
+    <option name="height" value="1040" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -303,6 +315,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -319,31 +332,25 @@
               <item name="projet-final-samuel-cloare-dev1" type="b2602c69:ProjectViewProjectNode" />
               <item name="projet-final-samuel-cloare-dev1" type="462c0819:PsiDirectoryNode" />
               <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="style" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="projet-final-samuel-cloare-dev1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="projet-final-samuel-cloare-dev1" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="tools" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="projet-final-samuel-cloare-dev1" type="b2602c69:ProjectViewProjectNode" />
               <item name="projet-final-samuel-cloare-dev1" type="462c0819:PsiDirectoryNode" />
               <item name="assets" type="462c0819:PsiDirectoryNode" />
               <item name="style" type="462c0819:PsiDirectoryNode" />
-              <item name="tools" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="projet-final-samuel-cloare-dev1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="projet-final-samuel-cloare-dev1" type="462c0819:PsiDirectoryNode" />
-              <item name="vendors" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="projet-final-samuel-cloare-dev1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="projet-final-samuel-cloare-dev1" type="462c0819:PsiDirectoryNode" />
-              <item name="vendors" type="462c0819:PsiDirectoryNode" />
-              <item name="PDFObject-master" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -370,6 +377,16 @@
         </RuleState>
       </list>
     </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="bills.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="bills.js" working-dir="$PROJECT_DIR$/assets/js">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Node.js.bills.js" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -411,24 +428,29 @@
       <workItem from="1559736460113" duration="7607000" />
       <workItem from="1559749660178" duration="1627000" />
       <workItem from="1559762110636" duration="12876000" />
+      <workItem from="1559822345620" duration="3127000" />
+      <workItem from="1559829423167" duration="6300000" />
+      <workItem from="1559890850269" duration="3520000" />
+      <workItem from="1559897204855" duration="338000" />
+      <workItem from="1559910542968" duration="2024000" />
+      <workItem from="1559917312068" duration="2566000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="157057000" />
+    <option name="totallyTimeSpent" value="174932000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14966443" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15771812" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="DB Browser" order="2" weight="0.053691275" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32998884" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.34705883" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.34558824" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.29117647" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -559,20 +581,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/tools/useful.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="51" selection-start-line="51" selection-end-line="51" />
-          <folding>
-            <element signature="e#63#682#0" />
-            <element signature="e#722#833#0" />
-            <element signature="n#!!block;n#validateEmail#0" />
-            <element signature="n#!!block;n#validateTest#0" />
-            <element signature="n#!!block;n#DisplayErrorStyle#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/assets/js/events.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="216">
@@ -602,13 +610,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/style/contact.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="116">
-          <caret line="18" selection-start-line="18" selection-end-line="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/controllers/bills.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="168">
@@ -620,13 +621,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="696">
           <caret line="29" column="65" selection-start-line="29" selection-start-column="65" selection-end-line="29" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/contact.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="552">
-          <caret line="23" column="10" selection-start-line="23" selection-start-column="10" selection-end-line="23" selection-end-column="10" />
         </state>
       </provider>
     </entry>
@@ -728,10 +722,36 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/assets/style/bills.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-9811" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/toDoList.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="18" column="40" selection-start-line="18" selection-start-column="40" selection-end-line="18" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/contact.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/controllers/ajax/bills.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
+        <state relative-caret-position="48">
           <caret line="2" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/bills.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="5" column="47" selection-start-line="5" selection-start-column="47" selection-end-line="5" selection-end-column="47" />
         </state>
       </provider>
     </entry>
@@ -770,9 +790,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/style/bills.css">
+    <entry file="file://$PROJECT_DIR$/assets/style/contact.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-9811" />
+        <state relative-caret-position="1776">
+          <caret line="74" column="28" selection-start-line="74" selection-start-column="4" selection-end-line="74" selection-end-column="28" />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/assets/style/tools/_var.scss">
@@ -782,59 +804,61 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/bills.php">
+    <entry file="file://$PROJECT_DIR$/assets/js/tools/useful.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="18" selection-start-line="18" selection-end-line="18" />
+        <state relative-caret-position="408">
+          <caret line="60" selection-start-line="60" selection-end-line="63" selection-end-column="1" />
+          <folding>
+            <element signature="e#63#682#0" />
+            <element signature="n#!!block;n#validateEmail#0" />
+            <element signature="n#!!block;n#validateTest#0" />
+            <element signature="n#!!block;n#DisplayErrorStyle#0" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/assets/js/tools/connexion.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="48">
+        <state relative-caret-position="72">
           <caret line="3" column="29" selection-start-line="3" selection-start-column="29" selection-end-line="3" selection-end-column="29" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/assets/js/tools/modal/modal.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="17" column="8" lean-forward="true" selection-start-line="17" selection-start-column="8" selection-end-line="17" selection-end-column="8" />
+        <state relative-caret-position="408">
+          <caret line="17" column="8" selection-start-line="17" selection-start-column="8" selection-end-line="17" selection-end-column="8" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/assets/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="454">
-          <caret line="21" column="10" lean-forward="true" selection-start-line="11" selection-start-column="28" selection-end-line="21" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/style/tools/_main.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="359">
-          <caret line="247" column="2" selection-start-line="247" selection-start-column="2" selection-end-line="247" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/style/bills.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="4" selection-start-line="4" selection-end-line="4" selection-end-column="14" />
+        <state relative-caret-position="504">
+          <caret line="21" column="10" selection-start-line="11" selection-start-column="28" selection-end-line="21" selection-end-column="10" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/assets/js/bills.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="433">
-          <caret line="43" column="40" selection-start-line="43" selection-start-column="40" selection-end-line="43" selection-end-column="40" />
+        <state relative-caret-position="136">
+          <caret line="84" column="52" selection-end-line="152" />
+          <folding>
+            <element signature="e#48#852#0" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/toDoList.txt">
+    <entry file="file://$PROJECT_DIR$/assets/style/bills.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="18" column="40" selection-start-line="18" selection-start-column="40" selection-end-line="18" selection-end-column="40" />
+        <state relative-caret-position="363">
+          <caret line="92" selection-start-line="92" selection-end-line="92" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/style/tools/_main.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="443">
+          <caret line="253" column="13" selection-start-line="253" selection-start-column="13" selection-end-line="253" selection-end-column="13" />
         </state>
       </provider>
     </entry>

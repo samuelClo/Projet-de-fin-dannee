@@ -16,7 +16,7 @@
                 <input type="email" id="mailContact" name="mailContact" placeholder="johnDoe@mail.com"
                 value="<?php if (isset($_SESSION['user'])) echo $_SESSION['user']['email'] ?>">
 
-                <textarea id="content" name="content" rows="12" cols="33" placeholder="Votre message : ">
+                <textarea id="content" name="content" placeholder="Votre message : ">
                 </textarea>
                 <button class="btn bcgGreen">Envoyer</button>
             </div>
