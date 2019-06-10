@@ -27,11 +27,12 @@
 <header data-size = "desktop">
     <a href="index.php"><img src="./assets/pictures/logo_ville.svg" alt="Logo de la ville"></a>
     <nav>
-        <a href="index.php?page=bills" id="bill">mes factures</a>
         <a href="#" id="services">services</a>
         <a href="#" id="information">informations</a>
+        <a href="#" id="contact">contact</a>
         <a href="index.php?page=events" id="events">événements</a>
         <?php if (isset($_SESSION['user'])) : ?>
+            <a href="#" id="bill">mes factures</a>
             <a href="#" class="disconnection switchConnexion">déconnexion</a>
         <?php else : ?>
             <a href="#" class="connexion switchConnexion">connexion</a>
@@ -39,9 +40,6 @@
         <?php if (isset($_SESSION['user']['is_admin']) && $_SESSION['user']['is_admin'] == 1): ?>
             <a href="index.php?page=admin" >Espace admin</a>
         <?php endif; ?>
-
-
-        <a href="index.php?page=contact" id="contact">contact</a>
     </nav>
 </header>
 
@@ -55,11 +53,12 @@
 <div class="navSmartphone" data-size = "smartphone" >
     <span><i class="fas fa-times"></i></span>
     <nav>
-        <a href="#" id="bill">mes factures</a>
         <a href="#" id="services">services</a>
         <a href="#" id="information">informations</a>
+        <a href="#" id="contact">contact</a>
         <a href="index.php?page=events" id="events">événements</a>
         <?php if (isset($_SESSION['user'])) : ?>
+            <a href="#" id="bill">mes factures</a>
             <a href="#" class="disconnection switchConnexion">déconnexion</a>
         <?php else : ?>
             <a href="#" class="connexion switchConnexion">connexion</a>
@@ -67,6 +66,5 @@
         <?php if (isset($_SESSION['user']['is_admin']) && $_SESSION['user']['is_admin'] == 1): ?>
             <a href="index.php?page=admin" >Espace admin</a>
         <?php endif; ?>
-        <a href="#" id="contact">contact</a>
-    </nav>`
+    </nav>
 </div>

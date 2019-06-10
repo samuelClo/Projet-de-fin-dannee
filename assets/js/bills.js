@@ -1,6 +1,4 @@
 let state
-
-
 let openPDF = function (pdfPicture) {
     pdfPicture.forEach(function (e) {
         e.addEventListener("click", function () {
@@ -69,7 +67,9 @@ let createBill = function (infoElement) {
                         <img  src="assets/pictures/arrow-left.svg" alt="payer la facture">
                     </a>
                 </div>
-                <div class="infoBill" ><img class="pctBill" src="assets/pictures/pdf-logo.svg" alt="Prévisualisé la facture" data-bill="${e.file}" ></div>`
+                <div class="infoBill" >
+                    <img class="pctBill" src="assets/pictures/pdf-logo.svg" alt="Prévisualisé la facture" data-bill="${e.file}" >
+                </div>`
             document.querySelector(".rowBill:first-child").after(rowBill)
         } else {
 
@@ -114,35 +114,45 @@ let createBill = function (infoElement) {
                     <div class="infobillSmartphone">
                         Prévisualiser
                     </div>
-                    <div class="infobillSmartphone">                     
-                        <img  class="pctBill" src="assets/pictures/pdf-logo.svg" alt="Prévisualisé la facture" data-bill="${e.file}" >                   
+                    <div class="infobillSmartphone">       
+                      <a href="./assets/file/bills/${e.file}"  download>             
+                        <img src="assets/pictures/pdf-logo.svg" alt="Prévisualisé la facture" data-bill="${e.file}" >   
+                      </a>                 
                     </div>              
                 </div>
              `
             document.querySelector("#billContent").appendChild(rowBill)
         }
-
-
     })
-
-
     openPDF(document.querySelectorAll(".pctBill"))
 }
-
 
 let billsRecup = function () {
     ajaxRequest("index.php?action=bill")
         .then((data) => {
-            createBill(data)
-            window.addEventListener('resize', function (e) {
-                //console.log(e)
-                if (window.matchMedia("(min-width: 870px)").matches && state === 2 ) {
-                    createBill(data)
-                } else if (window.matchMedia("(max-width: 870px)").matches && state === 1 ) {
-                    createBill(data)
-                }
-            })
+
+            if (data.length === 0 ){
+                document.querySelector("#billContent").innerHTML = `
+                <h3> Aucune facture a afficher </h3>
+                `
+            }else{
+                createBill(data)
+                window.addEventListener('resize', function (e) {
+                    //console.log(e)
+                    if (window.matchMedia("(min-width: 870px)").matches && state === 2 ) {
+                        createBill(data)
+                    } else if (window.matchMedia("(max-width: 870px)").matches && state === 1 ) {
+                        createBill(data)
+                    }
+                })
+            }
         })
+        .catch( ()=> {
+            document.querySelector("#billContent").innerHTML = `
+                <h3> Aucune facture a afficher </h3>
+                `
+        } )
+
 }
 billsRecup()
 
