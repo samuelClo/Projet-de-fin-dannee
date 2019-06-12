@@ -29,10 +29,10 @@
     <nav>
         <a href="#" id="services">services</a>
         <a href="#" id="information">informations</a>
-        <a href="#" id="contact">contact</a>
+        <a href="index.php?page=contact" id="contact">contact</a>
         <a href="index.php?page=events" id="events">événements</a>
         <?php if (isset($_SESSION['user'])) : ?>
-            <a href="#" id="bill">mes factures</a>
+            <a href="index.php?page=bills" id="bill">mes factures</a>
             <a href="#" class="disconnection switchConnexion">déconnexion</a>
         <?php else : ?>
             <a href="#" class="connexion switchConnexion">connexion</a>
@@ -55,7 +55,7 @@
     <nav>
         <a href="#" id="services">services</a>
         <a href="#" id="information">informations</a>
-        <a href="#" id="contact">contact</a>
+        <a href="index.php?page=contact" id="contact">contact</a>
         <a href="index.php?page=events" id="events">événements</a>
         <?php if (isset($_SESSION['user'])) : ?>
             <a href="#" id="bill">mes factures</a>

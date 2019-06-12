@@ -1,14 +1,18 @@
 let state
+let info = document.createElement("h1")
+info.id = "info"
+info.innerText = "Aucune facture a afficher"
+
 let openPDF = function (pdfPicture) {
     pdfPicture.forEach(function (e) {
         e.addEventListener("click", function () {
             callModal(
                 `
-                            <div class="modal-content">
-                                <div id="example1"></div>
-                                <span><i class="fas fa-times"></i></span>
-                            </div>
-                        `
+                <div class="modal-content">
+                    <div id="example1"></div>
+                    <span><i class="fas fa-times"></i></span>
+                </div>
+            `
             )
             document.querySelector('.modal-content span').classList.add("modalSpanBill")
             PDFObject.embed(`./assets/file/bills/${e.getAttribute("data-bill")}`, "#example1")
@@ -21,8 +25,7 @@ let openPDF = function (pdfPicture) {
 }
 
 
-let createBill = function (infoElement) {
-
+function cleanAll (state) {
 
     if (window.matchMedia("(min-width: 870px)").matches && state === 2 ) {
 
@@ -45,6 +48,16 @@ let createBill = function (infoElement) {
                 nodeDelete(e)
         })
     }
+}
+
+let createBill = function (infoElement) {
+    if (window.matchMedia("(min-width: 870px)").matches && state === 2 ) {
+        cleanAll(2)
+    }else if (window.matchMedia("(max-width: 870px)").matches && state === 1 ) {
+        cleanAll(1)
+    }
+
+
 
     infoElement.forEach(function (e) {
 
@@ -58,7 +71,7 @@ let createBill = function (infoElement) {
             state = 1
             rowBill.classList.add("rowBill")
             rowBill.innerHTML = `
-                   <div class="infoBill">N°${e.name}</div>
+                <div class="infoBill">N°${e.name}</div>
                 <div class="infoBill">${e.services}</div>
                 <div class="infoBill">${e.price}€</div>
                 <div class="infoBill">${e.date}</div>
@@ -70,15 +83,11 @@ let createBill = function (infoElement) {
                 <div class="infoBill" >
                     <img class="pctBill" src="assets/pictures/pdf-logo.svg" alt="Prévisualisé la facture" data-bill="${e.file}" >
                 </div>`
+            console.log(rowBill)
             document.querySelector(".rowBill:first-child").after(rowBill)
         } else {
-
             state = 2
-            //  console.log(document.querySelectorAll(".rowBill"))
-
-            document.querySelector(".rowBill").style.display = "none"
-
-
+            document.querySelector(".rowBill:first-child").style.display = "none"
             rowBill.classList.add("rowBillSmartphone")
             rowBill.setAttribute("data-state",2)
             rowBill.innerHTML = `
@@ -121,6 +130,7 @@ let createBill = function (infoElement) {
                     </div>              
                 </div>
              `
+            console.log(rowBill)
             document.querySelector("#billContent").appendChild(rowBill)
         }
     })
@@ -130,28 +140,25 @@ let createBill = function (infoElement) {
 let billsRecup = function () {
     ajaxRequest("index.php?action=bill")
         .then((data) => {
-
             if (data.length === 0 ){
-                document.querySelector("#billContent").innerHTML = `
-                <h3> Aucune facture a afficher </h3>
-                `
-            }else{
+                document.querySelector(".rowBill:first-child").style.display = "none"
+                document.querySelector(".rowBill:first-child").after(info)
+            }
+            else{
+                    nodeDelete(document.querySelector("#info"))
+                document.querySelector(".rowBill:first-child").style.display = "flex"
                 createBill(data)
-                window.addEventListener('resize', function (e) {
-                    //console.log(e)
-                    if (window.matchMedia("(min-width: 870px)").matches && state === 2 ) {
+                window.addEventListener('resize', function () {
+                    if (window.matchMedia("(min-width: 870px)").matches && state === 2 )
                         createBill(data)
-                    } else if (window.matchMedia("(max-width: 870px)").matches && state === 1 ) {
+                     else if (window.matchMedia("(max-width: 870px)").matches && state === 1 )
                         createBill(data)
-                    }
                 })
             }
         })
-        .catch( ()=> {
-            document.querySelector("#billContent").innerHTML = `
-                <h3> Aucune facture a afficher </h3>
-                `
-        } )
+        .catch( ()=> { document.querySelector("#billContent").innerHTML = `<h3> Aucune facture a afficher </h3>`})
+
+
 
 }
 billsRecup()

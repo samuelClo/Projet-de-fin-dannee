@@ -2,14 +2,13 @@
 
 require './../partials/models/_toolConnection.php';
 
-function dbConnect(){
+function dbConnect()
+{
 
-    try{
-        return $db = new PDO('mysql:host=localhost;dbname=end_project;charset=utf8mb4', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
-    }
-    catch (Exception $exception)
-    {
-        die( 'Erreur : ' . $exception->getMessage() );
+    try {
+        return $db = new PDO('mysql:host=localhost;dbname=end_project;charset=utf8mb4', 'root', 'root', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+    } catch (Exception $exception) {
+        die('Erreur : ' . $exception->getMessage());
     }
 
 }
@@ -49,19 +48,25 @@ if (!isset($_SESSION['user']) OR $_SESSION['user']['is_admin'] == 0) {
                         require('./user-list.php');
                         break;
                     case 'events-list':
-                        require ('./events-list.php');
+                        require('./events-list.php');
                         break;
                     case 'event-form':
-                        require ('./event-form.php');
+                        require('./event-form.php');
                         break;
                     case 'message-list':
-                        require ('./messages-list.php');
+                        require('./messages-list.php');
                         break;
                     case 'bill-list':
-                        require ('./bill-list.php');
+                        require('./bill-list.php');
                         break;
                     case 'bill-form':
-                        require ('./bill-form.php');
+                        require('./bill-form.php');
+                        break;
+                    case 'article-form':
+                        require('./article-form.php');
+                        break;
+                    case 'article-list':
+                        require('./article-list.php');
                         break;
 
                 }

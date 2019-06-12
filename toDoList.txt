@@ -17,4 +17,5 @@
 -admin des secteur d'image
 
 -clean le systeme de fermeture des bills
+-facture supprimer dernier border bottom
 

@@ -6,7 +6,7 @@ let switchConnexion = function (type, is_admin, email){
     let linkAllMenu = `
         <a href="#" id="services">services</a>
         <a href="#" id="information">informations</a>
-        <a href="#" id="contact">contact</a>
+        <a href="index.php?page=contact" id="contact">contact</a>
         <a href="index.php?page=events" id="events">événements</a>
     `
     let linkDisconnect = `
@@ -24,8 +24,7 @@ let switchConnexion = function (type, is_admin, email){
         <a href="index.php?page=admin" >Espace admin</a>
     `
     if (type === "connect") {
-        console.log("heheh")
-        billsRecup()
+       // billsRecup()
         if (document.querySelector("#mailContact"))
             document.querySelector("#mailContact").value = email
         if (is_admin === "1"){

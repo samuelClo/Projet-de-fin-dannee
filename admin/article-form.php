@@ -1,14 +1,13 @@
 <?php
-
 $destinationPicture = './../assets/file/article';
 
-if (isset($_FILES['picture']) && $_FILES['picture']['error'] === 0) {
+if (isset($_FILES['bill']) && $_FILES['bill']['error'] === 0) {
 
 
 
-    $allowed_extensions = array('png,jpg,gif');
+    $allowed_extensions = array('pdf');
 
-    $my_file_extension = pathinfo($_FILES['picture']['name'], PATHINFO_EXTENSION);
+    $my_file_extension = pathinfo($_FILES['bill']['name'], PATHINFO_EXTENSION);
 
 
     if (in_array($my_file_extension, $allowed_extensions)) {
@@ -16,9 +15,9 @@ if (isset($_FILES['picture']) && $_FILES['picture']['error'] === 0) {
         do {
             $new_file_name = time() . rand();
 
-            $picture = $new_file_name . '.' . $my_file_extension;
+            $bill = $new_file_name . '.' . $my_file_extension;
 
-            $destination =  $destinationPicture . $picture;
+            $destination =  $destinationPicture . $bill;
 
         } while (file_exists($destination));
 
@@ -29,7 +28,7 @@ if (isset($_FILES['picture']) && $_FILES['picture']['error'] === 0) {
 
 if (isset($_POST['save'])) {
     var_dump($_POST);
-    echo $picture;
+    echo $bill;
 
     $title = $_POST['title'];
     $description = $_POST['description'];
@@ -56,11 +55,11 @@ if (isset($_POST['save'])) {
 
 
         $query = $db->prepare('
-        INSERT INTO events
+        INSERT INTO articles
         (title, description, content, posted_at, is_published, title_picture)
         VALUES (?, ?, ?, ?, ?, ?)');
 
-        $newEvent = $query->execute(
+        $newarticle = $query->execute(
             [
                 htmlspecialchars($_POST['title']),
                 htmlspecialchars($_POST['description']),
@@ -74,18 +73,18 @@ if (isset($_POST['save'])) {
         move_uploaded_file($_FILES['title_picture']['tmp_name'], $destination);
 
         //redirection après enregistrement
-        //si $newevent alors l'enregistrement a fonctionné
+        //si $newarticle alors l'enregistrement a fonctionné
 
 
-        if ($newEvent) {
+        if ($newarticle) {
             //redirection après enregistrement
             echo "retrdyfugkjhlm,";
             $_POST = null;
-            // header('./index.php?page=event-form');
+            // header('./index.php?page=article-form');
 
             exit;
-        } else { //si pas $newevent => enregistrement échoué => générer un message pour l'administrateur à afficher plus bas
-            $message = "Impossible d'enregistrer le nouvel event...";
+        } else { //si pas $newarticle => enregistrement échoué => générer un message pour l'administrateur à afficher plus bas
+            $message = "Impossible d'enregistrer le nouvel article...";
         }
     }
 //    if (empty($_POST['content'])) {
@@ -93,21 +92,21 @@ if (isset($_POST['save'])) {
 //    }
 
 
-} else if (isset($_GET["event_id"], $_GET["action"]) && $_GET["action"] == "edit") {
+} else if (isset($_GET["article_id"], $_GET["action"]) && $_GET["action"] == "edit") {
 
-    $queryEvent = $db->prepare('SELECT * FROM events WHERE id = ?');
-    $selectEvent = $queryEvent->execute([$_GET["event_id"]]);
-    $event = $queryEvent->fetch();
+    $queryarticle = $db->prepare('SELECT * FROM articles WHERE id = ?');
+    $selectarticle = $queryarticle->execute([$_GET["article_id"]]);
+    $article = $queryarticle->fetch();
 
-    $title = $event['title'];
-    $description = $event['description'];
-    $content = $event['content'];
-    $postedAt = $event['posted_at'];
-    $isPublished = intval($event['is_published']);
+    $title = $article['title'];
+    $description = $article['description'];
+    $content = $article['content'];
+    $postedAt = $article['posted_at'];
+    $isPublished = intval($article['is_published']);
 
-    $image = $event['title_picture'];
+    $image = $article['title_picture'];
 
-   // echo $image;
+    // echo $image;
 
     if (isset($_POST['submit'])) {
 
@@ -145,7 +144,7 @@ if (isset($_POST['save'])) {
 
 
 
-            $query = $db->prepare('UPDATE events SET title = ?, description = ?,  content = ?, posted_at= ?, is_published= ?, title_picture= ? WHERE id = ? ');
+            $query = $db->prepare('UPDATE articles SET title = ?, description = ?,  content = ?, posted_at= ?, is_published= ?, title_picture= ? WHERE id = ? ');
             $result = $query->execute(
                 [
                     $_POST['title'],
@@ -154,7 +153,7 @@ if (isset($_POST['save'])) {
                     $_POST['posted_at'],
                     intval($_POST['is_published']),
                     $image,
-                    $_GET["event_id"]
+                    $_GET["article_id"]
                 ]
             );
             $msg = '<div class="bg-success text-white p-2 mb-4">Modification effectuer.</div>';
@@ -176,7 +175,7 @@ if (isset($_FILES['title_picture']) && $_FILES['title_picture']['error'] === 0) 
 
     <h4>
 
-        <?php if (isset($_GET["picture_id"], $_GET["action"]) && $_GET["action"] == "edit"): ?>
+        <?php if (isset($_GET["bill_id"], $_GET["action"]) && $_GET["action"] == "edit"): ?>
             <?php echo "Modifier une facture"; ?>
         <? else: echo "Ajouter une facture"; ?>
         <?php endif; ?>
@@ -191,9 +190,9 @@ if (isset($_FILES['title_picture']) && $_FILES['title_picture']['error'] === 0) 
     </div>
 <?php endif; ?>
 
-<form action="<?php if (isset($_GET["event_id"], $_GET["action"]) && $_GET["action"] == "edit") : ?>
-                         <?php echo './index.php?page=event-form&event_id=' . $_GET["event_id"] . '&action=edit'; ?>
-                          <?php else: ?>./index.php?page=event-form<?php endif; ?>"
+<form action="<?php if (isset($_GET["article_id"], $_GET["action"]) && $_GET["action"] == "edit") : ?>
+                         <?php echo './index.php?page=article-form&article_id=' . $_GET["article_id"] . '&action=edit'; ?>
+                          <?php else: ?>./index.php?page=article-form<?php endif; ?>"
       method="post" enctype="multipart/form-data">
 
     <div class="form-group">
@@ -258,7 +257,7 @@ if (isset($_FILES['title_picture']) && $_FILES['title_picture']['error'] === 0) 
 
 
     <div class="text-right">
-        <?php if (isset($_GET["event_id"], $_GET["action"]) && $_GET["action"] == "edit") : ?>
+        <?php if (isset($_GET["article_id"], $_GET["action"]) && $_GET["action"] == "edit") : ?>
             <input class="btn btn-success" type="submit" name="submit" value="Changer l'événement"/>
         <?php else: ?>
             <input class="btn btn-success" type="submit" name="save" value="Enregistrer"/>
@@ -267,5 +266,6 @@ if (isset($_FILES['title_picture']) && $_FILES['title_picture']['error'] === 0) 
 
     </div>
 </form>
+
 
 
