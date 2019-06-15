@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:3306
--- Généré le :  mer. 12 juin 2019 à 19:56
+-- Généré le :  sam. 15 juin 2019 à 13:44
 -- Version du serveur :  5.7.25
 -- Version de PHP :  7.3.1
 
@@ -33,6 +33,20 @@ CREATE TABLE `article` (
   `content` longtext NOT NULL,
   `published_at` date NOT NULL,
   `is_published` int(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `article_media`
+--
+
+CREATE TABLE `article_media` (
+  `id` int(11) NOT NULL,
+  `priority` int(5) NOT NULL,
+  `picture` varchar(255) NOT NULL,
+  `article_id` int(255) NOT NULL,
+  `youtube_link` text
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -130,19 +144,6 @@ INSERT INTO `message` (`id`, `email`, `content`, `test_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `pict_article`
---
-
-CREATE TABLE `pict_article` (
-  `id` int(11) NOT NULL,
-  `priority` int(5) NOT NULL,
-  `picture` varchar(255) NOT NULL,
-  `article_id` int(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
 -- Structure de la table `sectors`
 --
 
@@ -226,6 +227,12 @@ ALTER TABLE `article`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Index pour la table `article_media`
+--
+ALTER TABLE `article_media`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Index pour la table `bills`
 --
 ALTER TABLE `bills`
@@ -241,12 +248,6 @@ ALTER TABLE `events`
 -- Index pour la table `message`
 --
 ALTER TABLE `message`
-  ADD PRIMARY KEY (`id`);
-
---
--- Index pour la table `pict_article`
---
-ALTER TABLE `pict_article`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -278,6 +279,12 @@ ALTER TABLE `article`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT pour la table `article_media`
+--
+ALTER TABLE `article_media`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT pour la table `bills`
 --
 ALTER TABLE `bills`
@@ -294,12 +301,6 @@ ALTER TABLE `events`
 --
 ALTER TABLE `message`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=95;
-
---
--- AUTO_INCREMENT pour la table `pict_article`
---
-ALTER TABLE `pict_article`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `sectors`
