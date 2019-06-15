@@ -43,8 +43,8 @@ $query = $db->query('
 
 SELECT a.* FROM article a
  
- JOIN pict_article pc
- ON a.id = pc.article_id
+ JOIN article_media am
+ ON a.id = am.article_id
  ORDER BY id DESC');
 $articles = $query->fetchall();
 

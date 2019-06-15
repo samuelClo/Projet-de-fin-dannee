@@ -1,13 +1,13 @@
 <?php
 $destinationPicture = './../assets/file/article';
 
-if (isset($_FILES['bill']) && $_FILES['bill']['error'] === 0) {
+if (isset($_FILES['article']) && $_FILES['article']['error'] === 0) {
 
 
 
     $allowed_extensions = array('pdf');
 
-    $my_file_extension = pathinfo($_FILES['bill']['name'], PATHINFO_EXTENSION);
+    $my_file_extension = pathinfo($_FILES['article']['name'], PATHINFO_EXTENSION);
 
 
     if (in_array($my_file_extension, $allowed_extensions)) {
@@ -15,9 +15,9 @@ if (isset($_FILES['bill']) && $_FILES['bill']['error'] === 0) {
         do {
             $new_file_name = time() . rand();
 
-            $bill = $new_file_name . '.' . $my_file_extension;
+            $article = $new_file_name . '.' . $my_file_extension;
 
-            $destination =  $destinationPicture . $bill;
+            $destination =  $destinationPicture . $article;
 
         } while (file_exists($destination));
 
@@ -28,20 +28,20 @@ if (isset($_FILES['bill']) && $_FILES['bill']['error'] === 0) {
 
 if (isset($_POST['save'])) {
     var_dump($_POST);
-    echo $bill;
+    echo $article;
 
     $title = $_POST['title'];
     $description = $_POST['description'];
     $content = $_POST['content'];
-    $postedAt = $_POST['posted_at'];
+    $publishedAt = $_POST['published_at'];
     $is_published = intval($_POST['is_published']);
 
 
     if (empty($_POST['title'])) {
         $messages['title'] = 'le nom est obligatoire';
     }
-    if (empty($_POST['posted_at'])) {
-        $messages['posted_at'] = 'la date de publication est obligatoire';
+    if (empty($_POST['published_at'])) {
+        $messages['published_at'] = 'la date de publication est obligatoire';
     }
     if (empty($_POST['content'])) {
         $messages['content'] = 'le contenu de l\'événement est obligatoire';
@@ -55,8 +55,8 @@ if (isset($_POST['save'])) {
 
 
         $query = $db->prepare('
-        INSERT INTO articles
-        (title, description, content, posted_at, is_published, title_picture)
+        INSERT INTO article
+        (title, description, content, published_at, is_published, title_picture)
         VALUES (?, ?, ?, ?, ?, ?)');
 
         $newarticle = $query->execute(
@@ -64,7 +64,7 @@ if (isset($_POST['save'])) {
                 htmlspecialchars($_POST['title']),
                 htmlspecialchars($_POST['description']),
                 htmlspecialchars($_POST['content']),
-                htmlspecialchars($_POST['posted_at']),
+                htmlspecialchars($_POST['published_at']),
                 ctype_digit($_POST['is_published']),
                 $titlePicture
             ]
@@ -101,7 +101,7 @@ if (isset($_POST['save'])) {
     $title = $article['title'];
     $description = $article['description'];
     $content = $article['content'];
-    $postedAt = $article['posted_at'];
+    $publishedAt = $article['published_at'];
     $isPublished = intval($article['is_published']);
 
     $image = $article['title_picture'];
@@ -115,7 +115,7 @@ if (isset($_POST['save'])) {
         $title = $_POST['title'];
         $description = $_POST['description'];
         $content = $_POST['content'];
-        $postedAt = $_POST['posted_at'];
+        $publishedAt = $_POST['published_at'];
         $is_published = intval($_POST['is_published']);
 
 
@@ -123,8 +123,8 @@ if (isset($_POST['save'])) {
         if (empty($_POST['title'])) {
             $messages['title'] = 'le nom est obligatoire';
         }
-        if (empty($_POST['posted_at'])) {
-            $messages['posted_at'] = 'la date de publication est obligatoire';
+        if (empty($_POST['published_at'])) {
+            $messages['published_at'] = 'la date de publication est obligatoire';
         }
         if (empty($_POST['content'])) {
             $messages['content'] = 'le contenu de l\'événement est obligatoire';
@@ -144,13 +144,13 @@ if (isset($_POST['save'])) {
 
 
 
-            $query = $db->prepare('UPDATE articles SET title = ?, description = ?,  content = ?, posted_at= ?, is_published= ?, title_picture= ? WHERE id = ? ');
+            $query = $db->prepare('UPDATE articles SET title = ?, description = ?,  content = ?, published_at= ?, is_published= ?, title_picture= ? WHERE id = ? ');
             $result = $query->execute(
                 [
                     $_POST['title'],
                     $_POST['description'],
                     $_POST['content'],
-                    $_POST['posted_at'],
+                    $_POST['published_at'],
                     intval($_POST['is_published']),
                     $image,
                     $_GET["article_id"]
@@ -175,9 +175,9 @@ if (isset($_FILES['title_picture']) && $_FILES['title_picture']['error'] === 0) 
 
     <h4>
 
-        <?php if (isset($_GET["bill_id"], $_GET["action"]) && $_GET["action"] == "edit"): ?>
-            <?php echo "Modifier une facture"; ?>
-        <? else: echo "Ajouter une facture"; ?>
+        <?php if (isset($_GET["article_id"], $_GET["action"]) && $_GET["action"] == "edit"): ?>
+            <?php echo "Modifier une article"; ?>
+        <? else: echo "Ajouter une article"; ?>
         <?php endif; ?>
 
 
@@ -216,16 +216,12 @@ if (isset($_FILES['title_picture']) && $_FILES['title_picture']['error'] === 0) 
 
     <div class="form-group">
         <label for="published_at">Date de publication :</label>
-        <input class="form-control" type="date" placeholder="" name="posted_at" id="posted_at"
-               value="<?php if (isset($postedAt)) : ?><?= $postedAt; ?><?php endif; ?>"/>
-        <?php if (!empty($messages['posted_at'])) : ?>
-            <?= $messages['posted_at']; ?>
+        <input class="form-control" type="date" placeholder="" name="published_at" id="published_at"
+               value="<?php if (isset($publishedAt)) : ?><?= $publishedAt; ?><?php endif; ?>"/>
+        <?php if (!empty($messages['published_at'])) : ?>
+            <?= $messages['published_at']; ?>
         <?php endif; ?>
     </div>
-
-    <?php if (!empty($messages['category_id'])) : ?>
-        <?= $messages['category_id']; ?>
-    <?php endif; ?>
 
     <div class="form-group">
         <label for="image">Image :</label>
@@ -243,15 +239,12 @@ if (isset($_FILES['title_picture']) && $_FILES['title_picture']['error'] === 0) 
     <div class="form-group">
         <label for="is_published"> Publié ?</label>
         <select class="form-control" name="is_published" id="is_published">
-
             <option value="0" <?php if (isset($is_published) && $is_published == 0): ?><?php echo 'selected' ?><?php endif ?> >
                 Non
             </option>
             <option value="1" <?php if (isset($is_published) && $is_published == 1): ?><?php echo 'selected' ?><?php endif ?> >
                 Oui
             </option>
-
-
         </select>
     </div>
 

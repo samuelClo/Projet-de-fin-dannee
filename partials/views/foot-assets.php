@@ -1,14 +1,17 @@
 
-<script type="text/javascript" src="./assets/js/tools/useful.js"></script>
+<!--<script type="text/javascript" src="./assets/js/tools/useful.js"></script>-->
+<!---->
+<!--<script type="text/javascript" src="./assets/js/tools/connexion.js"></script>-->
+<!--<script type="text/javascript" src="./assets/js/tools/modal/modal.js"></script>-->
+<!---->
+<!---->
+<!--<script type="text/javascript" src="./assets/js/tools/switchConnection.js"></script>-->
+<!--<script type="text/javascript" src="./assets/js/tools/noty.min.js"></script>-->
+<!---->
+<!--<script src="./assets/js/main.js" type="text/javascript"></script>-->
 
-<script type="text/javascript" src="./assets/js/tools/connexion.js"></script>
-<script type="text/javascript" src="./assets/js/tools/modal/modal.js"></script>
 
-
-<script type="text/javascript" src="./assets/js/tools/switchConnection.js"></script>
-<script type="text/javascript" src="./assets/js/tools/noty.min.js"></script>
-
-<script src="./assets/js/main.js" type="text/javascript"></script>
+<script type="text/javascript"  src="./assets/js/all-js.php"></script>
 
 <script>
 //    /** @constructor */
