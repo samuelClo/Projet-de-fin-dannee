@@ -31,12 +31,15 @@ let createEvent = function (array) {
         eventBox.innerHTML = `
             <div class="eventPicture" style="background-image:url('./assets/pictures/events/${element.title_picture}');"></div>
             <div class="eventContent">
-                <h6> ${element.title} </h6>
+                <div>
+                    <h3> ${element.title} </h3>
+                </div>
+ 
                 <p> ${element.description} </p>
+                <a href="index.php?page=event&eventId=${element.id}">Lire plus</a>
             </div>`
 
         allEventBox.appendChild(eventBox)
-
 
     })
 }

@@ -332,59 +332,62 @@ footer {
     background: rgba(0, 0, 0, 0.4); }
   to {
     background: rgba(0, 0, 0, 0); } }
+h1, .eventBox {
+  margin-bottom: 8rem; }
+
 .eventBox {
   display: flex;
-  border-radius: 0.8rem;
-  background: #0b9444;
-  margin: 0 1rem 3rem 0; }
-  .eventBox:after {
-    height: 2px;
-    width: 80%;
-    background-color: #fff;
-    margin: 1rem 0;
-    position: absolute;
-    bottom: 0; }
-  .eventBox .eventPicture, .eventBox .eventContent {
-    width: 50%; }
+  flex: 1 1;
+  justify-content: space-around;
+  align-items: center; }
   .eventBox .eventPicture {
-    border-top-left-radius: 0.8rem;
-    border-bottom-left-radius: 0.8rem;
-    background-position: center;
-    background-size: cover; }
-  .eventBox .eventContent {
-    padding: 0.6rem 2.6rem;
+    object-fit: contain;
+    max-height: 40vh;
+    flex-grow: 1; }
+  .eventBox .eventText {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    width: 50%;
     display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 0.6rem 2.6rem; }
+    .eventBox .eventText span {
+      position: absolute;
+      bottom: 1rem;
+      right: 1rem; }
+
+.allEventPictureBox {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around; }
+  .allEventPictureBox .allEventPicture {
+    margin-bottom: 10rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    width: 27%; }
+    .allEventPictureBox .allEventPicture:hover {
+      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }
+    .allEventPictureBox .allEventPicture div {
+      width: 100%;
+      height: 25vh;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat; }
+
+@media all and (max-width: 750px) {
+  .eventBox {
     flex-direction: column; }
-    .eventBox .eventContent h3 {
-      background-color: #0b9444;
-      padding: 0 1rem;
-      text-align: center;
-      display: inline-block;
-      position: relative;
-      z-index: 1; }
-    .eventBox .eventContent div {
-      display: flex;
-      justify-content: center;
-      position: relative; }
-      .eventBox .eventContent div::after {
-        content: " ";
-        background-color: #fff;
-        position: absolute;
-        top: 50%;
-        right: 0;
-        height: .5rem;
-        width: 100%; }
-    .eventBox .eventContent p {
-      text-align: center;
-      margin: unset; }
-    .eventBox .eventContent a {
-      align-self: flex-end;
-      color: white;
-      font-size: 1.5rem; }
+    .eventBox .eventPicture {
+      margin-bottom: 5rem; }
+    .eventBox .eventText {
+      width: 100%; }
 
-#eventsContain {
-  display: flex; }
-  #eventsContain #allEventBox {
-    width: 80%; }
+  .allEventPictureBox {
+    flex-direction: column; }
+    .allEventPictureBox .allEventPicture {
+      width: 100%; }
+      .allEventPictureBox .allEventPicture div {
+        height: 40vh; } }
 
-/*# sourceMappingURL=events.css.map */
+/*# sourceMappingURL=event.css.map */

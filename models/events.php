@@ -7,7 +7,7 @@ function getEventlist($time = NULL, $selectAll = NULL)
     $array = [];
 
 
-    $queryString = 'SELECT title,description,content,title_picture,secondary_picture FROM events WHERE is_published = 1 AND posted_at  <= NOW()';
+    $queryString = 'SELECT * FROM events WHERE is_published = 1 AND posted_at  <= NOW()';
     $queryParameters = [];
 
     if ($selectAll) {
@@ -27,6 +27,7 @@ function getEventlist($time = NULL, $selectAll = NULL)
     for ($i = 0; $i < sizeof($eventList); $i++) {
 
         $array[$i] = [
+            "id" => $eventList[$i]['id'],
             "title" => $eventList[$i]['title'],
             "description" => $eventList[$i]['description'],
             "content" => $eventList[$i]['content'],

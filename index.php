@@ -47,11 +47,17 @@ if (isset($_GET['action'])) {
             case 'events':
                 require('./controllers/events.php');
                 break;
+            case 'event':
+                require('./controllers/event.php');
+                break;
             case 'contact':
                 require('./controllers/contact.php');
                 break;
             case 'bills':
                 require ('./controllers/bills.php');
+                break;
+            case 'services':
+                require ('./controllers/services.php');
                 break;
         }
 

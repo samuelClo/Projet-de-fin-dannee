@@ -332,59 +332,34 @@ footer {
     background: rgba(0, 0, 0, 0.4); }
   to {
     background: rgba(0, 0, 0, 0); } }
-.eventBox {
+main {
   display: flex;
-  border-radius: 0.8rem;
-  background: #0b9444;
-  margin: 0 1rem 3rem 0; }
-  .eventBox:after {
-    height: 2px;
-    width: 80%;
-    background-color: #fff;
-    margin: 1rem 0;
-    position: absolute;
-    bottom: 0; }
-  .eventBox .eventPicture, .eventBox .eventContent {
-    width: 50%; }
-  .eventBox .eventPicture {
-    border-top-left-radius: 0.8rem;
-    border-bottom-left-radius: 0.8rem;
-    background-position: center;
-    background-size: cover; }
-  .eventBox .eventContent {
-    padding: 0.6rem 2.6rem;
+  flex-direction: column;
+  align-items: center; }
+  main p {
+    width: 50vw;
+    margin: 20rem; }
+  main img {
+    height: 30vh; }
+  main .servicesBox {
     display: flex;
-    flex-direction: column; }
-    .eventBox .eventContent h3 {
-      background-color: #0b9444;
-      padding: 0 1rem;
-      text-align: center;
-      display: inline-block;
-      position: relative;
-      z-index: 1; }
-    .eventBox .eventContent div {
-      display: flex;
-      justify-content: center;
-      position: relative; }
-      .eventBox .eventContent div::after {
-        content: " ";
-        background-color: #fff;
-        position: absolute;
-        top: 50%;
-        right: 0;
-        height: .5rem;
-        width: 100%; }
-    .eventBox .eventContent p {
-      text-align: center;
-      margin: unset; }
-    .eventBox .eventContent a {
-      align-self: flex-end;
-      color: white;
-      font-size: 1.5rem; }
+    align-items: center;
+    position: relative;
+    flex-wrap: wrap; }
+    main .servicesBox:not(:last-child)::after {
+      content: "";
+      height: .5rem;
+      width: 50%;
+      background-color: grey;
+      margin: 6rem auto; }
+    main .servicesBox h3 {
+      margin-top: unset; }
+    main .servicesBox img {
+      height: auto;
+      width: 50%; }
+    main .servicesBox div {
+      width: 50%; }
+    main .servicesBox:nth-child(2n) {
+      flex-direction: row-reverse; }
 
-#eventsContain {
-  display: flex; }
-  #eventsContain #allEventBox {
-    width: 80%; }
-
-/*# sourceMappingURL=events.css.map */
+/*# sourceMappingURL=services.css.map */

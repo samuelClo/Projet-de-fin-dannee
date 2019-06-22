@@ -4,7 +4,7 @@ let switchConnexion = function (type, is_admin, email){
     let headSmartphone = document.querySelector('.navSmartphone[data-size="smartphone"] nav')
 
     let linkAllMenu = `
-        <a href="#" id="services">services</a>
+        <a href="index.php?page=services" id="services">services</a>
         <a href="#" id="information">informations</a>
         <a href="index.php?page=contact" id="contact">contact</a>
         <a href="index.php?page=events" id="events">événements</a>

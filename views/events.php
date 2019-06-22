@@ -5,7 +5,6 @@
         <div id="allEventBox"></div>
         <div id="cuppaDatePicker"></div>
     </div>
-
 </main>
 
 

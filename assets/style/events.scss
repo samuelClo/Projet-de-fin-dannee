@@ -2,7 +2,8 @@
 .eventBox{
   display: flex;
   border-radius: $border-radius;
-  background: $main-color-gradient;
+  background: $main-color;
+  margin: 0 1rem 3rem 0;
 
   &:after{
     height: 2px;
@@ -27,28 +28,42 @@
     padding: $padding-box;
     display: flex;
     flex-direction: column;
-    justify-content:center ;
-    h6{
+    h3 {
+      background-color: $main-color;
+      padding: 0 1rem;
       text-align: center;
       display: inline-block;
       position: relative;
-      &::after, &::before{
+      z-index: 1;
+    }
+    div {
+      display: flex;
+      justify-content: center;
+      position: relative;
+      &::after{
         content: " ";
         background-color: #fff;
         position: absolute;
         top: 50%;
-        height: .5rem;
-        width:5%;
-      }
-      &::after{
-        left: 0;
-      }
-      &::before{
         right: 0;
+        height: .5rem;
+        width:100%;
       }
     }
+    p{
+      text-align : center;
+      margin: unset;
+    }
+    a{
+      align-self : flex-end;
+      color: white;
+      font-size: 1.5rem;
+    }
+
+    }
   }
-}
+
+
 
 #eventsContain{
 display: flex;

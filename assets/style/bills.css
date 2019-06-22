@@ -37,44 +37,49 @@
 html {
   font-size: 62.5%; }
 
-body {
+body, pre {
   font-family: "Segoe UI", Arial, sans-serif;
   color: #111111;
   font-size: 2.8rem;
   box-sizing: border-box; }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: "Raleway", Arial, sans-serif; }
-
 h1, h2, h3 {
   text-align: center; }
 
 h1 {
-  font-size: 5.5rem; }
+  font-family: "Raleway", Arial, sans-serif;
+  font-size: 6.5rem; }
 
 h2 {
-  font-size: 4.5rem; }
+  font-family: "Raleway", Arial, sans-serif;
+  font-size: 5.5rem; }
 
 h3 {
-  font-size: 3.5rem; }
+  font-family: "Raleway", Arial, sans-serif;
+  font-size: 4.5rem; }
 
 h4 {
-  font-size: 2.5rem; }
+  font-family: "Raleway", Arial, sans-serif;
+  font-size: 3.5rem; }
 
 h5 {
-  font-size: 1.5rem; }
+  font-family: "Raleway", Arial, sans-serif;
+  font-size: 2.5rem; }
 
 h6 {
-  font-size: 0.5rem; }
+  font-family: "Raleway", Arial, sans-serif;
+  font-size: 1.5rem; }
 
 p {
-  line-height: 4rem;
-  text-align: justify;
-  font-size: 2.2rem; }
+  line-height: 6rem;
+  text-align: justify; }
+  p::first-letter {
+    text-transform: uppercase; }
 
 main {
   padding: 3rem;
-  background: #EEEEEE; }
+  background: #EEEEEE;
+  position: relative; }
 
 input, textarea {
   outline: unset; }
@@ -83,6 +88,13 @@ a:link {
   text-decoration: unset;
   color: unset;
   text-transform: uppercase; }
+
+.backPrev i {
+  color: #0b9444;
+  font-size: 5rem;
+  position: absolute;
+  top: 12rem;
+  left: 3rem; }
 
 header {
   position: sticky;
@@ -106,7 +118,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    font-size: 2.4rem;
+    font-size: 2 srem;
     padding: 2.5rem 0;
     color: #ffffff; }
 
@@ -151,44 +163,6 @@ footer {
   footer #map {
     left: 4.4vw; }
 
-@media all and (max-width: 1400px) {
-  html {
-    font-size: 8px; } }
-@media all and (max-width: 1200px) {
-  html {
-    font-size: 7px; } }
-@media all and (max-width: 900px) and (min-width: 750px) {
-  html {
-    font-size: 6.5px; }
-
-  header {
-    justify-content: flex-end; }
-    header nav {
-      width: 80%;
-      transform: translateX(-4.5vw); }
-    header img {
-      width: 13rem; } }
-@media all and (max-width: 750px) {
-  .navsmartphone[data-size=smartphone] span {
-    font-size: 4rem;
-    color: white;
-    position: absolute;
-    top: 2rem;
-    right: 2rem; }
-
-  main {
-    padding: 3%; }
-
-  header[data-size=desktop] {
-    display: none; }
-
-  header[data-size=smartphone] {
-    display: flex; }
-    header[data-size=smartphone] nav {
-      width: 100%;
-      padding: 2.5rem 2.5rem;
-      font-size: 3rem;
-      justify-content: space-between; } }
 .navSmartphone {
   display: none;
   flex-direction: column;
@@ -236,9 +210,42 @@ footer {
   /* décalage de 50% de sa propre taille */
   width: 1000px; }
 
+@media all and (max-width: 1600px) {
+  html {
+    font-size: 40%; } }
+@media all and (max-width: 1200px) {
+  html {
+    font-size: 30%; } }
 @media all and (max-width: 870px) {
+  html {
+    font-size: 25%; }
+
   .pdfobject-container {
     width: 95vw; } }
+@media all and (max-width: 750px) {
+  html {
+    font-size: 50%; }
+
+  .navsmartphone[data-size=smartphone] span {
+    font-size: 4rem;
+    color: white;
+    position: absolute;
+    top: 2rem;
+    right: 2rem; }
+
+  main {
+    padding: 3%; }
+
+  header[data-size=desktop] {
+    display: none; }
+
+  header[data-size=smartphone] {
+    display: flex; }
+    header[data-size=smartphone] nav {
+      width: 100%;
+      padding: 2.5rem 2.5rem;
+      font-size: 3rem;
+      justify-content: space-between; } }
 .modal {
   position: fixed;
   z-index: 3;
@@ -281,12 +288,12 @@ footer {
     text-transform: uppercase; }
 
 .modal-body {
-  padding: 0.2rem 1.6rem;
+  padding: 0.6rem 2.6rem;
   display: flex;
   flex-direction: column; }
 
 .modal-footer {
-  padding: 0.2rem 1.6rem;
+  padding: 0.6rem 2.6rem;
   color: white;
   text-align: right; }
 

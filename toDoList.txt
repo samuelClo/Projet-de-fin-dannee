@@ -19,3 +19,5 @@
 -clean le systeme de fermeture des bills
 -facture supprimer dernier border bottom
 
+-securiser url, et quand truc pas trouver , rediriger page 404
+

@@ -1,5 +1,5 @@
 <?php
-$title = "Evénement";
+$title = "Tous les evénement";
 $style = '
 <link rel="stylesheet" type="text/css" href="./assets/style/events.css">
 <link rel="stylesheet" type="text/css" href="./assets/style/date-picker/cuppa-datepicker-styles.css">
