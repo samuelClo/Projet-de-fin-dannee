@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:3306
--- Généré le :  sam. 15 juin 2019 à 13:44
+-- Généré le :  sam. 22 juin 2019 à 10:03
 -- Version du serveur :  5.7.25
 -- Version de PHP :  7.3.1
 
@@ -104,7 +104,7 @@ CREATE TABLE `events` (
 INSERT INTO `events` (`id`, `title`, `description`, `content`, `title_picture`, `secondary_picture`, `posted_at`, `is_published`) VALUES
 (37, 'sdfsfdf', 'sdfdsfsd', 'sdfsdfsdf', '15583498251311307060.jpg', NULL, '2019-05-19', 1),
 (36, 'dsfvdfv', '       fdvvdfv       ', 'vdfvdfv', '15580469981533302465.jpg', NULL, '2019-05-19', 1),
-(38, 'dsfds', 'sdfsdf', 'sfdfsdf', '1558363509878232424.jpg', NULL, '2019-05-11', 1);
+(38, 'dsfds', '  sdfsdf  ', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab assumenda autem dolores ea eligendi excepturi perspiciatis unde. Debitis deserunt earum enim error laudantium mollitia, obcaecati omnis qui quis quisquam voluptas.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab assumenda autem dolores ea eligendi excepturi perspiciatis unde. Debitis deserunt earum enim error laudantium mollitia, obcaecati omnis qui quis quisquam voluptas.', '1558363509878232424.jpg', NULL, '2019-05-11', 1);
 
 -- --------------------------------------------------------
 
@@ -139,7 +139,11 @@ INSERT INTO `message` (`id`, `email`, `content`, `test_id`) VALUES
 (78, 'sam@sam.fr', 'fsdfsdfsdfsdfsddf', 13),
 (77, 'sam@sam.fr', 'fsdfsdfsdfsdfsddf', 13),
 (93, 'dfgdfgdf@gdfgdfg.fr', 'dfgdfgdfg', 1),
-(94, 'ihjoij@kjnljn.fr', 'k', 2);
+(94, 'ihjoij@kjnljn.fr', 'k', 2),
+(95, 'sam@sam.fr', 'sqsdqsd', 2),
+(96, 'sam@sam.fr', 'sefsdfsd', 2),
+(97, 'sam@sam.fr', 'sefsdfsd', 2),
+(98, 'sam@sam.fr', 'sefsdfsd', 2);
 
 -- --------------------------------------------------------
 
@@ -300,7 +304,7 @@ ALTER TABLE `events`
 -- AUTO_INCREMENT pour la table `message`
 --
 ALTER TABLE `message`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=95;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=99;
 
 --
 -- AUTO_INCREMENT pour la table `sectors`
