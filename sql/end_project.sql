@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 4.8.4
 -- https://www.phpmyadmin.net/
 --
--- Hôte : localhost:3306
--- Généré le :  sam. 22 juin 2019 à 10:03
--- Version du serveur :  5.7.25
--- Version de PHP :  7.3.1
+-- Hôte : 127.0.0.1:3306
+-- Généré le :  Dim 23 juin 2019 à 20:25
+-- Version du serveur :  5.7.24
+-- Version de PHP :  7.2.14
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -26,7 +28,8 @@ SET time_zone = "+00:00";
 -- Structure de la table `article`
 --
 
-CREATE TABLE `article` (
+DROP TABLE IF EXISTS `article`;
+CREATE TABLE IF NOT EXISTS `article` (
   `id` int(11) NOT NULL,
   `title` varchar(255) NOT NULL,
   `description` text NOT NULL,
@@ -41,7 +44,8 @@ CREATE TABLE `article` (
 -- Structure de la table `article_media`
 --
 
-CREATE TABLE `article_media` (
+DROP TABLE IF EXISTS `article_media`;
+CREATE TABLE IF NOT EXISTS `article_media` (
   `id` int(11) NOT NULL,
   `priority` int(5) NOT NULL,
   `picture` varchar(255) NOT NULL,
@@ -55,15 +59,17 @@ CREATE TABLE `article_media` (
 -- Structure de la table `bills`
 --
 
-CREATE TABLE `bills` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `bills`;
+CREATE TABLE IF NOT EXISTS `bills` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `price` varchar(255) NOT NULL,
   `date` date NOT NULL,
   `services` varchar(255) NOT NULL,
   `name` varchar(255) NOT NULL,
   `file` text NOT NULL,
-  `user_id` int(255) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+  `user_id` int(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `bills`
@@ -86,16 +92,18 @@ INSERT INTO `bills` (`id`, `price`, `date`, `services`, `name`, `file`, `user_id
 -- Structure de la table `events`
 --
 
-CREATE TABLE `events` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `events`;
+CREATE TABLE IF NOT EXISTS `events` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(255) DEFAULT NULL,
   `description` text,
   `content` longtext NOT NULL,
   `title_picture` varchar(255) NOT NULL,
   `secondary_picture` varchar(255) DEFAULT NULL,
   `posted_at` date DEFAULT NULL,
-  `is_published` tinyint(1) NOT NULL DEFAULT '1'
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+  `is_published` tinyint(1) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=39 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `events`
@@ -104,7 +112,36 @@ CREATE TABLE `events` (
 INSERT INTO `events` (`id`, `title`, `description`, `content`, `title_picture`, `secondary_picture`, `posted_at`, `is_published`) VALUES
 (37, 'sdfsfdf', 'sdfdsfsd', 'sdfsdfsdf', '15583498251311307060.jpg', NULL, '2019-05-19', 1),
 (36, 'dsfvdfv', '       fdvvdfv       ', 'vdfvdfv', '15580469981533302465.jpg', NULL, '2019-05-19', 1),
-(38, 'dsfds', '  sdfsdf  ', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab assumenda autem dolores ea eligendi excepturi perspiciatis unde. Debitis deserunt earum enim error laudantium mollitia, obcaecati omnis qui quis quisquam voluptas.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab assumenda autem dolores ea eligendi excepturi perspiciatis unde. Debitis deserunt earum enim error laudantium mollitia, obcaecati omnis qui quis quisquam voluptas.', '1558363509878232424.jpg', NULL, '2019-05-11', 1);
+(38, 'dsfds', 'sdfsdf', 'sfdfsdf', '1558363509878232424.jpg', NULL, '2019-05-11', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `faq`
+--
+
+DROP TABLE IF EXISTS `faq`;
+CREATE TABLE IF NOT EXISTS `faq` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `question` tinytext NOT NULL,
+  `answer` text NOT NULL,
+  `sector_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `faq`
+--
+
+INSERT INTO `faq` (`id`, `question`, `answer`, `sector_id`) VALUES
+(1, 'hey ?', 'oui', 2),
+(2, 'hey ?', 'oui', 2),
+(3, 'dfgd', 'fgdfgdfg', 2),
+(4, 'dfgd', 'fgdfgdfg', 2),
+(5, 'dfgd', 'fgdfgdfg', 2),
+(6, 'dfgd', 'fgdfgdfg', 2),
+(7, 'dfgd', 'fgdfgdfg', 2),
+(8, 'dfgdgf', 'dgdfg', 1);
 
 -- --------------------------------------------------------
 
@@ -112,12 +149,14 @@ INSERT INTO `events` (`id`, `title`, `description`, `content`, `title_picture`, 
 -- Structure de la table `message`
 --
 
-CREATE TABLE `message` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `message`;
+CREATE TABLE IF NOT EXISTS `message` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `email` text NOT NULL,
   `content` longtext NOT NULL,
-  `test_id` int(11) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+  `test_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=95 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `message`
@@ -139,11 +178,7 @@ INSERT INTO `message` (`id`, `email`, `content`, `test_id`) VALUES
 (78, 'sam@sam.fr', 'fsdfsdfsdfsdfsddf', 13),
 (77, 'sam@sam.fr', 'fsdfsdfsdfsdfsddf', 13),
 (93, 'dfgdfgdf@gdfgdfg.fr', 'dfgdfgdfg', 1),
-(94, 'ihjoij@kjnljn.fr', 'k', 2),
-(95, 'sam@sam.fr', 'sqsdqsd', 2),
-(96, 'sam@sam.fr', 'sefsdfsd', 2),
-(97, 'sam@sam.fr', 'sefsdfsd', 2),
-(98, 'sam@sam.fr', 'sefsdfsd', 2);
+(94, 'sam@sam.fr', 'hjgjhgjgjgj', 8);
 
 -- --------------------------------------------------------
 
@@ -151,10 +186,12 @@ INSERT INTO `message` (`id`, `email`, `content`, `test_id`) VALUES
 -- Structure de la table `sectors`
 --
 
-CREATE TABLE `sectors` (
-  `id` int(11) NOT NULL,
-  `name` varchar(255) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+DROP TABLE IF EXISTS `sectors`;
+CREATE TABLE IF NOT EXISTS `sectors` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `sectors`
@@ -173,11 +210,13 @@ INSERT INTO `sectors` (`id`, `name`) VALUES
 -- Structure de la table `test`
 --
 
-CREATE TABLE `test` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `test`;
+CREATE TABLE IF NOT EXISTS `test` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `sector_id` int(11) NOT NULL,
-  `name` varchar(255) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+  `name` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `test`
@@ -205,12 +244,14 @@ INSERT INTO `test` (`id`, `sector_id`, `name`) VALUES
 -- Structure de la table `user`
 --
 
-CREATE TABLE `user` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `user`;
+CREATE TABLE IF NOT EXISTS `user` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `email` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `is_admin` tinyint(1) NOT NULL DEFAULT '0'
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+  `is_admin` tinyint(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `user`
@@ -218,111 +259,9 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id`, `email`, `password`, `is_admin`) VALUES
 (1, 'sam@sam.fr', '25f9e794323b453885f5181f1b624d0b', 1),
-(2, 'sam@sam', '25f9e794323b453885f5181f1b624d0b', 0);
-
---
--- Index pour les tables déchargées
---
-
---
--- Index pour la table `article`
---
-ALTER TABLE `article`
-  ADD PRIMARY KEY (`id`);
-
---
--- Index pour la table `article_media`
---
-ALTER TABLE `article_media`
-  ADD PRIMARY KEY (`id`);
-
---
--- Index pour la table `bills`
---
-ALTER TABLE `bills`
-  ADD PRIMARY KEY (`id`);
-
---
--- Index pour la table `events`
---
-ALTER TABLE `events`
-  ADD PRIMARY KEY (`id`);
-
---
--- Index pour la table `message`
---
-ALTER TABLE `message`
-  ADD PRIMARY KEY (`id`);
-
---
--- Index pour la table `sectors`
---
-ALTER TABLE `sectors`
-  ADD PRIMARY KEY (`id`);
-
---
--- Index pour la table `test`
---
-ALTER TABLE `test`
-  ADD PRIMARY KEY (`id`);
-
---
--- Index pour la table `user`
---
-ALTER TABLE `user`
-  ADD PRIMARY KEY (`id`);
-
---
--- AUTO_INCREMENT pour les tables déchargées
---
-
---
--- AUTO_INCREMENT pour la table `article`
---
-ALTER TABLE `article`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT pour la table `article_media`
---
-ALTER TABLE `article_media`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT pour la table `bills`
---
-ALTER TABLE `bills`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
-
---
--- AUTO_INCREMENT pour la table `events`
---
-ALTER TABLE `events`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
-
---
--- AUTO_INCREMENT pour la table `message`
---
-ALTER TABLE `message`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=99;
-
---
--- AUTO_INCREMENT pour la table `sectors`
---
-ALTER TABLE `sectors`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
---
--- AUTO_INCREMENT pour la table `test`
---
-ALTER TABLE `test`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
-
---
--- AUTO_INCREMENT pour la table `user`
---
-ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+(2, 'sam@sam', '25f9e794323b453885f5181f1b624d0b', 0),
+(24, 'samuel.cloarec@hotmail.fr', '25f9e794323b453885f5181f1b624d0b', 1);
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

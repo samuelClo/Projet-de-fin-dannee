@@ -414,96 +414,38 @@ footer #map {
     background: rgba(0, 0, 0, 0);
   }
 }
-.modal {
-  padding: 100px;
+.collapsible {
+  background-color: #ffffff;
+  cursor: pointer;
+  padding: 2.8rem;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 3rem;
+}
+.collapsible:after {
+  content: "+";
+  font-weight: bold;
+  float: right;
+  margin-left: 5px;
 }
 
-.modalSpanBill {
-  color: white;
-  font-size: 7rem;
-  z-index: 1;
-  position: absolute;
-  right: -40rem;
-  top: 1rem;
+.active, .collapsible:hover {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
 
-#billAll {
-  margin: 20rem 0;
-}
-#billAll #billContent {
-  width: 80%;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  padding: 5rem;
-  background-color: #fff;
-}
-#billAll #billContent .rowBill {
-  display: flex;
-  margin-bottom: 4.3rem;
-}
-#billAll #billContent .rowBill:first-child {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin-bottom: unset;
-}
-#billAll #billContent .rowBill:first-child::after {
-  content: " ";
-  height: 2px;
-  width: 80%;
-  background-color: #0b9444;
-  margin: 4.9rem 0;
-}
-#billAll #billContent .rowBill:nth-child(0n+2) {
-  margin-top: unset;
-}
-#billAll #billContent .rowBill .infoBill {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 16.6666666667%;
-}
-#billAll #billContent .rowBill .infoBill img {
-  height: 4rem;
-}
-#billAll #billContent .rowBillSmartphone {
-  display: flex;
-  flex-direction: column;
-}
-#billAll #billContent .rowBillSmartphone .infoBill {
-  display: flex;
-  padding: 2rem;
-  border-bottom: 0.04rem #DAD8D8 solid;
-  background-color: #F8F2F2;
-}
-#billAll #billContent .rowBillSmartphone .infoBill:first-child {
-  text-align: center;
-  border-bottom: 0.4rem #B7B6B6 solid;
-  background-color: #fff;
-}
-#billAll #billContent .rowBillSmartphone .infoBill .infoBillSmartphone {
-  text-align: center;
-}
-#billAll #billContent .rowBillSmartphone .infoBill .infoBillSmartphone:nth-child(0n+1) {
-  width: 30%;
-}
-#billAll #billContent .rowBillSmartphone .infoBill .infoBillSmartphone:nth-child(0n+2) {
-  width: 70%;
-}
-#billAll #billContent .rowBillSmartphone .infoBill .infoBillSmartphone img {
-  height: 4rem;
+.active:after {
+  content: "−";
 }
 
-@media all and (max-width: 870px) {
-  #billAll {
-    margin: unset;
-    padding: 2rem;
-  }
-  #billAll #billContent {
-    width: 100%;
-    padding: unset;
-  }
+.content {
+  padding: 0 2.8rem;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  background-color: #ffffff;
+  margin-bottom: 2rem;
 }
 
-/*# sourceMappingURL=bills.css.map */
+/*# sourceMappingURL=faq.css.map */

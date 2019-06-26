@@ -5,6 +5,7 @@ $nbUsers = $db->query("SELECT COUNT(*) FROM user ")->fetchColumn();
 $nbMessages = $db->query("SELECT COUNT(*) FROM message")->fetchColumn();
 $nbBills = $db->query("SELECT COUNT(*) FROM bills")->fetchColumn();
 $nbArticles = $db->query("SELECT COUNT(*) FROM article")->fetchColumn();
+$nbFaq = $db->query("SELECT COUNT(*) FROM faq")->fetchColumn();
 
 ?>
 <nav class="col-3 py-2 categories-nav">
@@ -15,5 +16,6 @@ $nbArticles = $db->query("SELECT COUNT(*) FROM article")->fetchColumn();
         <li><a href="./index.php?page=message-list">Gestion des Messages (<?= $nbMessages; ?>)</a></li>
         <li><a href="./index.php?page=bill-list">Gestion des Factures (<?= $nbBills; ?>)</a></li>
         <li><a href="./index.php?page=article-list">Gestion des Articles (<?= $nbArticles; ?>)</a></li>
+        <li><a href="./index.php?page=faq-list">Gestion des F.A.Q(<?= $nbFaq; ?>)</a></li>
 	</ul>
 </nav>

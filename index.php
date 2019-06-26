@@ -9,7 +9,7 @@ if (isset($_GET['page']) &&  $_GET['page'] == 'admin' && $_SESSION['user']['is_a
 function dbConnect(){
 
     try{
-        return $db = new PDO('mysql:host=localhost;dbname=end_project;charset=utf8mb4', 'root', 'root', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+        return $db = new PDO('mysql:host=localhost;dbname=end_project;charset=utf8mb4', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
     }
     catch (Exception $exception)
     {
@@ -59,6 +59,10 @@ if (isset($_GET['action'])) {
             case 'services':
                 require ('./controllers/services.php');
                 break;
+            case 'faq':
+                require ('./controllers/faq.php');
+                break;
+
         }
 
     } else {

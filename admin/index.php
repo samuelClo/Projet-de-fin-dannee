@@ -6,7 +6,7 @@ function dbConnect()
 {
 
     try {
-        return $db = new PDO('mysql:host=localhost;dbname=end_project;charset=utf8mb4', 'root', 'root', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+        return $db = new PDO('mysql:host=localhost;dbname=end_project;charset=utf8mb4', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
     } catch (Exception $exception) {
         die('Erreur : ' . $exception->getMessage());
     }
@@ -27,6 +27,8 @@ if (!isset($_SESSION['user']) OR $_SESSION['user']['is_admin'] == 0) {
 <head>
     <title>Administration - Mon premier blog !</title>
     <?php require './partials/head_assets.php'; ?>
+    <script src="https://cdn.tiny.cloud/1/73fwzg4mux869vskiw5xk15n2u9p0jfxyeghkox2llgdnf9n/tinymce/5/tinymce.min.js"></script>
+    <script>tinymce.init({selector:'textarea'});</script>
 </head>
 <body class="index-body">
 <div class="container-fluid">
@@ -68,6 +70,12 @@ if (!isset($_SESSION['user']) OR $_SESSION['user']['is_admin'] == 0) {
                     case 'article-list':
                         require('./article-list.php');
                         break;
+                    case 'faq-list':
+                        require('./faq-list.php');
+                        break;
+                    case 'faq-form':
+                        require('./faq-form.php');
+                        break;
 
                 }
 
@@ -81,5 +89,6 @@ if (!isset($_SESSION['user']) OR $_SESSION['user']['is_admin'] == 0) {
 
 </div>
 </body>
+
 </html>
 

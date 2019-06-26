@@ -12,56 +12,56 @@
         <img src="./assets/pictures/house.png" alt="">
         <div>
             <h3>La maison communal</h3>
-            <pre>
-                - Maison communale
-                - 21 bis route de l'Etang de la Tour
-                - 78125 VIEILLE-EGLISE-EN-YVELINES
-                - Tél. : 01.30.41.16.13
-                - Fax : 01.30.59.23.22
-                - Adresse e-mail : vieilleglise.yvelines@wanadoo.fr
-            </pre>
+            <ul>
+                <li>- Maison communale</li>
+                <li>- 21 bis route de l'Etang de la Tour</li>
+                <li>- 78125 VIEILLE-EGLISE-EN-YVELINES</li>
+                <li>- Tél. : 01.30.41.16.13</li>
+                <li>- Fax : 01.30.59.23.22></li>
+                <li>- Adresse e-mail : vieilleglise.yvelines@wanadoo.fr</li>
+            </ul>
         </div>
     </div>
     <div class="servicesBox">
         <img src="./assets/pictures/house.png" alt="">
         <div>
             <h3>La maison communal</h3>
-            <pre>
-                - Maison communale
-                - 21 bis route de l'Etang de la Tour
-                - 78125 VIEILLE-EGLISE-EN-YVELINES
-                - Tél. : 01.30.41.16.13
-                - Fax : 01.30.59.23.22
-                - Adresse e-mail : vieilleglise.yvelines@wanadoo.fr
-            </pre>
+            <ul>
+                <li>- Maison communale</li>
+                <li>- 21 bis route de l'Etang de la Tour</li>
+                <li>- 78125 VIEILLE-EGLISE-EN-YVELINES</li>
+                <li>- Tél. : 01.30.41.16.13</li>
+                <li>- Fax : 01.30.59.23.22></li>
+                <li>- Adresse e-mail : vieilleglise.yvelines@wanadoo.fr</li>
+            </ul>
         </div>
     </div>
     <div class="servicesBox">
         <img src="./assets/pictures/house.png" alt="">
         <div>
             <h3>La maison communal</h3>
-            <pre>
-                - Maison communale
-                - 21 bis route de l'Etang de la Tour
-                - 78125 VIEILLE-EGLISE-EN-YVELINES
-                - Tél. : 01.30.41.16.13
-                - Fax : 01.30.59.23.22
-                - Adresse e-mail : vieilleglise.yvelines@wanadoo.fr
-            </pre>
+            <ul>
+                <li>- Maison communale</li>
+                <li>- 21 bis route de l'Etang de la Tour</li>
+                <li>- 78125 VIEILLE-EGLISE-EN-YVELINES</li>
+                <li>- Tél. : 01.30.41.16.13</li>
+                <li>- Fax : 01.30.59.23.22></li>
+                <li>- Adresse e-mail : vieilleglise.yvelines@wanadoo.fr</li>
+            </ul>
         </div>
     </div>
     <div class="servicesBox">
         <img src="./assets/pictures/house.png" alt="">
         <div>
             <h3>La maison communal</h3>
-            <pre>
-                - Maison communale
-                - 21 bis route de l'Etang de la Tour
-                - 78125 VIEILLE-EGLISE-EN-YVELINES
-                - Tél. : 01.30.41.16.13
-                - Fax : 01.30.59.23.22
-                - Adresse e-mail : vieilleglise.yvelines@wanadoo.fr
-            </pre>
+            <ul>
+                <li>- Maison communale</li>
+                <li>- 21 bis route de l'Etang de la Tour</li>
+                <li>- 78125 VIEILLE-EGLISE-EN-YVELINES</li>
+                <li>- Tél. : 01.30.41.16.13</li>
+                <li>- Fax : 01.30.59.23.22></li>
+                <li>- Adresse e-mail : vieilleglise.yvelines@wanadoo.fr</li>
+            </ul>
         </div>
     </div>
 </main>

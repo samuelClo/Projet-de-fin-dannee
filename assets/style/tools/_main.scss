@@ -27,9 +27,11 @@ h1, h2, h3 {
 p {
   line-height: 6rem;
   text-align: justify;
+
   &::first-letter {
     text-transform: uppercase;
   }
+
   //font-size: 2.2rem;
 }
 
@@ -47,7 +49,7 @@ a:link {
   @include style-link-text(unset);
 }
 
-.backPrev i{
+.backPrev i {
   color: $main-color;
   font-size: 5rem;
   position: absolute;
@@ -215,8 +217,7 @@ footer {
   width: 1000px;
 }
 
-
-@media all and (max-width: 1600px) {
+@media all and (min-width: 1200px) {
   html {
     font-size: 40%;
   }

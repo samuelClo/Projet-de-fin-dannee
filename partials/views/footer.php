@@ -16,8 +16,8 @@
             21 bis route de l'Etang de la Tour
             78125 VIEILLE-EGLISE-EN-YVELINES <br>
             Tél. : 01.30.41.16.13 <br>
-            adresse e-mail : vieilleglise.yvelines@wanadoo.fr
-
+            adresse e-mail : vieilleglise.yvelines@wanadoo.fr <br>
+            <a href="index.php?page=faq">- FAQ -</a>
         </div>
     </div>
     <div class="mapContainer">
