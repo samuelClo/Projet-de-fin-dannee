@@ -1,9 +1,9 @@
 <?php
 if (isset($_GET["user_id"], $_GET["action"]) && $_GET["action"] == "delete") {
 
-    $deleteArticle = $db->prepare('DELETE FROM user WHERE id = ?  ');
+    $deleteUser = $db->prepare('DELETE FROM user WHERE id = ?  ');
 
-    $articleDeleted = $deleteArticle->execute(
+    $userDeleted = $deleteUser->execute(
         [
             $_GET["user_id"]
         ]
@@ -13,7 +13,7 @@ if (isset($_GET["user_id"], $_GET["action"]) && $_GET["action"] == "delete") {
 
 //séléctionner tous les utilisateurs pour affichage de la liste
 $query = $db->query('SELECT * FROM user ORDER BY id DESC');
-$users = $query->fetchall();
+$users = $query->fetchall(PDO::FETCH_ASSOC);
 ?>
 
 <section class="col-9">

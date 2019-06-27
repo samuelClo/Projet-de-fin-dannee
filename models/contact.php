@@ -21,22 +21,8 @@ function getContactInfo ($queryAllSectors = null , $idSectors = null ){
 
     $prepareInfoContact = $db->prepare($prepareString);
     $prepareInfoContact->execute($executeString);
-    $infoContact = $prepareInfoContact->fetchAll();
+    $infoContact = $prepareInfoContact->fetchAll(PDO::FETCH_ASSOC);
 
-
-
-    for ($i = 0; $i < sizeof($infoContact); $i++) {
-
-        $array[$i] = [
-            'name' => $infoContact[$i]['name'],
-            'id' => $infoContact[$i]['id'],
-        ];
-
-    }
-
-
-
-
-    return $res->arrayAlltest = $array;
+    return $res->arrayAlltest = $infoContact;
 
 }
