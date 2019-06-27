@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  Dim 23 juin 2019 à 20:25
+-- Généré le :  mer. 26 juin 2019 à 22:10
 -- Version du serveur :  5.7.24
 -- Version de PHP :  7.2.14
 
@@ -249,7 +249,12 @@ CREATE TABLE IF NOT EXISTS `user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `email` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
+  `firstname` varchar(255) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `birthday` date DEFAULT NULL,
+  `phone` int(11) DEFAULT NULL,
   `is_admin` tinyint(1) NOT NULL DEFAULT '0',
+  `address` tinytext NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4;
 
@@ -257,10 +262,10 @@ CREATE TABLE IF NOT EXISTS `user` (
 -- Déchargement des données de la table `user`
 --
 
-INSERT INTO `user` (`id`, `email`, `password`, `is_admin`) VALUES
-(1, 'sam@sam.fr', '25f9e794323b453885f5181f1b624d0b', 1),
-(2, 'sam@sam', '25f9e794323b453885f5181f1b624d0b', 0),
-(24, 'samuel.cloarec@hotmail.fr', '25f9e794323b453885f5181f1b624d0b', 1);
+INSERT INTO `user` (`id`, `email`, `password`, `firstname`, `name`, `birthday`, `phone`, `is_admin`, `address`) VALUES
+(1, 'sam@sam.fr', '25f9e794323b453885f5181f1b624d0b', '', '', NULL, NULL, 1, ''),
+(2, 'sam@sam', '25f9e794323b453885f5181f1b624d0b', '', '', NULL, NULL, 0, ''),
+(24, 'samuel.cloarec@hotmail.fr', '25f9e794323b453885f5181f1b624d0b', '', '', NULL, NULL, 1, '');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
