@@ -62,6 +62,9 @@ if (isset($_GET['action'])) {
             case 'faq':
                 require ('./controllers/faq.php');
                 break;
+            case 'legal-mention':
+                require ('./controllers/legal-mention.php');
+                break;
 
         }
 

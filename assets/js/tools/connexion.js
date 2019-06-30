@@ -1,4 +1,3 @@
-
 let regularInputCheck = function () {
 
     const emailRegister = document.querySelector('#email')
@@ -36,10 +35,29 @@ let Register = function (user) {
             if (value.msg)
                 document.querySelector("#validate").after(DisplayErrorStyle(value.msg))
             if (value.userConnect === "yes") {
-
-                switchConnexion("connect",value.is_admin,value.email)
                 closeModal().then(() => {
-                    notyNotif(value.msg)
+                    if (value.user.is_confirm === 1) {
+                        notyNotif(value.msg)
+                        switchConnexion("connect", value.is_admin, value.email)
+                    } else {
+
+                        for (let e in value.user){
+                            console.log(value.user[e])
+                        }
+
+
+                        callModal(
+                            `
+                <div class="modal-content">
+                    <div>
+                    
+                    </div>
+                    <span><i class="fas fa-times"></i></span>
+                </div>
+            `
+                        )
+                    }
+
                 })
             }
         })

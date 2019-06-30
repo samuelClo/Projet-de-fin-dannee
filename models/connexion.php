@@ -19,16 +19,30 @@ if (!empty($data)) {
                 $email
             ));
 
-        $userConnected = $checkConnexion->fetch();
+        $userConnected = $checkConnexion->fetch(PDO::FETCH_ASSOC);
 
         if (!empty($userConnected)) {
 
-                $_SESSION['user']['id'] = $userConnected['id'];
-                $_SESSION['user']['email'] = $userConnected['email'];
-                $_SESSION['user']['is_admin'] = $userConnected['is_admin'];
-                $res->msg = "Vous etes connécté";
-                $res->is_admin =  $_SESSION['user']['is_admin'];
-                $res->email = $_SESSION['user']['email'];
+            $user = new stdClass();
+
+            $user->Email = $userConnected['email'];
+            $user->Prénom = $userConnected['firstname'];
+            $user->Nom = $userConnected['name'];
+            $user->Date_de_naissance = $userConnected['birthday'];
+            $user->Téléphone = $userConnected['phone'];
+            $user->Adresse = $userConnected['address'];
+
+
+            $_SESSION['user']['id'] = $userConnected['id'];
+            $_SESSION['user']['email'] = $userConnected['email'];
+            $_SESSION['user']['is_admin'] = $userConnected['is_admin'];
+            $res->msg = "Vous etes connécté";
+            $res->is_admin = $_SESSION['user']['is_admin'];
+
+            $res->user = $user;
+
+
+            $res->email = $_SESSION['user']['email'];
 
             $res->userConnect = "yes";
         } else {

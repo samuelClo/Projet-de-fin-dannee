@@ -46,4 +46,4 @@
 
 <script> //src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBQanKZKLf5wnBK8zkZCpaOvdiX1GP1Je0&callback=initMap"  async defer></script>
 
-<?php echo $action ?>
+<?php if (isset($action))echo $action ?>
