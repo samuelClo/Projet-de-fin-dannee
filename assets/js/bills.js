@@ -145,7 +145,7 @@ let billsRecup = function () {
                 document.querySelector(".rowBill:first-child").after(info)
             }
             else{
-                    nodeDelete(document.querySelector("#info"))
+                nodeDelete(document.querySelector("#info"))
                 document.querySelector(".rowBill:first-child").style.display = "flex"
                 createBill(data)
                 window.addEventListener('resize', function () {
@@ -156,7 +156,8 @@ let billsRecup = function () {
                 })
             }
         })
-        .catch( ()=> { document.querySelector("#billContent").innerHTML = `<h3> Aucune facture a afficher </h3>`})
+        .catch( ()=> { document.querySelector(".rowBill:first-child").style.display = "none"
+             document.querySelector(".rowBill:first-child").after(info)})
 
 
 

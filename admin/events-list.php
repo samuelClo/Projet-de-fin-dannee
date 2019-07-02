@@ -62,6 +62,7 @@ $events = $query->fetchall();
                 <tr>
                     <th>#</th>
                     <th>Titre</th>
+                    <th>posté a :</th>
                     <th>Publié</th>
                 </tr>
                 </thead>
@@ -71,6 +72,7 @@ $events = $query->fetchall();
                         <tr>
                             <th><?= $event['id']; ?></th>
                             <td><?= $event['title']; ?></td>
+                            <td><?= $event['posted_at']; ?></td>
                             <td>
                                 <?php echo ($event['is_published'] == 1) ? 'Oui' : 'Non'; ?>
                             </td>

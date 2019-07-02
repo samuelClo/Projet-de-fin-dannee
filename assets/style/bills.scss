@@ -1,15 +1,13 @@
 @import "tools/index.scss";
-.modal{
-  padding: 100px;
-}
-.modalSpanBill{
-    color: white;
-    font-size: 7rem;
-    z-index: 1;
-    position: absolute;
-    right:-40rem;
-    top: 1rem;
-  }
+
+//.modalSpanBill{
+//    color: white;
+//    font-size: 7rem;
+//    z-index: 1;
+//    position: absolute;
+//    right:-40rem;
+//    top: 1rem;
+//  }
 
 #billAll {
   margin: $margin-btw-block 0;

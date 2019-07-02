@@ -7,13 +7,16 @@ $json = json_decode($data);
 $res = new stdClass();
 $content = trim($json->content);
 
-if (!empty($content) && !empty($json->email) && !empty($json->testId)){
+
+
+if (!empty($content) && !empty($json->email) && !empty($json->subjectId)){
 
 
     $email = $json->email;
-    $testId = intval($json->testId);
+    $object = ($json->subjectId);
 
-    $res = sendMessage($content,$email,$testId);
+
+    $res = sendMessage($content,$email,$object);
 }else{
     $res->sendMessage = 0;
 }

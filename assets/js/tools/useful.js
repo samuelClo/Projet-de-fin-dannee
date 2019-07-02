@@ -42,7 +42,7 @@ function validateEmail(email) {
     return re.test(email);
 }
 
-function validateTest(email) {
+function validateSubject(email) {
 
     if (validateEmail(email)) {
         return 1
@@ -51,16 +51,24 @@ function validateTest(email) {
     }
 }
 
-function DisplayErrorStyle(element) {
+function DisplayErrorStyle(text) {
     let errorDisplay = document.createElement("span")
     errorDisplay.classList.add("errorDisplay")
-    errorDisplay.innerText = element
+    errorDisplay.innerText = text
     return errorDisplay
 }
 
-function nodeDelete(node) {
-    if (node)
-        node.parentNode.removeChild(node)
+function nodeDelete(node,foreach) {
+    if (node){
+        if (foreach === 1 && typeof node === "array" || foreach === 1 && typeof node === "object" ){
+            console.log(node)
+            node.forEach(function (e) {
+                e.parentNode.removeChild(e)
+            })
+        }else {
+            node.parentNode.removeChild(node)
+        }
+    }
 }
 
 

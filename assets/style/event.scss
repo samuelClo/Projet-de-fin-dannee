@@ -24,8 +24,10 @@ h1,.eventBox {
     justify-content: center;
     position: relative;
     padding: $padding-box;
-
-    span {
+    span{
+      background-color: inherit!important;
+    }
+    #dateEvent {
       position: absolute;
       bottom: 1rem;
       right: 1rem;

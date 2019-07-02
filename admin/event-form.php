@@ -1,14 +1,17 @@
 <?php
+$messages = array();
+$destinationPicture = './../assets/pictures/events/';
 
-$destinationPicture = './../assets/file/article';
-
-if (isset($_FILES['picture']) && $_FILES['picture']['error'] === 0) {
+if (isset($_FILES['title_picture']) && $_FILES['title_picture']['error'] === 0) {
 
 
+    $allowed_extensions = array('jpg','png','gif');
 
-    $allowed_extensions = array('png,jpg,gif');
 
-    $my_file_extension = pathinfo($_FILES['picture']['name'], PATHINFO_EXTENSION);
+
+    $my_file_extension = pathinfo($_FILES['title_picture']['name'], PATHINFO_EXTENSION);
+
+    var_dump($allowed_extensions);
 
 
     if (in_array($my_file_extension, $allowed_extensions)) {
@@ -16,9 +19,9 @@ if (isset($_FILES['picture']) && $_FILES['picture']['error'] === 0) {
         do {
             $new_file_name = time() . rand();
 
-            $picture = $new_file_name . '.' . $my_file_extension;
+            $titlePicture = $new_file_name . '.' . $my_file_extension;
 
-            $destination =  $destinationPicture . $picture;
+            $destination = $destinationPicture . $titlePicture;
 
         } while (file_exists($destination));
 
@@ -28,8 +31,8 @@ if (isset($_FILES['picture']) && $_FILES['picture']['error'] === 0) {
 }
 
 if (isset($_POST['save'])) {
-    var_dump($_POST);
-    echo $picture;
+    // var_dump($_POST);
+
 
     $title = $_POST['title'];
     $description = $_POST['description'];
@@ -47,9 +50,11 @@ if (isset($_POST['save'])) {
     if (empty($_POST['content'])) {
         $messages['content'] = 'le contenu de l\'événement est obligatoire';
     }
-    if (empty($titlePicture )) {
+    if (empty($_FILES['title_picture'])) {
         $messages['title_picture'] = 'L\'image principale est obligatoire';
     }
+
+    //var_dump($titlePicture);
 
 
     if (empty($messages)) {
@@ -78,11 +83,8 @@ if (isset($_POST['save'])) {
 
 
         if ($newEvent) {
-            //redirection après enregistrement
-            echo "retrdyfugkjhlm,";
             $_POST = null;
-            // header('./index.php?page=event-form');
-
+            header('location:index.php?page=event-form');
             exit;
         } else { //si pas $newevent => enregistrement échoué => générer un message pour l'administrateur à afficher plus bas
             $message = "Impossible d'enregistrer le nouvel event...";
@@ -107,7 +109,7 @@ if (isset($_POST['save'])) {
 
     $image = $event['title_picture'];
 
-   // echo $image;
+    // echo $image;
 
     if (isset($_POST['submit'])) {
 
@@ -118,7 +120,6 @@ if (isset($_POST['save'])) {
         $content = $_POST['content'];
         $postedAt = $_POST['posted_at'];
         $is_published = intval($_POST['is_published']);
-
 
 
         if (empty($_POST['title'])) {
@@ -144,7 +145,6 @@ if (isset($_POST['save'])) {
             }
 
 
-
             $query = $db->prepare('UPDATE events SET title = ?, description = ?,  content = ?, posted_at= ?, is_published= ?, title_picture= ? WHERE id = ? ');
             $result = $query->execute(
                 [
@@ -157,14 +157,15 @@ if (isset($_POST['save'])) {
                     $_GET["event_id"]
                 ]
             );
+
+            move_uploaded_file($_FILES['title_picture']['tmp_name'], $destination);
+
             $msg = '<div class="bg-success text-white p-2 mb-4">Modification effectuer.</div>';
 
         }
     }
 }
-if (isset($_FILES['title_picture']) && $_FILES['title_picture']['error'] === 0) {
-    move_uploaded_file($_FILES['title_picture']['tmp_name'], $destination);
-}
+
 
 ?>
 
@@ -235,8 +236,13 @@ if (isset($_FILES['title_picture']) && $_FILES['title_picture']['error'] === 0) 
             <?= $messages['title_picture']; ?>
         <?php endif; ?>
 
+        <?php if (!empty($messages['error'])) : ?>
+            <?= $messages['error']; ?>
+        <?php endif; ?>
+
+
         <?php if (isset($destination)) : ?>
-            <img class="img-fluid py-4" src='<?=$destination; ?>' alt=" <?= $title; ?>"/>
+            <img class="img-fluid py-4" src='<?= $destination; ?>' alt=" <?= $title; ?>"/>
         <?php endif; ?>
     </div>
 

@@ -35,6 +35,10 @@ p {
   //font-size: 2.2rem;
 }
 
+ul{
+  list-style: none;
+}
+
 main {
   padding: 3rem;
   background: #EEEEEE;
@@ -45,7 +49,7 @@ input, textarea {
   outline: unset;
 }
 
-a:link {
+a {
   @include style-link-text(unset);
 }
 
@@ -56,8 +60,24 @@ a:link {
   top: 12rem;
   left: 3rem;
 }
+.adress{
+  width: fit-content;
+  position: relative;
+  &::after{
+    content: "Itinéraire";
+    position: absolute;
+    top: -1rem;
+    right: -20rem;
+    padding: $padding-box;
+    background-color: #fff;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 
+  }
+}
 header {
+  a{
+    color: white;
+  }
   &[data-size=smartphone] {
     display: none;
   }
@@ -95,6 +115,9 @@ header {
 footer {
   background: $color-grey;
   display: flex;
+  .gmnoprint{
+    display: none;
+  }
 
   .contentInfoFooter {
     width: 50vw;
@@ -102,7 +125,7 @@ footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 1.9rem;
+  //  font-size: 1.9rem;
 
     .logoFooter {
       margin: 0 2rem;
@@ -134,6 +157,7 @@ footer {
   #itineraire {
     position: absolute;
     left: 10vw;
+    top: 2rem;
     z-index: 2;
   }
 
@@ -149,7 +173,11 @@ footer {
   }
 
   #map {
-    left: 4.4vw;
+
+      left: 0;
+    width:91%;
+    height:400px;
+    //left: 0
   }
 
 }
@@ -236,11 +264,38 @@ footer {
   .pdfobject-container {
     width: 95vw;
   }
+  footer{
+    flex-direction: column;
+    .separatorFooter{
+      display: none;
+    }
+    .contentInfoFooter, .mapContainer,  #map{
+      width: 100%;
+    }
+    #map{
+      left: 0;
+    }
+  }
 }
 
 @media all and (max-width: 750px) {
   html {
-    font-size: 50%;
+    font-size: 34%;
+  }
+  footer{
+    .contentInfoFooter{
+      flex-direction: column;
+      padding: 2vw;
+      img{
+        height: 15vh;
+      }
+      .logoFooter{
+        img{
+          height: 8vh;
+          margin: 1vh 0;
+        }
+      }
+    }
   }
   .navsmartphone[data-size=smartphone] span {
     font-size: 4rem;

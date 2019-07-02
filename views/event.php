@@ -3,7 +3,7 @@
 <!--</pre>-->
 
 <main>
-    <a class="backPrev" href="index.php?page=events" title="Retour a la liste des événements"><i class="fas fa-arrow-circle-left"></i></a>
+    <a class="backPrev" href="javascript:history.go(-1)" title="Retour a la liste des événements"><i class="fas fa-arrow-circle-left"></i></a>
     <h1><?=$event['title']?></h1>
     <div class="eventBox">
         <img class="eventPicture" src="./assets/pictures/events/<?=$event['title_picture']?>" alt="<?=$event['title']?>">
@@ -11,7 +11,7 @@
             <p>
                 <?=$event["content"]?>
             </p>
-            <span><?=$event["posted_at"]?></span>
+            <span id="dateEvent"><?=$event["posted_at"]?></span>
         </div>
     </div>
     <h2>Galerie d'image</h2>

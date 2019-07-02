@@ -1,6 +1,6 @@
 <main>
     <p>
-    <pre>
+
         Nos mentions légales :
 
         Merci de lire attentivement les présentes modalités d'utilisation du présent site avant de le parcourir. En vous connectant sur ce site, vous acceptez sans réserve les présentes modalités.
@@ -92,6 +92,6 @@
         Aucune autre garantie n'est accordée au client, auquel incombe l'obligation de formuler clairement ses besoins et le devoir de s'informer. Si des informations fournies par Natural-net apparaissent inexactes, il appartiendra au client de procéder lui-même à toutes vérifications de la cohérence ou de la vraisemblance des résultats obtenus. Natural-net ne sera en aucune façon responsable vis à vis des tiers de l'utilisation par le client des informations ou de leur absence contenues dans ses produits y compris un de ses sites Internet.
         Contactez-nous
         Natural-net est à votre disposition pour tous vos commentaires ou suggestions. Vous pouvez nous écrire en français par courrier électronique à : contact@natural-net.fr.
-    </pre>
     </p>
+
 </main>

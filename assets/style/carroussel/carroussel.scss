@@ -28,23 +28,12 @@
   right: 0;
   cursor: pointer;
   transition: transform 0.4s ease;
-}
-
-
-#slide1 {
-  background: url("https://picsum.photos/800") no-repeat;
   background-size: cover;
+  background-repeat: no-repeat;
 }
 
-#slide2 {
-  background: url("https://picsum.photos/812") no-repeat;
-  background-size: cover;
-}
 
-#slide3 {
-  background: url("https://picsum.photos/803") no-repeat;
-  background-size: cover;
-}
+
 
 #slide4 {
   background: url("https://picsum.photos/804") no-repeat;

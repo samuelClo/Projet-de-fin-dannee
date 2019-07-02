@@ -14,7 +14,7 @@
             <h3>La maison communal</h3>
             <ul>
                 <li>- Maison communale</li>
-                <li>- 21 bis route de l'Etang de la Tour</li>
+                <li>- 21 bis route de l'Etang de la Tour <a href="https://maps.google.com/maps?ll=48.668159, 1.877374&z=12&t=m&hl=fr&gl=FR&mapclient=embed&daddr=Vieille-%C3%89glise-en-Yvelines@48.67022,1.875431">y aller</a></li>
                 <li>- 78125 VIEILLE-EGLISE-EN-YVELINES</li>
                 <li>- Tél. : 01.30.41.16.13</li>
                 <li>- Fax : 01.30.59.23.22></li>
@@ -28,7 +28,7 @@
             <h3>La maison communal</h3>
             <ul>
                 <li>- Maison communale</li>
-                <li>- 21 bis route de l'Etang de la Tour</li>
+                <li>- 21 bis route de l'Etang de la Tour <a href="https://maps.google.com/maps?ll=48.668159, 1.877374&z=12&t=m&hl=fr&gl=FR&mapclient=embed&daddr=Vieille-%C3%89glise-en-Yvelines@48.67022,1.875431">y aller</a></li>
                 <li>- 78125 VIEILLE-EGLISE-EN-YVELINES</li>
                 <li>- Tél. : 01.30.41.16.13</li>
                 <li>- Fax : 01.30.59.23.22></li>
@@ -42,7 +42,7 @@
             <h3>La maison communal</h3>
             <ul>
                 <li>- Maison communale</li>
-                <li>- 21 bis route de l'Etang de la Tour</li>
+                <li>- 21 bis route de l'Etang de la Tour <a href="https://maps.google.com/maps?ll=48.668159, 1.877374&z=12&t=m&hl=fr&gl=FR&mapclient=embed&daddr=Vieille-%C3%89glise-en-Yvelines@48.67022,1.875431">y aller</a></li>
                 <li>- 78125 VIEILLE-EGLISE-EN-YVELINES</li>
                 <li>- Tél. : 01.30.41.16.13</li>
                 <li>- Fax : 01.30.59.23.22></li>
@@ -56,7 +56,7 @@
             <h3>La maison communal</h3>
             <ul>
                 <li>- Maison communale</li>
-                <li>- 21 bis route de l'Etang de la Tour</li>
+                <li>- 21 bis route de l'Etang de la Tour <a href="https://maps.google.com/maps?ll=48.668159, 1.877374&z=12&t=m&hl=fr&gl=FR&mapclient=embed&daddr=Vieille-%C3%89glise-en-Yvelines@48.67022,1.875431">y aller</a></li>
                 <li>- 78125 VIEILLE-EGLISE-EN-YVELINES</li>
                 <li>- Tél. : 01.30.41.16.13</li>
                 <li>- Fax : 01.30.59.23.22></li>

@@ -5,7 +5,6 @@ let switchConnexion = function (type, is_admin, email){
 
     let linkAllMenu = `
         <a href="index.php?page=services" id="services">services</a>
-        <a href="#" id="information">informations</a>
         <a href="index.php?page=contact" id="contact">contact</a>
         <a href="index.php?page=events" id="events">événements</a>
     `
@@ -24,9 +23,15 @@ let switchConnexion = function (type, is_admin, email){
         <a href="index.php?page=admin" >Espace admin</a>
     `
     if (type === "connect") {
-       // billsRecup()
+
         if (document.querySelector("#mailContact"))
             document.querySelector("#mailContact").value = email
+        try{
+            billsRecup()
+        }catch (e) {
+            console.log(e)
+        }
+
         if (is_admin === "1"){
             headDesktop.innerHTML = linkConnectAdmin
             headSmartphone.innerHTML = linkConnectAdmin

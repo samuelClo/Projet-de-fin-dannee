@@ -18,36 +18,21 @@
     <div class="indexLastArticles">
         <h3>Dernier articles : </h3>
         <section id="slider">
-            <div data-imagePosition="-2" id="slide1" class="sliderImage">
 
-                <div class="titlePictureCarr">titre</div>
-                <div class="descriptionPictureCarr"> description</div>
+            <?php $y =0 ?>
+            <?php for ($i = -2 ;  $i <= 2; $i++ ) :?>
+                <?php if (isset($events[$y])): ?>
+                <div data-imagePosition="<?=$i?>" id="slide1" class="sliderImage" style="background-image: url('./assets/pictures/events/<?=$events[$y]['title_picture']?>') ; ">
+                    <div class="titlePictureCarr"><?=$events[$y]['title']?></div>
+                    <div class="descriptionPictureCarr"> <?=$events[$y]['description']?></div>
+                    <a href="index.php?page=event&eventId=<?=$events[$y]['id']?>">lien vers l'article</a>
+                </div>
+                <?php else: ?>
+                <span class="error">aucun événement</span>
+                <?php endif ?>
+                <?php $y++?>
+            <?php endfor ?>
 
-            </div>
-            <div data-imagePosition="-1" id="slide2" class="sliderImage">
-
-                <div class="titlePictureCarr">titre</div>
-                <div class="descriptionPictureCarr"> description</div>
-
-            </div>
-            <div data-imagePosition="0" id="slide3" class="sliderImage">
-
-                <div class="titlePictureCarr">titre</div>
-                <div class="descriptionPictureCarr"> description</div>
-
-            </div>
-            <div data-imagePosition="1" id="slide4" class="sliderImage">
-
-                <div class="titlePictureCarr">titre</div>
-                <div class="descriptionPictureCarr"> description</div>
-
-            </div>
-            <div data-imagePosition="2" id="slide5" class="sliderImage">
-
-                <div class="titlePictureCarr">titre</div>
-                <div class="descriptionPictureCarr"> description</div>
-
-            </div>
 
         </section>
         <div class="sliderCheckBox">
@@ -59,7 +44,7 @@
         </div>
 
         <div class="flexEnd">
-            <a href="#">
+            <a href="index.php?page=events">
                 <button class="btn bcgGreen"> Voir plus d'article</button>
             </a>
         </div>

@@ -77,38 +77,10 @@ if (isset($_FILES['bill']) && $_FILES['bill']['error'] !== 0)
             move_uploaded_file($_FILES['bill']['tmp_name'], $destination);
             $lastBillIdInsert = $db->lastInsertId();
 
-
- //           foreach ($_POST['bill_id'] as $key => $categoryName) {
-
-
-//            $query = $db->prepare('
-//        INSERT INTO article_category
-//        (article_id, category_id)
-//        VALUES (?, ?)');
-//
-//            $newArticle = $query->execute(
-//
-//                [
-//                    $lastArticleIdInsert,
-//                    $categoryName
-//                ]
-//            );
-//
-//}
-
-
-
-            //redirection après enregistrement
-            //si $newArticle alors l'enregistrement a fonctionné
             if ($newBill) {
-                //redirection après enregistrement
-
-
                 header('location:index.php?page=bill-list');
-
-
                 exit;
-            } else { //si pas $newArticle => enregistrement échoué => générer un message pour l'administrateur à afficher plus bas
+            } else {
                 $message = "Impossible d'enregistrer la nouvelle facture...";
             }
         }
@@ -126,15 +98,11 @@ if (isset($_FILES['bill']) && $_FILES['bill']['error'] !== 0)
 
                             ');
         $selectArticle = $query->execute([$_GET["article_id"]]);
-     //   $categorySelected = $query->fetchAll();
 
 
         $queryArticle = $db->prepare('SELECT * FROM article WHERE id = ?');
         $selectArticle = $queryArticle->execute([$_GET["article_id"]]);
         $articles = $queryArticle->fetch();
-
-
-        //var_dump($articles);
 
         $title = $articles['title'];
         $summary = $articles['summary'];
@@ -145,9 +113,6 @@ if (isset($_FILES['bill']) && $_FILES['bill']['error'] !== 0)
 
 
         if (isset($_POST['submit'])) {
-
-            var_dump($_POST);
-
 
             $title = $_POST['title'];
             $summary = trim($_POST['summary']);

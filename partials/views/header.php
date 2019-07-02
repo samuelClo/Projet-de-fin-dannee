@@ -28,7 +28,6 @@
     <a href="index.php"><img src="./assets/pictures/logo_ville.svg" alt="Logo de la ville"></a>
     <nav>
         <a href="index.php?page=services" id="services">services</a>
-        <a href="#" id="information">informations</a>
         <a href="index.php?page=contact" id="contact">contact</a>
         <a href="index.php?page=events" id="events">événements</a>
         <?php if (isset($_SESSION['user'])) : ?>
@@ -46,7 +45,6 @@
 <header data-size = "smartphone">
     <nav>
         <i id="burger" class="fas fa-bars"></i>
-        <i class="far fa-user"></i>
     </nav>
 </header>
 
@@ -54,7 +52,6 @@
     <span><i class="fas fa-times"></i></span>
     <nav>
         <a href="index.php?page=services" id="services">services</a>
-        <a href="#" id="information">informations</a>
         <a href="index.php?page=contact" id="contact">contact</a>
         <a href="index.php?page=events" id="events">événements</a>
         <?php if (isset($_SESSION['user'])) : ?>

@@ -58,14 +58,10 @@
 .modal-footer {
   padding: $padding-box;
   color: white;
-  text-align: right;
-
-
+  text-align: center;
 }
 
 /* The Close Button */
-
-
 .close {
   float: right;
   font-size: 4rem;
@@ -112,5 +108,10 @@
   }
   to {
     background: rgba(0, 0, 0, 0.0);
+  }
+}
+@media all and (max-width: 750px) {
+  .modal-content{
+    width: 90%;
   }
 }

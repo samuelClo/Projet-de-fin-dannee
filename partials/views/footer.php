@@ -12,12 +12,19 @@
             </a>
         </div>
         <div class="textFooter">
+            <ul>
+                <li> 21 bis route de l'Etang de la Tour</li>
+                <li>78125 VIEILLE-EGLISE-EN-YVELINES </li>
+                <li>  Tél. : 01.30.41.16.13 </li>
+                <li>Adresse e-mail : vieilleglise.yvelines@wanadoo.fr <br></li>
+                <li> <a href="index.php?page=faq">- FAQ -</a></li>
+                <li> <a href="index.php?page=legal-mention">- Mention légal -</a></li>
+            </ul>
 
-            21 bis route de l'Etang de la Tour
-            78125 VIEILLE-EGLISE-EN-YVELINES <br>
-            Tél. : 01.30.41.16.13 <br>
-            adresse e-mail : vieilleglise.yvelines@wanadoo.fr <br>
-            <a href="index.php?page=faq">- FAQ -</a>
+
+
+
+
         </div>
     </div>
     <div class="mapContainer">
@@ -25,12 +32,12 @@
 
         <a id="itineraire"
            href="https://maps.google.com/maps?ll=48.669545,1.875931&z=12&t=m&hl=fr&gl=FR&mapclient=embed&daddr=Vieille-%C3%89glise-en-Yvelines@48.67022,1.875431">
-            <i class="fas fa-route"></i>
+            <i class="fas fa-map-marked-alt"></i>
             <div>Itinéraires</div>
 
         </a>
 
-        <div id="map" style="width:91%;height:400px;left: 0">
+        <div id="map" >
 
         </div>
     </div>
