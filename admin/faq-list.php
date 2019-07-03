@@ -10,8 +10,6 @@ if (isset($_GET["faq_id"], $_GET["action"]) && $_GET["action"] == "delete") {
         ]
     );
 
-    var_dump($faqDeleted);
-
     $msg = '<div class="bg-success text-white p-2 mb-4">Suppression  effectuer.</div>';
 
 
@@ -20,8 +18,6 @@ if (isset($_GET["faq_id"], $_GET["action"]) && $_GET["action"] == "delete") {
 //séléctionner tous les articles pour affichage de la liste
 $query = $db->query('SELECT * FROM faq ORDER BY id DESC');
 $faqs = $query->fetchall();
-
-//var_dump($faqs);
 
 ?>
 

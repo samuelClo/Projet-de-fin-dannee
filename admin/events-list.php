@@ -30,7 +30,6 @@ if (isset($_GET["event_id"], $_GET["action"]) && $_GET["action"] == "delete") {
         ]
     );
 
-    var_dump($eventDeleted);
 
     $msg = '<div class="bg-success text-white p-2 mb-4">Suppression  effectuer.</div>';
 
@@ -40,8 +39,6 @@ if (isset($_GET["event_id"], $_GET["action"]) && $_GET["action"] == "delete") {
 //séléctionner tous les articles pour affichage de la liste
 $query = $db->query('SELECT * FROM events ORDER BY id DESC');
 $events = $query->fetchall();
-
-//var_dump($events);
 
 ?>
 

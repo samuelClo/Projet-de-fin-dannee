@@ -11,8 +11,6 @@ if (isset($_FILES['title_picture']) && $_FILES['title_picture']['error'] === 0) 
 
     $my_file_extension = pathinfo($_FILES['title_picture']['name'], PATHINFO_EXTENSION);
 
-    var_dump($allowed_extensions);
-
 
     if (in_array($my_file_extension, $allowed_extensions)) {
 
@@ -31,8 +29,6 @@ if (isset($_FILES['title_picture']) && $_FILES['title_picture']['error'] === 0) 
 }
 
 if (isset($_POST['save'])) {
-    // var_dump($_POST);
-
 
     $title = $_POST['title'];
     $description = $_POST['description'];
@@ -53,9 +49,6 @@ if (isset($_POST['save'])) {
     if (empty($_FILES['title_picture'])) {
         $messages['title_picture'] = 'L\'image principale est obligatoire';
     }
-
-    //var_dump($titlePicture);
-
 
     if (empty($messages)) {
 
@@ -78,10 +71,6 @@ if (isset($_POST['save'])) {
 
         move_uploaded_file($_FILES['title_picture']['tmp_name'], $destination);
 
-        //redirection après enregistrement
-        //si $newevent alors l'enregistrement a fonctionné
-
-
         if ($newEvent) {
             $_POST = null;
             header('location:index.php?page=event-form');
@@ -90,10 +79,6 @@ if (isset($_POST['save'])) {
             $message = "Impossible d'enregistrer le nouvel event...";
         }
     }
-//    if (empty($_POST['content'])) {
-//        $messages['content'] = 'le contenu de l\'événement est obligatoire';
-//    }
-
 
 } else if (isset($_GET["event_id"], $_GET["action"]) && $_GET["action"] == "edit") {
 
@@ -109,11 +94,8 @@ if (isset($_POST['save'])) {
 
     $image = $event['title_picture'];
 
-    // echo $image;
 
     if (isset($_POST['submit'])) {
-
-        var_dump($_POST);
 
         $title = $_POST['title'];
         $description = $_POST['description'];
@@ -131,9 +113,6 @@ if (isset($_POST['save'])) {
         if (empty($_POST['content'])) {
             $messages['content'] = 'le contenu de l\'événement est obligatoire';
         }
-//        if (empty($_FILES['title_picture']['name'])) {
-//            $messages['title_picture'] = 'L\'image principale est obligatoire';
-//        }
 
         if (empty($messages)) {
 

@@ -31,6 +31,8 @@ let Register = function (user) {
     }
 
     ajaxRequest("./index.php/?action=switchConnexion&connect", person)
+
+
         .then(function (value) {
             if (value.msg)
                 document.querySelector("#validate").after(DisplayErrorStyle(value.msg))

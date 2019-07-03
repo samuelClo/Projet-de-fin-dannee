@@ -58,8 +58,6 @@ echo $newFaq;
 
     if (isset($_POST['submit'])) {
 
-        var_dump($_POST);
-
         $question = $_POST['question'];
         $answer = $_POST['answer'];
         $sector = $_POST['sector'];
@@ -96,8 +94,6 @@ echo $newFaq;
 
 $sectors = $db->query("SELECT * FROM sectors");
 $sectors = $sectors->fetchAll();
-
-var_dump($sectors);
 
 ?>
 

@@ -30,8 +30,6 @@ if (isset($_FILES['bill']) && $_FILES['bill']['error'] !== 0)
 
     if (isset($_POST['save'])) {
 
-        var_dump($_POST);
-
 
         $price = $_POST['price'];
         $date = $_POST['date'];
@@ -152,8 +150,6 @@ if (isset($_FILES['bill']) && $_FILES['bill']['error'] !== 0)
 
                 foreach ($_POST["category_id"] as $key => $category) {
 
-                    var_dump($_POST["category_id"][$key]);
-                    var_dump($_GET["article_id"]);
 
 
                     $updateCategory = $db->prepare('UPDATE article_category
@@ -185,7 +181,6 @@ if (isset($_FILES['image']) && $_FILES['image']['error'] === 0) {
 
 $userList = $db->query('SELECT email,id FROM user')->fetchAll();
 
-var_dump($userList);
 
 
 ?>
